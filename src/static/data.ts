@@ -180,5 +180,77 @@ export const data = {
         "Micah 2:10 says, “Arise ye, and depart; for this is not your rest. God is interested in moving His people forward. He wants us to make steady progress in life – that is part of prosperity. He has His own ways of moving His people to the next level. It is never His plan that...",
       id: 20,
     },
+    {
+      title: "2017 40 DAYS PRAYER AND FASTING GUIDE",
+      datePosted: "January 13, 2017",
+      postedBy: "admin",
+      category: "Pastor's Blog, Prayer and Fasting",
+      blogDeteails:
+        "   PREAMBLE: The General Overseer of the Redeemed Christian Church of God (Worldwide), Pastor E A Adeboye told us that the vocal word for 2017 is Surprise(s). He reiterated in his prophecies for this year that surprise may be positive or negative. May God help us to experience pleasant surprises but cause those making life",
+      id: 2,
+    },
+    {
+      title: "SUPERNATURAL TURNAROUND",
+      datePosted: "November 3, 2015",
+      postedBy: "admin",
+      category: "Pastor's Blog",
+      blogDeteails:
+        "Something is said to be ‘supernatural’ when it can be “attributed to some force beyond scientific understanding or the laws of nature” A turnaround on the other hand is “an abrupt or unexpected change, especially one that results in a more favourable situation”. Supernatural turnaround, therefore, is a divine encounter where God reverses someone’s circumstances",
+      id: 3,
+    },
+    {
+      title: "DANGEROUS ASSUMPTION",
+      datePosted: "June 11, 2015",
+      postedBy: "admin",
+      category: "Pastor's Blog, Prayer and Fasting",
+      blogDeteails:
+        " Text: Proverbs 18:13 “Whoever gives an answer before he listens is stupid and shameful” (GNT) There is a legend about a woman who had a faithful dog. This dog was so faithful that the woman could leave her baby with it and go out to attend to other matters. She always returned to find the",
+      id: 4,
+    },
+    {
+      title: "I AM NOT AN ORPHAN",
+      datePosted: "June 11, 2015",
+      postedBy: "admin",
+      category: "Pastor's Blog, Prayer and Fasting",
+      blogDeteails:
+        "” I will not leave you orphans; I will come to you” ….John 14:18 The Lord was well aware of the time He had predicted when lawlessness would abound and the love of many would grow cold. (See Matthew 24:3-12) Without their heavenly Father spiritually present to them, the Lord foresaw a time when His",
+      id: 5,
+    },
+    {
+      title: "DIVINE DIRECTION",
+      datePosted: "January 11, 2015",
+      postedBy: "admin",
+      category: "Pastor's Blog, Prayer and Fasting",
+      blogDeteails:
+        "Text : 1 King 18:41-46, Gen 26:12, 1 Sam 30:8-9 Divine speed explains a spiritual enablement and empowerment which energises us to accomplish what could take for instance 100 days in just one day! This special grace gives man strength to outrun others, sweatlessly fulfil God’s mandate for his living and reaping bountifully the seed which",
+      id: 6,
+    },
+    {
+      title: "ESTHER WALKED THE ISLE OF GRACE",
+      datePosted: "January 11, 2015",
+      postedBy: "admin",
+      category: "Pastor's Blog, Prayer and Fasting",
+      blogDeteails:
+        "Esther 2:15-17 Now when the turn of Esther, the daughter of Abigail the uncle of Mordecai, who had taken her for his daughter, was come to go in unto the king, she required nothing but what Hegai the king’s chamberlain, the keeper of the women, appointed. And Esther obtained favour in the sight of all",
+      id: 7,
+    },
+    {
+      title: "OVERFLOWING AND EFFICACY OF GOD’S MERCY",
+      datePosted: "April 17, 2015",
+      postedBy: "admin",
+      category: "Pastor's Blog, Prayer and Fasting",
+      blogDeteails:
+        "Overflow means to run over, to be boundless. To be filled beyond capacity or surplousity. Overflowing mercy therefore implies the abundance of mercy of God. Psalms 86:5 speaks of Him as being PLENTEOUS in mercy. Ephesians 2:4 speaks of Him as being rich in mercy, and Psalms 51:1 speaks of the multitude of mercies of",
+      id: 8,
+    },
+    {
+      title: "ADVANCING TO THE NEXT LEVEL",
+      datePosted: "January 16, 2015",
+      postedBy: "admin",
+      category: "Pastor's Blog, Prayer and Fasting",
+      blogDeteails:
+        "Micah 2:10 says, “Arise ye, and depart; for this is not your rest. God is interested in moving His people forward. He wants us to make steady progress in life – that is part of prosperity. He has His own ways of moving His people to the next level. It is never His plan that",
+      id: 9,
+    },
   ],
 };
