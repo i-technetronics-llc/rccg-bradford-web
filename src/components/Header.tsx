@@ -138,7 +138,7 @@ export default function Header() {
                     onMouseEnter={() => setIsGalleryOpen(true)}
                     onMouseLeave={() => setIsGalleryOpen(false)}
                   >
-                    <MenuItem {...menuItemStyles}>Video Gallery</MenuItem>
+                    <MenuItem {...menuItemStyles} onClick={() => router.push("/videoGallery")}>Video Gallery</MenuItem>
                     <MenuItem {...menuItemStyles}>Picture Gallery</MenuItem>
                   </MenuList>
                 )}
