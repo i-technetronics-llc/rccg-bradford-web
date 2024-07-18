@@ -111,7 +111,12 @@ export default function Header() {
             onMouseEnter={() => setIsMoreOpen(true)}
             onMouseLeave={() => setIsMoreOpen(false)}
           >
-            <MenuItem {...menuItemStyles}>Our Events</MenuItem>
+            <MenuItem
+              {...menuItemStyles}
+              onClick={() => router.push("/events")}
+            >
+              Our Events
+            </MenuItem>
             <Box position="relative" className="px-3">
               <Menu isOpen={isGalleryOpen}>
                 <MenuButton
@@ -138,7 +143,12 @@ export default function Header() {
                     onMouseEnter={() => setIsGalleryOpen(true)}
                     onMouseLeave={() => setIsGalleryOpen(false)}
                   >
-                    <MenuItem {...menuItemStyles} onClick={() => router.push("/videoGallery")}>Video Gallery</MenuItem>
+                    <MenuItem
+                      {...menuItemStyles}
+                      onClick={() => router.push("/videoGallery")}
+                    >
+                      Video Gallery
+                    </MenuItem>
                     <MenuItem {...menuItemStyles}>Picture Gallery</MenuItem>
                   </MenuList>
                 )}
