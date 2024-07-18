@@ -165,3 +165,26 @@
   -webkit-mask: var(--mask);
   mask: var(--mask);
 }
+
+.pageLinknew {
+  background: linear-gradient(to left, var(--primary), var(--secondary));
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 300;
+  color: white;
+  font-size: 12px;
+  font-weight: 900;
+  width: fit-content;
+  height: fit-content;
+  transition: all ease-in-out 1s;
+}
+.pageLinknew:hover {
+  background-color: white;
+  color: var(--tetiary);
+}
+
+.pageLinknew.active {
+  background-color: white; /* Blue background for the active page */
+  color: var(--tetiary);
+}

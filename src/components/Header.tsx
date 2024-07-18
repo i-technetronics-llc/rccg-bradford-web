@@ -75,7 +75,7 @@ export default function Header() {
             </MenuItem>
             <MenuItem
               {...menuItemStyles}
-              onClick={() => router.push("/ministries")}
+              onClick={() => router.push("/pastor_blog")}
             >
               Pastor's Blog
             </MenuItem>

@@ -1,12 +1,11 @@
-export const data = {
+export const Staticdata = {
   pastorsBlog: [
     {
       title: "DIVINE PREFERENCE: YOU WILL BE PREFERRED",
       datePosted: "March 25, 2024",
       postedBy: "admin",
       category: "Pastor's Blog",
-      blogDeteails:
-        "  ",
+      blogDeteails: "  ",
       id: 1,
     },
     {
