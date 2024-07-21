@@ -26,7 +26,7 @@ export default function ContactUs() {
                   <IoLocationOutline />
                 </div>
                 <div className="w-[90%]">
-                  <p className="w-full text-sm text-[#cccccc] font-semibold">
+                  <p className="w-full text-sm text-black font-semibold">
                     50 Nelson Street, Bradford, United Kingdom, BD50DD
                   </p>
                 </div>
@@ -36,7 +36,7 @@ export default function ContactUs() {
                   <IoMdCall />
                 </div>
                 <div className="w-[90%]">
-                  <p className="w-full text-sm text-[#cccccc] font-semibold">
+                  <p className="w-full text-sm text-black font-semibold">
                     +44 7984 678266, 01274032678 01274032677, 01274949406
                   </p>
                 </div>
@@ -46,7 +46,7 @@ export default function ContactUs() {
                   <MdMail />
                 </div>
                 <div className="w-[90%]">
-                  <p className="w-full text-sm text-[#cccccc] font-semibold">
+                  <p className="w-full text-sm text-black font-semibold">
                     info@rccgbradford.org.uk
                   </p>
                 </div>
@@ -80,6 +80,7 @@ export default function ContactUs() {
                 />
               </div>
               <div className="flex w-full flex-col gap-2">
+                {/* 
                 <select
                   className="p-2 border rounded-lg border-[#cccccc]"
                   name="reason"
@@ -91,6 +92,7 @@ export default function ContactUs() {
                   <option value="Joining Us">Joining Us</option>
                   <option value="Other">Other</option>
                 </select>
+                */}
                 <input
                   className="p-2 border rounded-lg border-[#cccccc]"
                   type="text"

@@ -1,16 +1,43 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Image from "next/image";
 import { Input, InputGroup, InputLeftAddon } from "@chakra-ui/react";
 import { useState } from "react";
 
 export default function Giving() {
   const [value, setValue] = useState(5);
+  const [isHovered, setIsHovered] = useState(false);
+  const img = [
+    "https://www.rccgbradford.org.uk/wp-content/uploads/2019/05/rccg8.jpg",
+  ];
   return (
     <div className="">
       <Header />
       <div className="w-full flex justify-center min-h-screen">
         <div className="w-[80%] py-5 md:py-8 lg:py-12 flex flex-col md:flex-row gap-5">
           <div className="flex flex-col w-full gap-3">
+          {img.map((img, index) => (
+          <div
+          className="w-full h-[300px] overflow-hidden"
+          style={{
+            borderRadius: isHovered
+              ? "49% 51% 53% 47% / 47% 48% 52% 53% "
+              : "64% 36% 78% 22% / 16% 76% 24% 84%",
+            transition: "ease-in-out 1s",
+          }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+           <Image
+                    src={img}
+                    alt="historyPix"
+                    width={300}
+                    key={index}
+                    height={300}
+                    className="w-full h-full"
+                  />
+        </div>
+      ))}
             <p className="text-sm">
               We pray you will experience the joy of faithful, consistent, and
               cheerful giving as the Scripture instructs — not out of

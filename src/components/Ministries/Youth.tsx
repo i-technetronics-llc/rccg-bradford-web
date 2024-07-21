@@ -6,15 +6,13 @@ export default function Youth() {
 
   return (
     <div className="flex flex-col gap-5 my-3 md:my-12 md:gap-8 lg:gap-12">
-      <div className="flex flex-col gap-3 items-center ">
-        <p className="text-xl md:text-3xl lg:text-4xl text-center">
-          YOUNG ADULTS AND SINGLES FELLOWSHIP (Y.A.S.F)
-        </p>
-        <div className="h-[3px] w-[10%] bg-gradient-to-r from-primary to-secondary"></div>
-      </div>
       <div className="flex flex-col md:flex-row items-center gap-3">
         <div className="w-full flex flex-col  gap-3">
           <div className="text-sm tracking-wider">
+          <p className="text-xl md:text-2xl lg:text-3xl">
+          YOUNG ADULTS AND SINGLES FELLOWSHIP (Y.A.S.F)
+        </p>
+        <div className="h-[3px] w-[10%] bg-gradient-to-r from-primary to-secondary"></div>
             <p className="">
               Our aim is to Lead, Empower, Admonish, and Develop our youth in
               their walk of faith. Y.A.S.F is the Youth arm of the Redeemed

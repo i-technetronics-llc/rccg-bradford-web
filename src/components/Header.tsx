@@ -52,7 +52,7 @@ export default function Header() {
             onMouseEnter={() => setIsMenuOpen(true)}
             onMouseLeave={() => setIsMenuOpen(false)}
           >
-            <MenuItem {...menuItemStyles} onClick={() => router.push("/about")}>
+            <MenuItem {...menuItemStyles} onClick={() => router.push("/about_us")}>
               About Us
             </MenuItem>
             <MenuItem

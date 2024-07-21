@@ -20,7 +20,7 @@ export default function Footer() {
         </Link>
       </div>
       <div className="w-full justify-center text-center text-white">
-        2019 RCCG Bradford, Design by Springfield Technology Limited . All
+        iTechnetronics. All
         rights reserved
       </div>
     </div>
