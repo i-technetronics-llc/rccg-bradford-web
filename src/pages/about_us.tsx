@@ -19,6 +19,7 @@ export default function AboutUs() {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
+      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 1,
     },
@@ -63,6 +64,7 @@ export default function AboutUs() {
             arrows={false}
             autoPlaySpeed={3000}
             //   renderDotsOutside
+            //   renderDotsOutside
             rewindWithAnimation
           >
             {img.map((img, index) => (
@@ -70,13 +72,18 @@ export default function AboutUs() {
                 key={index}
                 className="historyBox flex justify-center items-center overflow-hidden w-full md:h-[500px] pt-16"
               >
-                <Image
-                  src={img}
-                  alt="historyPix"
-                  width={500}
-                  height={500}
-                  className="w-full h-full object-cover"
-                />
+                <div
+                  key={index}
+                  className="historyBox flex justify-center items-center overflow-hidden w-full md:h-[500px] pt-16"
+                >
+                  <Image
+                    src={img}
+                    alt="historyPix"
+                    width={500}
+                    height={500}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             ))}
           </Carousel>
