@@ -22,7 +22,7 @@ export default function ContactUs() {
                 GLORY CENTRE, RCCG CHAPEL OF HIS GLORY.
               </p>
               <div className="w-full flex gap-3">
-                <div className="w-[10%]">
+                <div className="w-fit">
                   <IoLocationOutline />
                 </div>
                 <div className="w-[90%]">
@@ -32,7 +32,7 @@ export default function ContactUs() {
                 </div>
               </div>
               <div className="w-full flex gap-3">
-                <div className="w-[10%]">
+                <div className="w-fit">
                   <IoMdCall />
                 </div>
                 <div className="w-[90%]">
@@ -42,7 +42,7 @@ export default function ContactUs() {
                 </div>
               </div>
               <div className="w-full flex gap-3">
-                <div className="w-[10%]">
+                <div className="w-fit">
                   <MdMail />
                 </div>
                 <div className="w-[90%]">
@@ -52,7 +52,7 @@ export default function ContactUs() {
                 </div>
               </div>
             </div>
-            <div className="md:w-[60%] w-full gap-3 flex flex-col md:flex-row">
+            <div className="md:w-[60%] w-full gap-3 flex flex-col ">
               <div className="flex flex-col w-full gap-2">
                 <input
                   type="text"

@@ -8,7 +8,6 @@ import "react-multi-carousel/lib/styles.css";
 import AboutUsView from "@/components/AboutUsView";
 
 export default function AboutUs() {
-
   const [isHovered, setIsHovered] = useState(false);
 
   const img = [
@@ -17,7 +16,7 @@ export default function AboutUs() {
   ];
   const responsive = {
     superLargeDesktop: {
-         // the naming can be any, depends on you.
+      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 1,
     },
@@ -55,11 +54,14 @@ export default function AboutUs() {
             showDots
             arrows={false}
             autoPlaySpeed={3000}
-             //   renderDotsOutside
+            //   renderDotsOutside
             rewindWithAnimation
           >
             {img.map((img, index) => (
-              <div key={index} className="historyBox flex justify-center items-center overflow-hidden w-full md:h-[500px] pt-16">
+              <div
+                key={index}
+                className="historyBox flex justify-center items-center overflow-hidden w-full md:h-[500px] pt-16"
+              >
                 <Image
                   src={img}
                   alt="historyPix"
@@ -85,8 +87,8 @@ export default function AboutUs() {
               <div className="h-[3px] w-[10%] bg-gradient-to-r from-primary to-secondary"></div>
             </div>
             <p className="text-sm tracking-wider">
-              Our vision is exactly the same as those of The Redeemed
-              Christian Church of God. They are as follows:
+              Our vision is exactly the same as those of The Redeemed Christian
+              Church of God. They are as follows:
             </p>
             {list.map((item, index) => (
               <div

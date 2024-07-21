@@ -38,7 +38,7 @@ export default function Home() {
       <div className={`${isTop ? "wave" : "hidden"} z-10`}></div>
       <HomeVideo />
       <Categories />
-      <Bible />
+      {/* <Bible /> */}
       <Sermons />
       <NextEvents />
       <MarqueeImg />

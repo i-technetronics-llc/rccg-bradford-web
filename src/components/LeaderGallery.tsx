@@ -12,8 +12,8 @@ export default function LeaderGallery() {
     },
     {
       name: "PASTOR (MRS) ABIOLA SHOFOLUWE",
-      br: "17% 83% 48% 52% / 62% 35% 65% 38% ",
-      br2: "17% 83% 16% 84% / 62% 35% 65% 38% ",
+      br: "41% 59% 26% 74% / 73% 33% 67% 27% ",
+      br2: "41% 59% 47% 53% / 48% 33% 67% 52% ",
       role: "Co-parish pastor",
       desc: "She is the co-parish pastor of RCCG Chapel of His Glory Bradford. She actively assists her husband...",
       img: "https://www.rccgbradford.org.uk/wp-content/uploads/2016/01/pst--350x250.png",
@@ -107,7 +107,7 @@ export default function LeaderGallery() {
       img: "https://www.rccgbradford.org.uk/wp-content/uploads/2015/01/toyin-350x250.gif",
     },
   ];
-  
+
   return (
     <div className="w-full flex justify-center py-5 md:py-12">
       <div className="w-[80%] flex flex-col gap-5 md:gap-8 lg:gap-12">
@@ -117,9 +117,11 @@ export default function LeaderGallery() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:grid-areas-layout">
           {leaders.map((item, index) => (
-            <div 
-              key={index} 
-              className={`lg:col-span-1 ${index === leaders.length - 1 ? 'lg:col-start-2' : ''}`}
+            <div
+              key={index}
+              className={`lg:col-span-1 ${
+                index === leaders.length - 1 ? "lg:col-start-2" : ""
+              }`}
             >
               <LeaderPhotoCard
                 name={item.name}

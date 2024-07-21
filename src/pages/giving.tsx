@@ -16,28 +16,6 @@ export default function Giving() {
       <div className="w-full flex justify-center min-h-screen">
         <div className="w-[80%] py-5 md:py-8 lg:py-12 flex flex-col md:flex-row gap-5">
           <div className="flex flex-col w-full gap-3">
-          {img.map((img, index) => (
-          <div
-          className="w-full h-[300px] overflow-hidden"
-          style={{
-            borderRadius: isHovered
-              ? "49% 51% 53% 47% / 47% 48% 52% 53% "
-              : "64% 36% 78% 22% / 16% 76% 24% 84%",
-            transition: "ease-in-out 1s",
-          }}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-           <Image
-                    src={img}
-                    alt="historyPix"
-                    width={300}
-                    key={index}
-                    height={300}
-                    className="w-full h-full"
-                  />
-        </div>
-      ))}
             <p className="text-sm">
               We pray you will experience the joy of faithful, consistent, and
               cheerful giving as the Scripture instructs — not out of
@@ -70,15 +48,37 @@ export default function Giving() {
               transactions. Please click on the Donate button below for your
               contributions via PAYPAL.
             </p>
+            {img.map((img, index) => (
+              <div
+                className="w-full h-[300px] overflow-hidden"
+                style={{
+                  borderRadius: isHovered
+                    ? "49% 51% 53% 47% / 47% 48% 52% 53% "
+                    : "64% 36% 78% 22% / 16% 76% 24% 84%",
+                  transition: "ease-in-out 1s",
+                }}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                <Image
+                  src={img}
+                  alt="historyPix"
+                  width={300}
+                  key={index}
+                  height={300}
+                  className="w-full h-full"
+                />
+              </div>
+            ))}
           </div>
-          <div className="w-full flex flex-col gap-3">
+          <div className="w-full flex flex-col gap-5">
             <div className="flex flex-col gap-3 mb-5">
               <p className="text-xl md:text-3xl lg:text-4xl ">
                 RCCG BRADFORD GIVING
               </p>
               <div className="h-[3px] w-[10%] bg-gradient-to-r from-primary to-secondary"></div>
             </div>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-5">
               <InputGroup w={"fit-content"}>
                 <InputLeftAddon>£</InputLeftAddon>
                 <Input
@@ -120,7 +120,7 @@ export default function Giving() {
                   <p className="">Custom</p>
                 </div>
               </div>
-              <div className="flex flex-col gap-3 mb-5">
+              <div className="flex flex-col gap-5 mb-5">
                 <p className="text-sm font-semibold ">Personal Information</p>
                 <div className="h-[2px] w-full bg-gradient-to-r from-primary to-secondary"></div>
                 <input
@@ -143,7 +143,11 @@ export default function Giving() {
                   placeholder="Email"
                 />
               </div>
-              <InputGroup w={"fit-content"}>
+              <InputGroup
+                w={"100%"}
+                border={"1px solid #cccccc"}
+                borderRadius={8}
+              >
                 <InputLeftAddon>Donation Total:</InputLeftAddon>
                 <Input
                   type="number"

@@ -252,4 +252,11 @@ export const Staticdata = {
       id: 9,
     },
   ],
+  images: {
+    jataime19: [
+      { id: 1, imgurl: "" },
+      { id: 1, imgurl: "" },
+    ],
+    higherGround: [],
+  },
 };
