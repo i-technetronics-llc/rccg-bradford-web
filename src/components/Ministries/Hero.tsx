@@ -22,13 +22,13 @@ export default function Hero() {
   return (
     <div className="flex flex-col gap-5 md:gap-8 lg:gap-12">
       <div className="flex flex-col gap-3 items-center ">
-        <p className="text-xl md:text-3xl lg:text-4xl text-center">
-          THE PILLARS (MEN'S FELLOWSHIP)
-        </p>
-        <div className="h-[3px] w-[10%] bg-gradient-to-r from-primary to-secondary"></div>
       </div>
       <div className="flex flex-col md:flex-row gap-3">
         <div className="w-full flex flex-col gap-3">
+        <p className="text-xl md:text-2xl lg:text-3xl">
+          THE PILLARS (MEN'S FELLOWSHIP)
+        </p>
+        <div className="h-[3px] w-[10%] bg-gradient-to-r from-primary to-secondary"></div>
           <div className="text-sm">
             <p className="">
               Men are the pillars of society and the primary purpose of the

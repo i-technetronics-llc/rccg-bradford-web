@@ -129,8 +129,8 @@ export default function Services() {
               />
             </div>
           </div>
-          <div className="flex w-full flex-col md:w-[80%] lg:md-[60%]  md:flex-row-reverse md:items-center  gap-3">
-            <div className="w-full flex flex-col gap-3">
+          <div className="flex w-full flex-col md:w-[80%] lg:md-[60%]  md:flex-row-reverse md:items-center  gap-3 justify-between">
+            <div className="w-full flex flex-col gap-3 pl-10">
               <p className="text-xl md:text-2xl lg:text-3xl font-semibold">
                 DIGGING DEEP
               </p>
@@ -210,7 +210,7 @@ export default function Services() {
             </div>
           </div>
           <div className="flex w-full flex-col md:w-[80%] lg:md-[60%]  md:flex-row-reverse md:items-center  gap-3">
-            <div className="w-full flex flex-col gap-3">
+            <div className="w-full flex flex-col gap-3 pl-10">
               <p className="text-xl md:text-2xl lg:text-3xl font-semibold">
                 FAITH CLINIC
               </p>
@@ -284,7 +284,7 @@ export default function Services() {
             </div>
           </div>
           <div className="flex w-full flex-col md:w-[80%] lg:md-[60%]  md:flex-row-reverse md:items-center  gap-3">
-            <div className="w-full flex flex-col gap-3">
+            <div className="w-full flex flex-col gap-3 pl-10">
               <p className="text-xl md:text-2xl lg:text-3xl font-semibold">
                 OTHER MONTHLY ACTIVITIES
               </p>

@@ -52,7 +52,7 @@ export default function Header() {
             onMouseEnter={() => setIsMenuOpen(true)}
             onMouseLeave={() => setIsMenuOpen(false)}
           >
-            <MenuItem {...menuItemStyles} onClick={() => router.push("/about")}>
+            <MenuItem {...menuItemStyles} onClick={() => router.push("/about_us")}>
               About Us
             </MenuItem>
             <MenuItem
@@ -143,13 +143,9 @@ export default function Header() {
                     onMouseEnter={() => setIsGalleryOpen(true)}
                     onMouseLeave={() => setIsGalleryOpen(false)}
                   >
-                    <MenuItem
-                      {...menuItemStyles}
-                      onClick={() => router.push("/videoGallery")}
-                    >
-                      Video Gallery
-                    </MenuItem>
-                    <MenuItem {...menuItemStyles}>Picture Gallery</MenuItem>
+                    <MenuItem {...menuItemStyles} onClick={() => router.push("/videoGallery")}>Video Gallery</MenuItem>
+                    <MenuItem {...menuItemStyles} onClick={() => router.push("/pictureGallery")}>Picture Gallery</MenuItem>
+
                   </MenuList>
                 )}
               </Menu>

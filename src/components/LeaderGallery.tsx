@@ -107,6 +107,7 @@ export default function LeaderGallery() {
       img: "https://www.rccgbradford.org.uk/wp-content/uploads/2015/01/toyin-350x250.gif",
     },
   ];
+  
   return (
     <div className="w-full flex justify-center py-5 md:py-12">
       <div className="w-[80%] flex flex-col gap-5 md:gap-8 lg:gap-12">
@@ -114,17 +115,21 @@ export default function LeaderGallery() {
           <p className="text-xl md:text-3xl  lg:text-4xl ">MEET OUR LEADERS</p>
           <div className="h-[3px] w-[10%] bg-gradient-to-r from-primary to-secondary"></div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:grid-areas-layout">
           {leaders.map((item, index) => (
-            <LeaderPhotoCard
-              key={index}
-              name={item.name}
-              role={item.role}
-              br={item.br}
-              br2={item.br2}
-              desc={item.desc}
-              img={item.img}
-            />
+            <div 
+              key={index} 
+              className={`lg:col-span-1 ${index === leaders.length - 1 ? 'lg:col-start-2' : ''}`}
+            >
+              <LeaderPhotoCard
+                name={item.name}
+                role={item.role}
+                br={item.br}
+                br2={item.br2}
+                desc={item.desc}
+                img={item.img}
+              />
+            </div>
           ))}
         </div>
       </div>
