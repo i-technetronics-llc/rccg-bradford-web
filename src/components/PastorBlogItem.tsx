@@ -37,7 +37,7 @@ export default function PastorBlogItem({
         </p>
       </div>
       <div className="">
-        <p className="text-sm text-[#cccccc] line-clamp">{blogDeteails}</p>
+        <p className="text-sm text-[#333] line-clamp">{blogDeteails}</p>
       </div>
       <button
         className="bg-gradient-to-r from-primary to-secondary  text-white font-semibold hover:bg-gradient-to-l ease-in-out duration-700 hover:scale-110 transition px-5 py-2 w-fit rounded-lg"

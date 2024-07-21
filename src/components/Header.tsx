@@ -75,7 +75,7 @@ export default function Header() {
             </MenuItem>
             <MenuItem
               {...menuItemStyles}
-              onClick={() => router.push("/ministries")}
+              onClick={() => router.push("/pastor_blog")}
             >
               Pastor's Blog
             </MenuItem>
@@ -111,7 +111,12 @@ export default function Header() {
             onMouseEnter={() => setIsMoreOpen(true)}
             onMouseLeave={() => setIsMoreOpen(false)}
           >
-            <MenuItem {...menuItemStyles}>Our Events</MenuItem>
+            <MenuItem
+              {...menuItemStyles}
+              onClick={() => router.push("/events")}
+            >
+              Our Events
+            </MenuItem>
             <Box position="relative" className="px-3">
               <Menu isOpen={isGalleryOpen}>
                 <MenuButton
@@ -140,6 +145,7 @@ export default function Header() {
                   >
                     <MenuItem {...menuItemStyles} onClick={() => router.push("/videoGallery")}>Video Gallery</MenuItem>
                     <MenuItem {...menuItemStyles} onClick={() => router.push("/pictureGallery")}>Picture Gallery</MenuItem>
+
                   </MenuList>
                 )}
               </Menu>
