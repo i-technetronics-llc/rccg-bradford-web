@@ -9,11 +9,11 @@ import AboutUsView from "@/components/AboutUsView";
 
 export default function AboutUs() {
 
-  const [isHovered, setIsHovered] = useState(false);
+   // const [isHovered, setIsHovered] = useState(false);
 
-  const img = [
+   const img = [
     "https://www.rccgbradford.org.uk/wp-content/uploads/2019/05/rccg3-1.jpg",
-    "https://www.rccgbradford.org.uk/wp-content/uploads/2019/05/rccg8.jpg",
+   "https://www.rccgbradford.org.uk/wp-content/uploads/2019/05/rccg8.jpg",
   ];
   const responsive = {
     superLargeDesktop: {
@@ -34,13 +34,13 @@ export default function AboutUs() {
       items: 1,
     },
   };
-  const list = [
-    "To make heaven.",
-    "To take as many people with us.",
-    "To have a member of RCCG in every family of all nations.",
-    "To accomplish No. 1 above, holiness will be our lifestyle.",
-    "To accomplish No. 2 and 3 above, we will plant churches within five minutes walking distance in every city and town of developing countries and within five minutes driving distance in every city and town of developed countries.We will pursue these objectives until every Nation in the world is reached for the Lord Jesus Christ.",
-  ];
+ // const list = [
+   // "To make heaven.",
+   // "To take as many people with us.",
+   // "To have a member of RCCG in every family of all nations.",
+   // "To accomplish No. 1 above, holiness will be our lifestyle.",
+   // "To accomplish No. 2 and 3 above, we will plant churches within five minutes walking distance in every city and town of developing countries and within five minutes driving distance in every city and town of developed countries.We will pursue these objectives until every Nation in the world is reached for the Lord Jesus Christ.",
+  //];
   return (
     <div className="">
       <Header />
@@ -77,57 +77,7 @@ export default function AboutUs() {
           <AboutUsView />
         </div>
       </div>
-      <div className="flex justify-center px-16 md:px-28 lg:px-28 flex-col gap-5 items-center">
-        <div className="flex flex-col md:flex-row gap-3 w-full py-5 md:py-8 lg:py-12 justify-center items-center">
-          <div className="w-full flex flex-col gap-3">
-            <div className="flex flex-col gap-3 my-5">
-              <p className="text-xl md:text-3xl lg:text-4xl">OUR MISSION</p>
-              <div className="h-[3px] w-[10%] bg-gradient-to-r from-primary to-secondary"></div>
-            </div>
-            <p className="text-sm tracking-wider">
-              Our vision is exactly the same as those of The Redeemed
-              Christian Church of God. They are as follows:
-            </p>
-            {list.map((item, index) => (
-              <div
-                className="flex gap-2 text-[#333333] items-center"
-                key={index}
-              >
-                <LuCheckCheck className="w-[10%]" />
-                <p className="text-sm w-[90%]">{item}</p>
-              </div>
-            ))}
-          </div>
-          <div className="w-full">
-            <div className="flex flex-col gap-3 my-5">
-              <p className="text-xl md:text-3xl lg:text-4xl text-center">
-                COME AS YOU ARE
-              </p>
-            </div>
-            <div
-              className="w-full h-[300px] overflow-hidden"
-              style={{
-                borderRadius: isHovered
-                  ? "49% 51% 53% 47% / 47% 48% 52% 53%"
-                  : "64% 36% 78% 22% / 16% 76% 24% 84%",
-                transition: "ease-in-out 1s",
-              }}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
-              <Image
-                src={
-                  "https://www.rccgbradford.org.uk/wp-content/uploads/2016/01/men.gif"
-                }
-                alt="historyPix"
-                width={500}
-                height={500}
-                className="w-full h-full"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+      
       <Footer />
     </div>
   );

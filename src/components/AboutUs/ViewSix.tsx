@@ -18,7 +18,7 @@ export default function ViewSix({ setView }: any) {
         ABOUT PRAYER
         </p>
 
-        <div className="">
+        <div className="text-sm">
         <p className="text-sm font-bold">About Prayer</p>
               <p className="">
                 A Christian without condemnation of heart has a right to thank
