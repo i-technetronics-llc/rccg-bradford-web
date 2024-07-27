@@ -7,6 +7,11 @@ import ViewFive from "./AboutUs/ViewFive";
 import ViewSix from "./AboutUs/ViewSix";
 import ViewSeven from "./AboutUs/ViewSeven";
 import ViewEight from "./AboutUs/ViewEight";
+import ViewNine from "./AboutUs/ViewNine";
+import ViewTen from "./AboutUs/ViewTen";
+import ViewEleven from "./AboutUs/ViewEleven";
+import ViewTwelve from "./AboutUs/ViewTwelve";
+import ViewThirteen from "./AboutUs/ViewThirteen";
 
 export default function AboutUsView() {
   const [view, setView] = useState(1);
@@ -64,6 +69,11 @@ export default function AboutUsView() {
         {view === 6 && <ViewSix setView={setView} />}
         {view === 7 && <ViewSeven setView={setView} />}
         {view === 8 && <ViewEight setView={setView} />}
+        {view === 9 && <ViewNine setView={setView} />}
+        {view === 10 && <ViewTen setView={setView} />}
+        {view === 11 && <ViewEleven setView={setView} />}
+        {view === 12 && <ViewTwelve setView={setView} />}
+        {view === 13 && <ViewThirteen setView={setView} />}
       </AnimatePresence>
     </div>
   );

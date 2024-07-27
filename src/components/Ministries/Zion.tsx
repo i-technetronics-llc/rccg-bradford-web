@@ -30,7 +30,7 @@ export default function Zion() {
             className="w-full h-full"
           />
         </div>
-        <div className="w-full flex flex-col gap-3 h-full">
+        <div className="w-full flex flex-col gap-3 h-full justify-center">
           <div className="text-sm tracking-wider">
           <p className="text-xl md:text-2xl lg:text-3xl">
           DAUGHTERS OF ZION (GOOD WOMEN’S FELLOWSHIP)
