@@ -8,7 +8,7 @@ export default function PictureGallery() {
     {
       id: "1",
       title: "Multicultural Sunday",
-      thumbnailUrl: "https://img.youtube.com/vi/5LEsM3bqHTQ/sddefault.jpg",
+      thumbnailUrl: "",
       pictureUrl: "",
     },
     {
