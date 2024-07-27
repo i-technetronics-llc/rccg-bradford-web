@@ -9,11 +9,9 @@ import AboutUsView from "@/components/AboutUsView";
 
 export default function AboutUs() {
   // const [isHovered, setIsHovered] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
 
   const img = [
     "https://www.rccgbradford.org.uk/wp-content/uploads/2019/05/rccg3-1.jpg",
-    "https://www.rccgbradford.org.uk/wp-content/uploads/2019/05/rccg8.jpg",
     "https://www.rccgbradford.org.uk/wp-content/uploads/2019/05/rccg8.jpg",
   ];
   const responsive = {
@@ -36,12 +34,6 @@ export default function AboutUs() {
       items: 1,
     },
   };
-  // const list = [
-  // "To make heaven.",
-  // "To take as many people with us.",
-  // "To have a member of RCCG in every family of all nations.",
-  // "To accomplish No. 1 above, holiness will be our lifestyle.",
-  // "To accomplish No. 2 and 3 above, we will plant churches within five minutes walking distance in every city and town of developing countries and within five minutes driving distance in every city and town of developed countries.We will pursue these objectives until every Nation in the world is reached for the Lord Jesus Christ.",
   // const list = [
   // "To make heaven.",
   // "To take as many people with us.",
