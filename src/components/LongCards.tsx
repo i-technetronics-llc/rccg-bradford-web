@@ -8,15 +8,15 @@ type Proppy = {
 };
 export default function LongCards({ src, title, secondaryInfo, date }: Proppy) {
   return (
-    <div className="w-full rounded-lg shadow-md bg-white flex flex-row overflow-hidden items-center h-[120px]">
+    <div className="w-full rounded-lg shadow-md bg-white flex flex-col md:flex-row overflow-hidden items-center md:h-[120px]">
       <Image
         src={src}
         alt="img"
         width={400}
         height={400}
-        className="h-full w-[40%]"
+        className="md:h-full w-full md:w-[40%]"
       />
-      <div className="w-[60%] flex flex-col gap-3 p-5">
+      <div className="md:w-[60%] flex flex-col gap-3 p-5">
         <p className="text-xl">{title}</p>
         <div className="flex text-sm items-center gap-3">
           <div className="w-fit h-fit rounded-full bg-tetiary px-3 py-1  text-black">

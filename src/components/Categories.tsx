@@ -45,7 +45,7 @@ const catsy = [
 export default function Categories() {
   const [cats, setCats] = useState(catsy);
   return (
-    <div className="h-screen my-8 flex items-center justify-center p-5 lg:px-12">
+    <div className=" my-8 flex items-center justify-center p-5 lg:px-12">
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
         {cats?.map((item, index) => (
           <div
