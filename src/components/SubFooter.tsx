@@ -51,6 +51,7 @@ export default function SubFooter() {
             name="newsletter"
             type="text"
             className="p-2 w-full border border-black rounded-full"
+            placeholder="email address"
           />
           <button className="bg-primary rounded-full w-fit px-5 py-2 text-white font-semibold">
             Subscribe
