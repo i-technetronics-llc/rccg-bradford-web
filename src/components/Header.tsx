@@ -199,7 +199,9 @@ export default function Header() {
             onMouseEnter={() => setIsMenuOpen(true)}
             onMouseLeave={() => setIsMenuOpen(false)}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-          ></MenuButton>
+          >
+            About Us
+          </MenuButton>
           <MenuList
             bg="linear-gradient(to left, var(--primary), var(--secondary))"
             zIndex={40}
