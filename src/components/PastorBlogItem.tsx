@@ -1,6 +1,7 @@
 import { BsDot } from "react-icons/bs";
 import { FaClock } from "react-icons/fa";
 import { getFormattedDate } from "./utils/GlobalPagination";
+import { useRouter } from "next/router";
 
 type blogProps = {
   title: string;
@@ -8,7 +9,7 @@ type blogProps = {
   postedBy: string;
   category: string;
   blogDeteails: string;
-  id?: number;
+  id: string;
 };
 export default function PastorBlogItem({
   title,
@@ -16,7 +17,9 @@ export default function PastorBlogItem({
   postedBy,
   category,
   blogDeteails,
+  id,
 }: blogProps) {
+  const router = useRouter();
   return (
     <div className="flex flex-col gap-3">
       <div className="flex flex-col gap-1">
@@ -42,7 +45,9 @@ export default function PastorBlogItem({
       </div>
       <button
         className="bg-gradient-to-r from-primary to-secondary  text-white font-semibold hover:bg-gradient-to-l ease-in-out duration-700 hover:scale-110 transition px-5 py-2 w-fit rounded-lg"
-        onClick={() => {}}
+        onClick={() => {
+          router.push(`/blog/${id}`);
+        }}
       >
         Read More
       </button>

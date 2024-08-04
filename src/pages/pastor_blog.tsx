@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import PastorBlogItem from "@/components/PastorBlogItem";
 import GlobalPagination from "@/components/utils/GlobalPagination";
 import { Staticdata } from "@/static/data";
-import { Select } from "@chakra-ui/react";
+import { Select, Spinner } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { BiFilter, BiSearch } from "react-icons/bi";
@@ -33,6 +33,10 @@ const GET_DATA = gql`
       }
       publishedAt
       category
+      blogImage {
+        url
+      }
+      id
     }
   }
 `;
@@ -93,75 +97,80 @@ export default function PastorBlog() {
     <>
       <Header />
 
-      <div className="flex w-full justify-center mt-[120px] mb-5  gap-3">
+      <div className="flex w-full min-h-[80vh] justify-center mt-[120px] mb-5  gap-3">
         <div className="w-[80%]">
-          <div className="flex w-full gap-3">
-            <div className="w-full flex flex-col gap-5">
-              <div className="flex flex-col gap-2">
-                <div className="flex items-center justify-between gap-3">
-                  <div className="w-fit h-fit flex border p-2 rounded-lg items-center gap-2 border-[#ccc]">
-                    <BiSearch />
-                    <input
-                      type="text"
-                      name="search"
-                      id="search"
-                      placeholder="Search Articles by Name"
-                      className="outline-none border-none"
-                      onChange={(e) => {
-                        handleSearch(e.target.value);
-                      }}
-                    />
-                  </div>
-                  <div className="w-fit h-fit flex border p-2 rounded-lg items-center gap-2 border-[#ccc]">
-                    <BiFilter />
-                    <Select
-                      border={"none"}
-                      focusBorderColor="transparent"
-                      size={"sm"}
-                      onChange={(e) => {
-                        handleFilter(e.target.value);
-                      }}
-                    >
-                      <option value={""}>Filter</option>
-                      {years.map((item, index) => (
-                        <option key={index} value={item}>
-                          {item}
-                        </option>
-                      ))}
-                    </Select>
-                    {isFilter && (
-                      <button
-                        className="bg-gradient-to-r from-primary to-secondary text-xs  text-white font-semibold hover:bg-gradient-to-l ease-in-out duration-700 hover:scale-110 transition px-2 py-1 w-fit rounded-lg"
-                        onClick={() => {
-                          clearFilter();
+          {loading ? (
+            <Spinner />
+          ) : (
+            <div className="flex w-full gap-3">
+              <div className="w-full flex flex-col gap-5">
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="w-fit h-fit flex border p-2 rounded-lg items-center gap-2 border-[#ccc]">
+                      <BiSearch />
+                      <input
+                        type="text"
+                        name="search"
+                        id="search"
+                        placeholder="Search Articles by Name"
+                        className="outline-none border-none"
+                        onChange={(e) => {
+                          handleSearch(e.target.value);
+                        }}
+                      />
+                    </div>
+                    <div className="w-fit h-fit flex border p-2 rounded-lg items-center gap-2 border-[#ccc]">
+                      <BiFilter />
+                      <Select
+                        border={"none"}
+                        focusBorderColor="transparent"
+                        size={"sm"}
+                        onChange={(e) => {
+                          handleFilter(e.target.value);
                         }}
                       >
-                        Clear
-                      </button>
-                    )}
+                        <option value={""}>Filter</option>
+                        {years.map((item, index) => (
+                          <option key={index} value={item}>
+                            {item}
+                          </option>
+                        ))}
+                      </Select>
+                      {isFilter && (
+                        <button
+                          className="bg-gradient-to-r from-primary to-secondary text-xs  text-white font-semibold hover:bg-gradient-to-l ease-in-out duration-700 hover:scale-110 transition px-2 py-1 w-fit rounded-lg"
+                          onClick={() => {
+                            clearFilter();
+                          }}
+                        >
+                          Clear
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex flex-col lg:w-[60%] gap-8">
+                    {current.map((item, index) => (
+                      <PastorBlogItem
+                        title={item.blogTitle}
+                        datePosted={item.publishedAt}
+                        postedBy={item.createdBy.name}
+                        category={item.category}
+                        blogDeteails={item.blogDescriptions[0]}
+                        key={index}
+                        id={item.id}
+                      />
+                    ))}
                   </div>
                 </div>
-                <div className="flex flex-col lg:w-[60%] gap-8">
-                  {current.map((item, index) => (
-                    <PastorBlogItem
-                      title={item.blogTitle}
-                      datePosted={item.publishedAt}
-                      postedBy={item.createdBy.name}
-                      category={item.category}
-                      blogDeteails={item.blogDescriptions[0]}
-                      key={index}
-                    />
-                  ))}
+                <div className="flex justify-end">
+                  <GlobalPagination
+                    onPageClick={handlePageClick}
+                    pageCount={pageCount}
+                  />
                 </div>
               </div>
-              <div className="flex justify-end">
-                <GlobalPagination
-                  onPageClick={handlePageClick}
-                  pageCount={pageCount}
-                />
-              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
       <Footer />

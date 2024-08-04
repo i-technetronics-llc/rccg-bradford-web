@@ -1,4 +1,5 @@
 export type IPastorBlog = {
+  id: string;
   __typename: string;
   blogDescriptions: string[];
   blogTitle: string;
@@ -9,4 +10,7 @@ export type IPastorBlog = {
   };
   publishedAt: string;
   category: string;
+  blogImage: {
+    url: string;
+  }[];
 };
