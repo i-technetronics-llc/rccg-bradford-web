@@ -58,7 +58,7 @@ export default function VideoGallery() {
   return (
     <div className="">
       <Header />
-      <div className="w-full flex justify-center">
+      <div className="w-full mt-[80px] lg:mt-[120px] flex justify-center">
         <div className="w-[90%]">
           <div className="px-8 py-4">
             <p className="text-xl md:text-3xl lg:text-4xl ">VIDEO GALLERY</p>

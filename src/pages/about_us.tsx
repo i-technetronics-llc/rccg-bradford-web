@@ -52,7 +52,7 @@ export default function AboutUs() {
   return (
     <div className="">
       <Header />
-      <div className="flex justify-center">
+      <div className="flex justify-center lg:mt-[80px]">
         <div className="w-[80%]">
           <Carousel
             responsive={responsive}

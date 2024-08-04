@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Giving() {
   return (
     <div className="my-20 px-5 md:px-8  relative flex items-center justify-center">
-      <div className="flex  flex-col md:text-[#333] text-white md:gap-8 gap-5 lg:gap-12 items-center z-30 w-full md:w-[70%] lg:w-[50%]">
+      <div className="flex  flex-col text-[#333]  md:gap-8 gap-5 lg:gap-12 items-center z-30 w-full md:w-[70%] lg:w-[50%]">
         <div className="text-2xl   md:text-2xl lg:text-3xl font-semibold text-center">
           Giving
         </div>
@@ -21,7 +21,7 @@ export default function Giving() {
         </button>
       </div>
       <div
-        className="absolute top-0 right-[-100px] overflow-hidden"
+        className="lg:block hidden absolute top-0 right-[-100px] overflow-hidden"
         style={{ borderRadius: "44% 56% 40% 60% / 67% 35% 65% 33% " }}
       >
         <Image src={"/img/give.jpeg"} alt="give" width={500} height={500} />

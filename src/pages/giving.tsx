@@ -13,7 +13,7 @@ export default function Giving() {
   return (
     <div className="">
       <Header />
-      <div className="w-full flex justify-center min-h-screen">
+      <div className="w-full flex justify-center min-h-screen mt-[80px] lg:mt-[120px]">
         <div className="w-[80%] py-5 md:py-8 lg:py-12 flex flex-col md:flex-row gap-5">
           <div className="flex flex-col w-full gap-3">
             <p className="text-sm">
@@ -88,7 +88,7 @@ export default function Giving() {
                   onChange={(e) => setValue(parseInt(e.target.value))}
                 />
               </InputGroup>
-              <div className="w-full flex items-center gap-2">
+              <div className="w-full flex flex-wrap items-center gap-2">
                 <div
                   className=" rounded-lg w-fit px-3 py-2 cursor-pointer bg-[#f5f5f5]"
                   onClick={() => setValue(5)}

@@ -109,7 +109,7 @@ export default function LeaderGallery() {
   ];
 
   return (
-    <div className="w-full flex justify-center py-5 md:py-12">
+    <div className="w-full flex justify-center mt-[80px] py-5 md:py-12">
       <div className="w-[80%] flex flex-col gap-5 md:gap-8 lg:gap-12">
         <div className=" w-fit flex gap-1 flex-col px-3 py-1 ">
           <p className="text-xl md:text-3xl  lg:text-4xl ">MEET OUR LEADERS</p>

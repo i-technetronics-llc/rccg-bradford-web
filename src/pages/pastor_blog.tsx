@@ -7,7 +7,8 @@ import { Select } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { BiFilter, BiSearch } from "react-icons/bi";
-
+import { useQuery, gql } from "@apollo/client";
+import { IPastorBlog } from "@/models/utils.model";
 const years = [
   "2024",
   "2023",
@@ -21,15 +22,38 @@ const years = [
   "2015",
 ];
 
+const GET_DATA = gql`
+  {
+    pastorBlogs {
+      blogDescriptions
+      blogTitle
+      createdAt
+      createdBy {
+        name
+      }
+      publishedAt
+      category
+    }
+  }
+`;
+
 export default function PastorBlog() {
   const router = useRouter();
   const [blogs, setBlogs] = useState(Staticdata.pastorsBlog);
-  const [current, setCurrentItems] = useState<any[]>([]);
+  const [actualBlogs, setABlogs] = useState<IPastorBlog[]>([]);
+  const [current, setCurrentItems] = useState<IPastorBlog[]>([]);
   const [isFilter, setisFilter] = useState<boolean>(false);
   const [offset, setItemOffset] = useState<number>(0);
   const [pageCount, setPageCount] = useState<number>(
     Staticdata.pastorsBlog.length
   );
+  const { loading, error, data } = useQuery(GET_DATA);
+  useEffect(() => {
+    console.log(loading, error, data);
+    if (data) {
+      setABlogs(data.pastorBlogs);
+    }
+  }, [data]);
   const limit = 10;
   const handlePageClick = (page: any) => {
     const newOffset = page * limit;
@@ -43,20 +67,20 @@ export default function PastorBlog() {
 
     const endOffset = offset + limit;
     console.log(offset, "offy");
-    setCurrentItems(blogs?.slice(offset, endOffset));
+    setCurrentItems(actualBlogs?.slice(offset, endOffset));
     // console.log(endOffset, "newEndo");
     // console.log(blogs?.slice(offset, endOffset));
-    setPageCount(Math.ceil(blogs?.length / limit));
-  }, [offset, blogs, limit]);
+    setPageCount(Math.ceil(actualBlogs?.length / limit));
+  }, [offset, actualBlogs, limit]);
   const handleSearch = (value: string) => {
-    const matchedItems = blogs.filter((item) =>
-      item.title.toLowerCase().includes(value.toLowerCase())
+    const matchedItems = actualBlogs.filter((item) =>
+      item.blogTitle.toLowerCase().includes(value.toLowerCase())
     );
     setCurrentItems(matchedItems);
   };
   const handleFilter = (value: string) => {
-    const matchedItems = blogs.filter((item) =>
-      item.datePosted.includes(value)
+    const matchedItems = actualBlogs.filter((item) =>
+      item.publishedAt.includes(value)
     );
     setCurrentItems(matchedItems);
     setisFilter(true);
@@ -69,7 +93,7 @@ export default function PastorBlog() {
     <>
       <Header />
 
-      <div className="flex w-full justify-center my-5  gap-3">
+      <div className="flex w-full justify-center mt-[120px] mb-5  gap-3">
         <div className="w-[80%]">
           <div className="flex w-full gap-3">
             <div className="w-full flex flex-col gap-5">
@@ -117,14 +141,14 @@ export default function PastorBlog() {
                     )}
                   </div>
                 </div>
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col lg:w-[60%] gap-8">
                   {current.map((item, index) => (
                     <PastorBlogItem
-                      title={item.title}
-                      datePosted={item.datePosted}
-                      postedBy={item.postedBy}
+                      title={item.blogTitle}
+                      datePosted={item.publishedAt}
+                      postedBy={item.createdBy.name}
                       category={item.category}
-                      blogDeteails={item.blogDeteails}
+                      blogDeteails={item.blogDescriptions[0]}
                       key={index}
                     />
                   ))}

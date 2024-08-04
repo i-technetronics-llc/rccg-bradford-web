@@ -81,3 +81,44 @@ export default function GlobalPagination({
     </div>
   );
 }
+
+export function getFormattedDate(isoString: string) {
+  // Array of weekday names
+  const weekdays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  // Array of abbreviated month names
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  // Parse the ISO string to a Date object
+  const now = new Date(isoString);
+
+  // Get the day of the week, day of the month, month, and year
+  const weekday = weekdays[now.getUTCDay()];
+  const day = String(now.getUTCDate()).padStart(2, "0");
+  const month = months[now.getUTCMonth()];
+  const year = now.getUTCFullYear();
+
+  // Format the date
+  const formattedDate = `${weekday} ${day} ${month}, ${year}`;
+  return formattedDate;
+}

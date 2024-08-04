@@ -1,5 +1,6 @@
 import { BsDot } from "react-icons/bs";
 import { FaClock } from "react-icons/fa";
+import { getFormattedDate } from "./utils/GlobalPagination";
 
 type blogProps = {
   title: string;
@@ -25,7 +26,7 @@ export default function PastorBlogItem({
       <div className="flex items-center text-[#cccccc] gap-3">
         <div className="flex gap-1 items-center">
           <FaClock className="" />
-          <p className="text-sm">{datePosted}</p>
+          <p className="text-sm">{getFormattedDate(datePosted)}</p>
         </div>
         <BsDot className="text-primary" />
         <p className="text-sm">

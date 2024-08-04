@@ -8,7 +8,7 @@ export default function ContactUs() {
   return (
     <div className="">
       <Header />
-      <div className="w-full flex justify-center">
+      <div className="w-full flex justify-center mt-[120px]">
         <div className="w-[80%] py-5 md:py-8 lg:py-12 flex flex-col">
           <div className="flex flex-col gap-3 my-5  ">
             <p className="text-xl md:text-3xl lg:text-4xl ">CONTACT US</p>

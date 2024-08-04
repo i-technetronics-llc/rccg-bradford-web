@@ -40,7 +40,7 @@ export default function Services() {
   return (
     <div className="">
       <Header />
-      <div className="w-full flex justify-center">
+      <div className="w-full flex mt-[120px] justify-center">
         <div className="w-[80%] py-5 md:py-8 lg:py-12 flex items-center flex-col">
           <div className="flex flex-col gap-3 my-5 items-center ">
             <p className="text-xl md:text-3xl lg:text-4xl text-center">
