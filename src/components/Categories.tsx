@@ -11,9 +11,9 @@ const catsy = [
     url: "/contact",
   },
   {
-    title: "Watch Sermons",
+    title: "Need a ride to church?",
     description:
-      "Curious? Missed last Sunday? Check out our online sermon archive.",
+      "Looking for the closest ride to church?",
     br: "66% 34% 50% 50% / 64% 30% 70% 36%",
     bg: "linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.3)), url('/img/sermon.jpeg')",
     url: "/videoGallery",

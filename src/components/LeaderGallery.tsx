@@ -51,14 +51,6 @@ export default function LeaderGallery() {
       img: "https://www.rccgbradford.org.uk/wp-content/uploads/2016/01/deaconsanfo-350x250.gif",
     },
     {
-      name: "DEACON (DR) SANFO DAVID",
-      br: "50% 50% 76% 24% / 34% 35% 65% 66%",
-      br2: "78% 22% 76% 24% / 34% 35% 65% 66%",
-      role: "children/youth ministry and drama ministry",
-      desc: "Dr Sanfo Agyo yielded his life to Christ at the age of 15 and has since embraced a life vision of...",
-      img: "https://www.rccgbradford.org.uk/wp-content/uploads/2016/01/deaconsanfo-350x250.gif",
-    },
-    {
       name: "ROLAKE FASAE",
       br: "16% 84% 65% 35% / 50% 64% 36% 50% ",
       br2: "16% 84% 42% 58% / 62% 22% 78% 38% ",
@@ -111,16 +103,18 @@ export default function LeaderGallery() {
   return (
     <div className="w-full flex justify-center mt-[80px] py-5 md:py-12">
       <div className="w-[80%] flex flex-col gap-5 md:gap-8 lg:gap-12">
-        <div className=" w-fit flex gap-1 flex-col px-3 py-1 ">
-          <p className="text-xl md:text-3xl  lg:text-4xl ">MEET OUR LEADERS</p>
+        <div className="w-fit flex gap-1 flex-col px-3 py-1">
+          <p className="text-xl md:text-3xl lg:text-4xl">MEET OUR LEADERS</p>
           <div className="h-[3px] w-[10%] bg-gradient-to-r from-primary to-secondary"></div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:grid-areas-layout">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {leaders.map((item, index) => (
             <div
               key={index}
               className={`lg:col-span-1 ${
-                index === leaders.length - 1 ? "lg:col-start-2" : ""
+                index === leaders.length - 1
+                  ? "lg:row-start-auto lg:col-start-3"
+                  : ""
               }`}
             >
               <LeaderPhotoCard
