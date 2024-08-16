@@ -148,7 +148,7 @@ export default function PastorBlog() {
                       )}
                     </div>
                   </div>
-                  <div className="flex flex-col lg:w-[60%] gap-8">
+                  <div className="flex flex-col lg:w-[90%] gap-8">
                     {current.map((item, index) => (
                       <PastorBlogItem
                         title={item.blogTitle}
@@ -158,6 +158,7 @@ export default function PastorBlog() {
                         blogDeteails={item.blogDescriptions[0]}
                         key={index}
                         id={item.id}
+                        src={item.blogImage[0].url}
                       />
                     ))}
                   </div>

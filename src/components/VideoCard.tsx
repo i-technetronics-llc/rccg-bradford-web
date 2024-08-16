@@ -43,8 +43,26 @@ const VideoCard: React.FC<VideoCardProps> = ({ videos }) => {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
-      {videos.map((video: Video) => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
+      <iframe
+        src="https://www.youtube.com/embed/E8YGy7q4uh8?si=1sOlFOTpE_t5Igeq"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+        className="p-5 shadow-md rounded-lg w-full h-[300px]"
+      ></iframe>
+      <iframe
+        src="https://www.youtube.com/embed/9H0zppeoyiI?si=e4X3Rg1F3g0QMTuW"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+        className="p-5 shadow-md rounded-lg w-full h-[300px]"
+      ></iframe>
+      {/* {videos.map((video: Video) => (
         <div
           key={video.id}
           className="group relative overflow-hidden rounded-lg shadow-md p-4 transform transition-transform duration-300 ease-in-out hover:scale-105"
@@ -63,7 +81,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ videos }) => {
             </button>
           </div>
         </div>
-      ))}
+      ))} */}
       {isOpen && currentVideo && (
         <Modal isOpen={isOpen} onClose={handleClose} size="full">
           <ModalOverlay />
