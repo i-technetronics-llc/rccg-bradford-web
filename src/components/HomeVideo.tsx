@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function HomeVideo() {
   return (
     <section className="relative flex items-center justify-center h-screen mb-12  overflow-hidden  ">
@@ -10,14 +12,19 @@ export default function HomeVideo() {
           you. Engage, donate, and grow with us in our digital space.
         </p>
         <div className="flex items-center justify-center mt-5">
-          <ul>
-            <li className="px-5 py-2 bg-primary w-fit rounded-full">
-              <a href="#" className="">
-                Watch Live
-              </a>
-            </li>
-          </ul>
-        </div>
+  <ul className="flex space-x-4">
+    <li className="px-5 py-2 bg-primary w-fit rounded-full">
+      <Link href="/watchLive">
+        Watch Live
+      </Link>
+    </li>
+    <li className="px-5 py-2 bg-primary w-fit rounded-full">
+      <Link href="/videoGallery">
+        Watch Sermon
+      </Link>
+    </li>
+  </ul>
+</div>
       </div>
       <video
         autoPlay
