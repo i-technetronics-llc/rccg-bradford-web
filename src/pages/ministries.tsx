@@ -11,7 +11,7 @@ export default function Ministries() {
   return (
     <div className="">
       <Header />
-      <div className="w-full flex justify-center">
+      <div className="w-full flex mt-[120px] justify-center">
         <div className="w-[80%] py-5 md:py-8 lg:py-12 flex flex-col">
           <Hero />
           <Zion />

@@ -135,10 +135,10 @@ export default function Events() {
   return (
     <div className="">
       <Header />
-      <div className="w-full flex  justify-center">
+      <div className="w-full flex  justify-center mt-[120px]">
         <div className="w-[80%] p-5">
-          <div className="flex gap-3">
-            <div className="w-[70%]">
+          <div className="flex flex-col lg:flex-row gap-3">
+            <div className="lg:w-[70%] w-full">
               <Calendar
                 components={{ timeSlotWrapper: ColoredDateCellWrapper }}
                 localizer={localizer}
@@ -152,7 +152,7 @@ export default function Events() {
                 eventPropGetter={eventPropGetter}
               />
             </div>
-            <div className="w-[30%] flex flex-col gap-2">
+            <div className="lg:w-[30%] w-full flex flex-col gap-2">
               <div className=" w-full flex gap-1 flex-col items-center  px-3 py-1 ">
                 <p className="text-xl text-center "> Upcoming Event Details</p>
                 <div className="h-[3px] w-[10%] bg-gradient-to-r from-primary to-secondary"></div>

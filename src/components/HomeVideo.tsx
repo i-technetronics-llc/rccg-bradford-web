@@ -2,8 +2,8 @@ import Link from 'next/link';
 
 export default function HomeVideo() {
   return (
-    <section className="relative flex items-center justify-center h-screen mb-12  overflow-hidden  ">
-      <div className="relative z-30  text-center text-white max-w-4xl mx-auto">
+    <section className="relative flex items-center justify-center h-screen mb-12 lg:mt-[100px]  overflow-hidden  ">
+      <div className="relative z-20  text-center text-white max-w-4xl mx-auto">
         <h1 className="text-4xl text-white sm:text-6xl font-bold mb-4">
           Welcome to RCCG Chapel of His Glory, Bradford
         </h1>

@@ -35,10 +35,10 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       <Header />
-      <div className={`${isTop ? "wave" : "hidden"} z-10`}></div>
+      {/* <div className={`${isTop ? "wave" : "hidden"} z-10`}></div> */}
       <HomeVideo />
       <Categories />
-      <Bible />
+      {/* <Bible /> */}
       <Sermons />
       <NextEvents />
       <MarqueeImg />

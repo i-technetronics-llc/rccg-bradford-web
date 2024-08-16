@@ -1,5 +1,15 @@
-import React, { useState } from 'react';
-import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton } from '@chakra-ui/react';
+import React, { useState } from "react";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+} from "@chakra-ui/react";
+import Marquee from "react-fast-marquee";
+import Image from "next/image";
 
 interface Picture {
   id: string;
@@ -13,53 +23,111 @@ interface PictureCardProps {
 }
 
 const PictureCard: React.FC<PictureCardProps> = ({ pictures }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [currentPicture, setCurrentPicture] = useState<Picture | null>(null);
+  // const [isOpen, setIsOpen] = useState(false);
+  const [currentPicture, setCurrentPicture] = useState<string | null>(null);
+  const { onOpen, isOpen, onClose } = useDisclosure();
 
-  const handleOpen = (picture: Picture) => {
-    setCurrentPicture(picture);
-    setIsOpen(true);
-  };
+  // const handleOpen = (picture: Picture) => {
+  //   setCurrentPicture(picture);
+  //   setIsOpen(true);
+  // };
 
-  const handleClose = () => {
-    setIsOpen(false);
-    setCurrentPicture(null);
-  };
+  // const handleClose = () => {
+  //   setIsOpen(false);
+  //   setCurrentPicture(null);
+  // };
+
+  const images = [
+    "/img/concert.avif",
+    "/img/events.jpeg/",
+    "/img/palm.jpeg",
+    "/img/visit.jpeg",
+    "/img/sermon.jpeg",
+    "/img/hf.jpeg",
+    "/img/give.jpeg",
+  ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
-      {pictures.map((picture: Picture) => (
-        <div
-          key={picture.id}
-          className="group relative overflow-hidden rounded-lg shadow-md p-4 transform transition-transform duration-300 ease-in-out hover:scale-105"
-        >
-          <img src={picture.thumbnailUrl} alt={picture.title} className="w-full h-48 object-cover rounded-lg" />
-          <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
-            <button
-              onClick={() => handleOpen(picture)}
-              className="w-full h-full flex items-center justify-center text-white text-xl focus:outline-none"
-            >
-              <i className="fas fa-expand"></i>
-            </button>
-          </div>
-        </div>
-      ))}
-      {isOpen && currentPicture && (
-        <Modal isOpen={isOpen} onClose={handleClose} size="full">
-          <ModalOverlay />
-          <ModalContent className="w-full h-full max-w-screen-md mx-auto">
-            <ModalHeader>{currentPicture.title}</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              <img
-                src={currentPicture.pictureUrl}
-                alt={currentPicture.title}
-                className="w-full h-auto"
-              />
-            </ModalBody>
-          </ModalContent>
-        </Modal>
-      )}
+    <div className="grid grid-cols-1  gap-4 p-4">
+      <div className="box bg-gradient-to-r from-primary to-secondary h-[400px] overflow-hidden">
+        <Marquee speed={20} autoFill direction="left">
+          {images.map((item, index) => (
+            <img
+              src={item}
+              alt="logo"
+              width={500}
+              height={500}
+              className="h-[500px] w-[500px] cursor-pointer"
+              key={index}
+              onClick={() => {
+                onOpen();
+                setCurrentPicture(item);
+              }}
+            />
+          ))}
+        </Marquee>
+      </div>
+      <div className="box bg-gradient-to-r from-primary to-secondary h-[400px] overflow-hidden">
+        <Marquee speed={20} autoFill direction="right">
+          {images.map((item, index) => (
+            <img
+              src={item}
+              alt="logo"
+              width={500}
+              height={500}
+              className="h-[500px] w-[500px] cursor-pointer"
+              key={index}
+              onClick={() => {
+                onOpen();
+                setCurrentPicture(item);
+              }}
+            />
+          ))}
+        </Marquee>
+      </div>
+
+      <Modal
+        isOpen={isOpen}
+        onClose={() => {
+          onClose();
+          setCurrentPicture(null);
+        }}
+        size="xl"
+        scrollBehavior="inside"
+      >
+        <ModalOverlay />
+        <ModalContent className="w-full h-full max-w-screen-md mx-auto">
+          {/* <ModalHeader>{currentPicture?.title}</ModalHeader> */}
+          <ModalCloseButton />
+          <ModalBody>
+            <div className="flex flex-col justify-center items-center h-full gap-5">
+              <div className="flex w-full justify-center">
+                <img
+                  src={currentPicture as string}
+                  alt={"going"}
+                  className="w-[50%] h-full rounded-lg"
+                />
+              </div>
+              <Marquee speed={20} autoFill direction="right">
+                {images.map((item, index) => (
+                  <img
+                    src={item}
+                    alt="logo"
+                    width={300}
+                    height={300}
+                    className="h-[100px] w-[100px]"
+                    key={index}
+                    onClick={() => {
+                      // onOpen();
+                      setCurrentPicture(item);
+                    }}
+                  />
+                ))}
+              </Marquee>
+            </div>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </div>
   );
 };

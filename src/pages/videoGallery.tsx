@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import VideoCard from "@/components/VideoCard";
+import { useRouter } from "next/router";
 
 export default function VideoGallery() {
   const videos = [
@@ -54,15 +55,26 @@ export default function VideoGallery() {
       videoUrl: "",
     },
   ];
+  const router = useRouter();
 
   return (
     <div className="">
       <Header />
-      <div className="w-full flex justify-center">
+      <div className="w-full min-h-screen mt-[80px] lg:mt-[120px] flex justify-center">
         <div className="w-[90%]">
-          <div className="px-8 py-4">
-            <p className="text-xl md:text-3xl lg:text-4xl ">VIDEO GALLERY</p>
-            <div className="h-[3px] w-[5%] bg-gradient-to-r from-primary to-secondary"></div>
+          <div className="flex items-center justify-between">
+            <div className="px-8 py-4">
+              <p className="text-xl md:text-3xl lg:text-4xl ">VIDEO GALLERY</p>
+              <div className="h-[3px] w-[5%] bg-gradient-to-r from-primary to-secondary"></div>
+            </div>
+            <button
+              className="bg-gradient-to-r from-primary to-secondary gap-2 flex items-center text-white font-semibold hover:bg-gradient-to-l ease-in-out duration-700 hover:scale-110 transition px-5 py-2 w-fit rounded-lg"
+              onClick={() => {
+                router.push("/live_stream");
+              }}
+            >
+              Live Stream
+            </button>
           </div>
           <VideoCard videos={videos} />
         </div>
