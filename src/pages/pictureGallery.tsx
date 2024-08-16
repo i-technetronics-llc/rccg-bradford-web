@@ -66,14 +66,12 @@ export default function PictureGallery() {
                 PICTURE GALLERY
               </p>
               <div className="h-[3px] w-[5%] bg-gradient-to-r from-primary to-secondary"></div>
-              <div className="h-[3px] w-[5%] bg-gradient-to-r from-primary to-secondary"></div>
             </div>
             <PictureCard pictures={pictures} />
           </div>
         </div>
-        <Footer />
       </div>
-      );
+
       <Footer />
     </div>
   );
