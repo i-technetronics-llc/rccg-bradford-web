@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import LongCards from "./LongCards";
+import { LongCards } from "./LongCards";
 
 export default function Sermons() {
   const details = [
