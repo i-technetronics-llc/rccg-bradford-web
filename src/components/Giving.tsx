@@ -5,7 +5,7 @@ export default function Giving() {
   const router = useRouter();
   return (
     <div className="my-20 px-10 md:px-16 relative flex items-center justify-between">
-      <div className="flex flex-col md:text-[#333] text-white md:gap-8 gap-5 lg:gap-12 items-start z-30 w-full md:w-[50%]">
+      <div className="flex flex-col md:text-[#333] lg:text-[#333] sm:text-[#333] md:gap-8 gap-5 lg:gap-12 items-start z-30 w-full md:w-[50%]">
         <div className="text-sm md:text-xl lg:text-3xl font-semibold">
           Giving
         </div>

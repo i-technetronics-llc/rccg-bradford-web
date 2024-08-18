@@ -14,7 +14,7 @@ export default function HomeVideo() {
         <div className="flex items-center justify-center mt-5">
   <ul className="flex space-x-4">
     <li className="px-5 py-2 bg-primary w-fit rounded-full">
-      <Link href="/watchLive">
+      <Link href="/live_stream">
         Watch Live
       </Link>
     </li>
