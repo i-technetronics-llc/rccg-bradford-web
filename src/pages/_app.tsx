@@ -7,9 +7,10 @@ import {
   ApolloProvider,
   gql,
 } from "@apollo/client";
+const URI = process.env.NEXT_PUBLIC_HYGRAPH;
 export default function App({ Component, pageProps }: AppProps) {
   const client = new ApolloClient({
-    uri: "https://eu-west-2.cdn.hygraph.com/content/clzd858tj01x607w6t3h0jmdz/master",
+    uri: URI as string,
     cache: new InMemoryCache(),
   });
 

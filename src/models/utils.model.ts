@@ -14,3 +14,14 @@ export type IPastorBlog = {
     url: string;
   }[];
 };
+
+export type ICategories = {
+  __typename: string;
+  categoryDescription: string;
+  categoryTitle: string;
+  createdAt: string;
+  backgroundImage: {
+    __typename: string;
+    url: string;
+  };
+};

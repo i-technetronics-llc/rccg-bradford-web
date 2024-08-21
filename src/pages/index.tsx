@@ -11,11 +11,49 @@ import MarqueeImg from "@/components/Marquee";
 import Giving from "@/components/Giving";
 import SubFooter from "@/components/SubFooter";
 import Footer from "@/components/Footer";
+import { useQuery, gql } from "@apollo/client";
+import { ICategories } from "@/models/utils.model";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const GET_DATA = gql`
+  {
+    categories {
+      categoryDescription
+      categoryTitle
+      createdAt
+      backgroundImage {
+        url
+      }
+    }
+    heroSections {
+      heroSubtitle
+      heroTitle
+      heroBackgroundVideo {
+        url
+      }
+    }
+    latestSermons {
+      sermonDate
+      sermonTitle
+      sermonPreacher
+      sermonImage {
+        url
+      }
+    }
+    nextEvents {
+      eventName
+      eventDateTime
+      eventImage {
+        url
+      }
+    }
+  }
+`;
 export default function Home() {
   const [isTop, setIsTop] = useState(true);
+  const { loading, error, data } = useQuery(GET_DATA);
+  const [categories, setCategories] = useState<ICategories[]>([]);
 
   const handleScroll = () => {
     if (window.scrollY === 0) {
@@ -25,6 +63,12 @@ export default function Home() {
     }
   };
 
+  useEffect(() => {
+    if (data) {
+      setCategories(data.categories);
+      console.log(data, "its going");
+    }
+  }, [data]);
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -37,7 +81,7 @@ export default function Home() {
       <Header />
       {/* <div className={`${isTop ? "wave" : "hidden"} z-10`}></div> */}
       <HomeVideo />
-      <Categories />
+      <Categories categories={categories} />
       {/* <Bible /> */}
       <Sermons />
       <NextEvents />
