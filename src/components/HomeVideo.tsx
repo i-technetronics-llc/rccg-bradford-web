@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function HomeVideo() {
   return (
@@ -12,19 +12,15 @@ export default function HomeVideo() {
           you. Engage, donate, and grow with us in our digital space.
         </p>
         <div className="flex items-center justify-center mt-5">
-  <ul className="flex space-x-4">
-    <li className="px-5 py-2 bg-primary w-fit rounded-full">
-      <Link href="/live_stream">
-        Watch Live
-      </Link>
-    </li>
-    <li className="px-5 py-2 bg-primary w-fit rounded-full">
-      <Link href="/videoGallery">
-        Watch Sermon
-      </Link>
-    </li>
-  </ul>
-</div>
+          <ul className="flex space-x-4">
+            <li className="px-5 py-2 bg-primary w-fit rounded-full">
+              <Link href="/live_stream">Watch Live</Link>
+            </li>
+            <li className="px-5 py-2 bg-primary w-fit rounded-full">
+              <Link href="/videoGallery">Watch Sermon</Link>
+            </li>
+          </ul>
+        </div>
       </div>
       <video
         autoPlay
