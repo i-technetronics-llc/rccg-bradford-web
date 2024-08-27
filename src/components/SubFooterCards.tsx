@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getFormattedDate } from "./utils/GlobalPagination";
 
 type Proppy = {
   src: string;
@@ -9,7 +10,7 @@ type Proppy = {
 export default function SubFooterCards({
   src,
   title,
- // secondaryInfo,
+  // secondaryInfo,
   date,
 }: Proppy) {
   return (
@@ -25,7 +26,7 @@ export default function SubFooterCards({
         <p className="">{title}</p>
         <div className="flex text-sm items-center gap-3">
           <div className="w-fit h-fit rounded-full bg-tetiary px-3 py-1  text-black">
-            <p className="text-xs">{date}</p>
+            <p className="text-xs">{getFormattedDate(date)}</p>
           </div>
           {/* <p className="text-xs">{secondaryInfo}</p> */}
         </div>

@@ -3,11 +3,10 @@ import { LongCards } from "./LongCards";
 import { ILatestSermon } from "@/models/utils.model";
 
 type LatestSermonProps = {
-  latestSermons: [ILatestSermon];
+  latestSermons: ILatestSermon[];
 };
 
 export default function Sermons({ latestSermons }: LatestSermonProps) {
-  
   const router = useRouter();
   return (
     <div className="my-8 md:my-20 flex flex-col items-center justify-center gap-8 px-8">
@@ -20,7 +19,7 @@ export default function Sermons({ latestSermons }: LatestSermonProps) {
             key={index}
             src={item.sermonImage.url}
             title={item.sermonTitle}
-           // secondaryInfo={item.secondaryInfo}
+            // secondaryInfo={item.secondaryInfo}
             date={item.sermonDate}
           />
         ))}
