@@ -4,13 +4,13 @@ import { useRouter } from "next/router";
 type Proppy = {
   src: string;
   title: string;
-  secondaryInfo: string;
+ // secondaryInfo: string;
   date: string;
 };
 export default function LongCardsEvents({
   src,
   title,
-  secondaryInfo,
+ // secondaryInfo,
   date,
 }: Proppy) {
   const router = useRouter();
@@ -19,7 +19,7 @@ export default function LongCardsEvents({
       className="w-full rounded-lg shadow-md bg-white cursor-pointer flex flex-col md:flex-row overflow-hidden items-center md:h-[120px]"
       onClick={() => router.push("/live_stream")}
     >
-      <Image
+      <img
         src={src}
         alt="img"
         width={400}
@@ -32,20 +32,20 @@ export default function LongCardsEvents({
           <div className="w-fit h-fit rounded-full bg-tetiary px-3 py-1  text-black">
             <p className="">{date}</p>
           </div>
-          <p className="">{secondaryInfo}</p>
+         {/* <p className="">{secondaryInfo}</p> */}
         </div>
       </div>
     </div>
   );
 }
-export function LongCards({ src, title, secondaryInfo, date }: Proppy) {
+export function LongCards({ src, title, date }: Proppy) {
   const router = useRouter();
   return (
     <div
       className="w-full rounded-lg shadow-md bg-white cursor-pointer flex flex-col md:flex-row overflow-hidden items-center md:h-[120px]"
       onClick={() => router.push("/videoGallery")}
     >
-      <Image
+      <img
         src={src}
         alt="img"
         width={400}
@@ -58,7 +58,7 @@ export function LongCards({ src, title, secondaryInfo, date }: Proppy) {
           <div className="w-fit h-fit rounded-full bg-tetiary px-3 py-1  text-black">
             <p className="">{date}</p>
           </div>
-          <p className="">{secondaryInfo}</p>
+          {/* <p className="">{secondaryInfo}</p> */}
         </div>
       </div>
     </div>

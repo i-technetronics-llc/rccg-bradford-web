@@ -25,3 +25,37 @@ export type ICategories = {
     url: string;
   };
 };
+
+export type IHeroSection = {
+  __typename: string;
+  heroTitle: string;
+  heroSubtitle: string;
+  createdAt: string;
+  heroBackgroundVideo: {
+    __typename: string;
+    url: string;
+  };
+};
+
+export type ILatestSermon = {
+  __typename: string;
+  sermonTitle: string;
+  // sermonPreacher: string;
+  sermonDate: string;
+  createdAt: string;
+  sermonImage: {
+    __typename: string;
+    url: string;
+  }
+}
+
+export type INextEvent = {
+  __typename: string;
+  eventName: string;
+  eventDateTime: string;
+  createdAt: string;
+  eventImage: {
+    __typename: string;
+    url: string;
+  }
+}
