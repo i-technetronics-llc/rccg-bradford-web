@@ -1,10 +1,18 @@
 import React from "react";
-import Link from 'next/link';
+import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BiChevronRight } from "react-icons/bi";
 
-export default function LeaderPhotoCard({ id, br, br2, name, role, desc, img }) {
+export default function LeaderPhotoCard({
+  id,
+  br,
+  br2,
+  name,
+  role,
+  desc,
+  img,
+}) {
   const [isHovered, setIsHovered] = useState(false);
 
   const borderRadius = isHovered ? br2 : br;
@@ -16,7 +24,7 @@ export default function LeaderPhotoCard({ id, br, br2, name, role, desc, img }) 
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <Image
+        <img
           src={img}
           alt="leaderImg"
           width={500}

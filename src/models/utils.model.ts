@@ -46,8 +46,8 @@ export type ILatestSermon = {
   sermonImage: {
     __typename: string;
     url: string;
-  }
-}
+  };
+};
 
 export type INextEvent = {
   __typename: string;
@@ -57,5 +57,17 @@ export type INextEvent = {
   eventImage: {
     __typename: string;
     url: string;
-  }
-}
+  };
+};
+
+export type ILeader = {
+  __typename: string;
+  leaderDescription: string[];
+  leaderName: string;
+  leaderRole: string;
+  leaderImage: {
+    __typename: string;
+    url: string;
+  };
+  id: string;
+};
