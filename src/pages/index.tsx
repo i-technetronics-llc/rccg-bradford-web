@@ -12,7 +12,7 @@ import Giving from "@/components/Giving";
 import SubFooter from "@/components/SubFooter";
 import Footer from "@/components/Footer";
 import { useQuery, gql } from "@apollo/client";
-import { ICategories } from "@/models/utils.model";
+import { ICategories, IHeroSection, INextEvent, ILatestSermon } from "@/models/utils.model";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -54,6 +54,10 @@ export default function Home() {
   const [isTop, setIsTop] = useState(true);
   const { loading, error, data } = useQuery(GET_DATA);
   const [categories, setCategories] = useState<ICategories[]>([]);
+  const [heroSections, setheroSections] = useState<IHeroSection[]>([]);
+  const [nextEvents, setnextEvents] = useState<INextEvent[]>([]);
+  const [latestSermons, setlatestSermons] = useState<ILatestSermon[]>([]);
+  const [subFooter, setsubFooter] = useState<INextEvent[]>([]);
 
   const handleScroll = () => {
     if (window.scrollY === 0) {
@@ -66,6 +70,10 @@ export default function Home() {
   useEffect(() => {
     if (data) {
       setCategories(data.categories);
+      setheroSections(data.heroSections);
+      setnextEvents(data.nextEvents);
+      setlatestSermons(data.latestSermons);
+      setsubFooter(data.nextEvents)
       console.log(data, "its going");
     }
   }, [data]);
@@ -80,14 +88,14 @@ export default function Home() {
     <div className="overflow-hidden">
       <Header />
       {/* <div className={`${isTop ? "wave" : "hidden"} z-10`}></div> */}
-      <HomeVideo />
+      <HomeVideo heroSections={heroSections} />
       <Categories categories={categories} />
       {/* <Bible /> */}
-      <Sermons />
-      <NextEvents />
+      <Sermons latestSermons={latestSermons} />
+      <NextEvents nextEvents={nextEvents} />
       <MarqueeImg />
       <Giving />
-      <SubFooter />
+      <SubFooter subFooter={subFooter}/>
       <Footer />
     </div>
   );

@@ -1,33 +1,16 @@
+import { useRouter } from "next/router";
 import LongCardsEvents from "./LongCards";
 import LongCards from "./LongCards";
+import { INextEvent } from "@/models/utils.model";
 
-export default function NextEvents() {
-  const details = [
-    {
-      src: "/img/concert.webp",
-      title: "Pastor's Bible Study",
-      secondaryInfo: "7:00 pm – 8:00 pm",
-      date: "JUN 21, 2019",
-    },
-    {
-      src: "/img/road.jpeg",
-      title: "New Members Class",
-      secondaryInfo: "7:00 pm – 8:00 pm",
-      date: "JUN 21, 2019",
-    },
-    {
-      src: "/img/palm.jpeg",
-      title: "Sunday Worship Services",
-      secondaryInfo: "7:00 pm – 8:00 pm",
-      date: "JUN 21, 2019",
-    },
-    {
-      src: "/img/hf.jpeg",
-      title: "Teaching Series",
-      secondaryInfo: "7:00 pm – 8:00 pm",
-      date: "JUN 21, 2019",
-    },
-  ];
+type NextEventProps = {
+  nextEvents: INextEvent[];
+};
+
+
+export default function NextEvents( { nextEvents }: NextEventProps) {
+  const router = useRouter();
+
 
   return (
     <div className="my-8 md:my-20 flex flex-col items-center justify-center gap-8 px-8">
@@ -35,13 +18,13 @@ export default function NextEvents() {
         Next Events
       </p>
       <div className="grid grid-cols-1 gap-5 w-full md:grid-cols-2">
-        {details.map((item, index) => (
+        {nextEvents.map((item, index) => (
           <LongCardsEvents
             key={index}
-            src={item.src}
-            title={item.title}
-            secondaryInfo={item.secondaryInfo}
-            date={item.date}
+            src={item.eventImage.url}
+            title={item.eventName}
+         //   secondaryInfo={item.ev}
+            date={item.eventDateTime}
           />
         ))}
       </div>

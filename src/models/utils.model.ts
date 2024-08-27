@@ -31,7 +31,7 @@ export type IHeroSection = {
   heroTitle: string;
   heroSubtitle: string;
   createdAt: string;
-  backgroundVideo: {
+  heroBackgroundVideo: {
     __typename: string;
     url: string;
   };
@@ -40,7 +40,7 @@ export type IHeroSection = {
 export type ILatestSermon = {
   __typename: string;
   sermonTitle: string;
-  sermonPreacher: string;
+  // sermonPreacher: string;
   sermonDate: string;
   createdAt: string;
   sermonImage: {
