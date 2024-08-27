@@ -70,4 +70,6 @@ export type ILeader = {
     url: string;
   };
   id: string;
+  br: string;
+  br2: string;
 };

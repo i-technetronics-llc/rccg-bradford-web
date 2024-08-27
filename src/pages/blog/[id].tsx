@@ -50,6 +50,7 @@ export default function BlogDetails() {
       }
     }
   `;
+
   const { loading, error, data } = useQuery(GET_DATA);
   useEffect(() => {
     console.log(loading, error, data);
