@@ -73,3 +73,13 @@ export type ILeader = {
   br: string;
   br2: string;
 };
+
+export type IServices = {
+  __typename: string;
+  serviceTitle: string;
+  serviceDetailsAndTime: string[];
+  serviceImage: {
+    __typename: string;
+    url: string;
+  };
+}
