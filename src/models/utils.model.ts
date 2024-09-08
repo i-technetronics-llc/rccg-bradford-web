@@ -83,3 +83,12 @@ export type IServices = {
     url: string;
   };
 }
+
+export type IPictureGallery = {
+  __typename: string;
+  pictureCategoryTitle: string;
+  pictureCategoryImage: {
+    __typename: string;
+    url: string;
+  };
+}
