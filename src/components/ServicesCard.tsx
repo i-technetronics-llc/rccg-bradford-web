@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { title } from "process";
 
-
 export default function ServicesCard({
   title,
   desc,
@@ -18,11 +17,10 @@ export default function ServicesCard({
 
   return (
     <div
-      className={`flex w-full flex-col md:w-[80%] lg:w-[60%] md:items-center gap-3 ${
-        isEven ? 'md:flex-row' : 'md:flex-row-reverse'
+      className={`flex w-full flex-col md:w-[80%] justify-between md:items-center gap-3 ${
+        isEven ? "md:flex-row" : "md:flex-row-reverse"
       }`}
     >
-      
       <div className="w-full flex flex-col gap-3">
         <p className="text-xl md:text-2xl lg:text-3xl font-semibold">{title}</p>
         {desc.map((item: any, index: any) => (
@@ -36,9 +34,9 @@ export default function ServicesCard({
         className="w-full h-[400px] overflow-hidden shadow-lg"
         style={{
           borderRadius: isHovered
-            ? '49% 51% 53% 47% / 47% 48% 52% 53%'
-            : '50% 50% 53% 47% / 28% 28% 72% 72%',
-          transition: 'ease-in-out 1s',
+            ? "49% 51% 53% 47% / 47% 48% 52% 53%"
+            : "50% 50% 53% 47% / 28% 28% 72% 72%",
+          transition: "ease-in-out 1s",
         }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
