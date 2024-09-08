@@ -12,7 +12,14 @@ import Giving from "@/components/Giving";
 import SubFooter from "@/components/SubFooter";
 import Footer from "@/components/Footer";
 import { useQuery, gql } from "@apollo/client";
-import { ICategories, IHeroSection, INextEvent, ILatestSermon, IPictureGallery } from "@/models/utils.model";
+import {
+  ICategories,
+  IHeroSection,
+  INextEvent,
+  ILatestSermon,
+  IPictureGallery,
+  IHygraphPicturesArray,
+} from "@/models/utils.model";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,6 +54,7 @@ const GET_DATA = gql`
       eventImage {
         url
       }
+      liveVideoUrl
     }
     pictureGalleries {
       pictureCategoryTitle
@@ -62,9 +70,12 @@ export default function Home() {
   const [categories, setCategories] = useState<ICategories[]>([]);
   const [heroSections, setheroSections] = useState<IHeroSection[]>([]);
   const [nextEvents, setnextEvents] = useState<INextEvent[]>([]);
+  const [nearestEvent, setNearestEvent] = useState<INextEvent>();
   const [latestSermons, setlatestSermons] = useState<ILatestSermon[]>([]);
   const [subFooter, setsubFooter] = useState<INextEvent[]>([]);
-  const [pictureGalleries, setpictureGalleries] = useState<IPictureGallery[]>([]);
+  const [pictureGalleries, setpictureGalleries] = useState<
+    IHygraphPicturesArray[]
+  >([]);
 
   const handleScroll = () => {
     if (window.scrollY === 0) {
@@ -80,9 +91,19 @@ export default function Home() {
       setheroSections(data.heroSections);
       setnextEvents(data.nextEvents);
       setlatestSermons(data.latestSermons);
-      setpictureGalleries(data.pictureGalleries);
-      setsubFooter(data.nextEvents)
-      console.log(data, "its going");
+      setpictureGalleries(data.pictureGalleries[0].pictureCategoryImage);
+      setsubFooter(data.nextEvents);
+      const currentDate: any = new Date();
+      console.log(data);
+      const events = [...data.nextEvents];
+      // Sort the events by the closest eventDateTime to the current date
+      const closestEvent = events.sort((a, b) => {
+        const dateA: any = new Date(a.eventDateTime);
+        const dateB: any = new Date(b.eventDateTime);
+
+        return Math.abs(dateA - currentDate) - Math.abs(dateB - currentDate);
+      })[0];
+      setNearestEvent(closestEvent);
     }
   }, [data]);
   useEffect(() => {
@@ -96,14 +117,14 @@ export default function Home() {
     <div className="overflow-hidden">
       <Header />
       {/* <div className={`${isTop ? "wave" : "hidden"} z-10`}></div> */}
-      <HomeVideo heroSections={heroSections} />
+      <HomeVideo heroSections={heroSections} nearestEvent={nearestEvent} />
       <Categories categories={categories} />
       {/* <Bible /> */}
       <Sermons latestSermons={latestSermons} />
       <NextEvents nextEvents={nextEvents} />
       <MarqueeImg pictureGalleries={pictureGalleries} />
       <Giving />
-      <SubFooter subFooter={subFooter}/>
+      <SubFooter subFooter={subFooter} />
       <Footer />
     </div>
   );

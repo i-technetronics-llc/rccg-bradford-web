@@ -7,18 +7,29 @@ type Proppy = {
   title: string;
   // secondaryInfo: string;
   date: string;
+  slug: string;
 };
 export default function LongCardsEvents({
   src,
   title,
   // secondaryInfo,
+  slug,
   date,
 }: Proppy) {
   const router = useRouter();
   return (
     <div
       className="w-full rounded-lg shadow-md bg-white cursor-pointer flex flex-col md:flex-row overflow-hidden items-center md:h-[120px]"
-      onClick={() => router.push("/live_stream")}
+      onClick={() =>
+        router.push({
+          pathname: "/live_stream",
+          query: {
+            eventname: title,
+            time: date,
+            url: slug,
+          },
+        })
+      }
     >
       <img
         src={src}

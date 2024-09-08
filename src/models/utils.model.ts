@@ -58,6 +58,7 @@ export type INextEvent = {
     __typename: string;
     url: string;
   };
+  liveVideoUrl: string;
 };
 
 export type ILeader = {
@@ -82,13 +83,14 @@ export type IServices = {
     __typename: string;
     url: string;
   };
-}
+};
 
 export type IPictureGallery = {
   __typename: string;
   pictureCategoryTitle: string;
-  pictureCategoryImage: {
-    __typename: string;
-    url: string;
-  };
-}
+  pictureCategoryImage: IHygraphPicturesArray[];
+};
+export type IHygraphPicturesArray = {
+  __typename: string;
+  url: string;
+};

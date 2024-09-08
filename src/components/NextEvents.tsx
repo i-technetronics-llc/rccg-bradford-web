@@ -7,10 +7,8 @@ type NextEventProps = {
   nextEvents: INextEvent[];
 };
 
-
-export default function NextEvents( { nextEvents }: NextEventProps) {
+export default function NextEvents({ nextEvents }: NextEventProps) {
   const router = useRouter();
-
 
   return (
     <div className="my-8 md:my-20 flex flex-col items-center justify-center gap-8 px-8">
@@ -23,7 +21,8 @@ export default function NextEvents( { nextEvents }: NextEventProps) {
             key={index}
             src={item.eventImage.url}
             title={item.eventName}
-         //   secondaryInfo={item.ev}
+            //   secondaryInfo={item.ev}
+            slug={item.liveVideoUrl}
             date={item.eventDateTime}
           />
         ))}

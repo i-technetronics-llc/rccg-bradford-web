@@ -1,14 +1,18 @@
 import Link from "next/link";
 import { ImgHTMLAttributes } from "react";
-import { IHeroSection } from "@/models/utils.model";
+import { IHeroSection, INextEvent } from "@/models/utils.model";
 import { useRouter } from "next/router";
 import React from "react";
 
 type HeroSectionProps = {
   heroSections: IHeroSection[];
+  nearestEvent?: INextEvent;
 };
 
-export default function HomeVideo({ heroSections }: HeroSectionProps) {
+export default function HomeVideo({
+  heroSections,
+  nearestEvent,
+}: HeroSectionProps) {
   const router = useRouter();
 
   return (
@@ -24,7 +28,16 @@ export default function HomeVideo({ heroSections }: HeroSectionProps) {
           <div className="flex items-center justify-center gap-3 mt-5">
             <button
               className="bg-primary text-white w-fit h-fit px-5 py-2 rounded-full"
-              onClick={() => router.push("/live_stream")}
+              onClick={() =>
+                router.push({
+                  pathname: "/live_stream",
+                  query: {
+                    eventname: nearestEvent?.eventName,
+                    time: nearestEvent?.eventDateTime,
+                    url: nearestEvent?.liveVideoUrl,
+                  },
+                })
+              }
             >
               Watch Live
             </button>

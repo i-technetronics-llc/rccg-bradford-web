@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import VideoCard from "@/components/VideoCard";
+import { useRouter } from "next/router";
 
 interface Video {
   id: string;
@@ -11,6 +12,8 @@ interface Video {
 }
 export default function VideoGallery() {
   const [joined, setJoined] = useState<boolean>(false);
+  const router = useRouter();
+  const { time, url } = router.query;
   const [days, setDays] = useState<number>(0);
   const [hours, setHours] = useState<number>(0);
   const [minutes, setMinutes] = useState<number>(0);
@@ -24,42 +27,43 @@ export default function VideoGallery() {
   }
 
   useEffect(() => {
-    console.log(generateNextTwoMinutesISO(), "hello");
-  }, []);
+    if (time) {
+      // Generate the future date once
+      const eventDate = new Date(time as string);
 
-  useEffect(() => {
-    const eventDateISO = generateNextTwoMinutesISO(); // Generate the future date once
-    const eventDate = new Date(eventDateISO);
+      setCountdown(true);
+      localStorage.setItem("countdown", JSON.stringify(true));
 
-    setCountdown(true);
-    localStorage.setItem("countdown", JSON.stringify(true));
+      const countdownInterval = setInterval(() => {
+        const now = new Date().getTime();
+        const timeRemaining = eventDate.getTime() - now;
 
-    const countdownInterval = setInterval(() => {
-      const now = new Date().getTime();
-      const timeRemaining = eventDate.getTime() - now;
+        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        setDays(days);
+        const hours = Math.floor(
+          (timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        setHours(hours);
+        const minutes = Math.floor(
+          (timeRemaining % (1000 * 60 * 60)) / (1000 * 60)
+        );
+        setMinutes(minutes);
+        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        setSeconds(seconds);
 
-      const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-      setDays(days);
-      const hours = Math.floor(
-        (timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      setHours(hours);
-      const minutes = Math.floor(
-        (timeRemaining % (1000 * 60 * 60)) / (1000 * 60)
-      );
-      setMinutes(minutes);
-      const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-      setSeconds(seconds);
+        if (timeRemaining < 0) {
+          clearInterval(countdownInterval);
+          setCountdown(false);
+          localStorage.setItem("countdown", JSON.stringify(false));
+        }
+      }, 1000);
 
-      if (timeRemaining < 0) {
-        clearInterval(countdownInterval);
-        setCountdown(false);
-        localStorage.setItem("countdown", JSON.stringify(false));
-      }
-    }, 1000);
+      console.log(url, "ururur");
+      return () => clearInterval(countdownInterval); // Cleanup interval on unmount
+    }
+  }, [time]);
 
-    return () => clearInterval(countdownInterval); // Cleanup interval on unmount
-  }, []);
+  useEffect(() => {}, [url]);
 
   return (
     <div className="">
@@ -106,7 +110,7 @@ export default function VideoGallery() {
           ) : (
             <>
               <iframe
-                src="https://www.youtube.com/embed/8iCX8lUJML0?si=knDnxZHgeNUQG2pP"
+                src={url as string}
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
