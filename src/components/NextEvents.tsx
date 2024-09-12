@@ -23,7 +23,7 @@ export default function NextEvents({ nextEvents }: NextEventProps) {
             title={item.eventName}
             //   secondaryInfo={item.ev}
             slug={item.liveVideoUrl}
-            date={item.eventDateTime}
+            date={item.eventDateStartTime}
           />
         ))}
       </div>

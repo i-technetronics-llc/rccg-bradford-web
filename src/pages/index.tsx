@@ -50,11 +50,12 @@ const GET_DATA = gql`
     }
     nextEvents {
       eventName
-      eventDateTime
       eventImage {
         url
       }
       liveVideoUrl
+      eventDateStartTime
+      eventDateEndTime
     }
     pictureGalleries {
       pictureCategoryTitle
@@ -98,8 +99,8 @@ export default function Home() {
       const events = [...data.nextEvents];
       // Sort the events by the closest eventDateTime to the current date
       const closestEvent = events.sort((a, b) => {
-        const dateA: any = new Date(a.eventDateTime);
-        const dateB: any = new Date(b.eventDateTime);
+        const dateA: any = new Date(a.eventDateStartTime);
+        const dateB: any = new Date(b.eventDateStartTime);
 
         return Math.abs(dateA - currentDate) - Math.abs(dateB - currentDate);
       })[0];

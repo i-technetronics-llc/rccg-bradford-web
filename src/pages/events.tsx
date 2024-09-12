@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import React, { useEffect, useState } from "react";
 import EventItem from "@/components/Event/EventItem";
 const localizer = momentLocalizer(moment);
+import { useQuery, gql } from "@apollo/client";
+import { INextEvent } from "@/models/utils.model";
 
 type Event = {
   allDay?: boolean | undefined;
@@ -20,97 +22,58 @@ const ColoredDateCellWrapper = ({ children }: any) =>
       backgroundColor: "lightblue",
     },
   });
-
+const GET_DATA = gql`
+  {
+    nextEvents {
+      eventName
+      eventImage {
+        url
+      }
+      liveVideoUrl
+      eventDateStartTime
+      eventDateEndTime
+    }
+  }
+`;
 export default function Events() {
   const [dates, setDates] = useState();
-  const events = [
-    {
-      allDay: false,
-      id: 1,
-      title: "we outside",
-      start: new Date(2024, 6, 17, 8, 30), // Specific start time
-      end: new Date(2024, 6, 17, 12, 30), // Specific end time
-    },
-    {
-      allDay: false,
-      id: 1,
-      title: "we outside",
-      start: new Date(2024, 6, 17, 12, 45), // Specific start time
-      end: new Date(2024, 6, 17, 14, 30), // Specific end time
-    },
-    {
-      allDay: true,
-      id: 2,
-      title: "DTS STARTS",
-      start: new Date(2024, 6, 22), // Month is 0-based
-      end: new Date(2024, 6, 27), // Month is 0-based
-    },
-  ];
-
-  const handleSundayDate = () => {
-    const currentDate = new Date();
-    const dates = [];
-
-    for (let i = 0; i < 7; i++) {
-      const date = new Date(
-        currentDate.getFullYear(),
-        currentDate.getMonth(),
-        currentDate.getDate() + i
-      );
-      const day = date.toLocaleDateString("en-US", { weekday: "short" });
-
-      dates.push({ day, date });
-    }
-
-    const sundayEvents = dates
-      .filter((item) => item.day === "Sun")
-      .flatMap((item, index) => [
-        {
-          allDay: false,
-          id: Math.random() * 100,
-          title: `Sunday Service 1`,
-          start: new Date(
-            item.date.getFullYear(),
-            item.date.getMonth(),
-            item.date.getDate(),
-            9,
-            15
-          ),
-          end: new Date(
-            item.date.getFullYear(),
-            item.date.getMonth(),
-            item.date.getDate(),
-            11,
-            45
-          ),
-        },
-        {
-          allDay: false,
-          id: Math.random() * 100,
-          title: `Sunday Service 2`,
-          start: new Date(
-            item.date.getFullYear(),
-            item.date.getMonth(),
-            item.date.getDate(),
-            11,
-            45
-          ),
-          end: new Date(
-            item.date.getFullYear(),
-            item.date.getMonth(),
-            item.date.getDate(),
-            13,
-            15
-          ),
-        },
-      ]);
-
-    return sundayEvents;
-  };
+  const { loading, error, data } = useQuery(GET_DATA);
+  const [nextEvents, setnextEvents] = useState<any[]>([]);
 
   useEffect(() => {
-    console.log(handleSundayDate());
-  }, []);
+    if (data) {
+      const eventstransformed = data.nextEvents.map(
+        (item: INextEvent, index: number) => {
+          const date = new Date(item.eventDateStartTime);
+          const end = new Date(item.eventDateEndTime);
+          return {
+            allDay: false,
+            id: Math.random() * 100,
+            title: item.eventName,
+            start: new Date(
+              date.getFullYear(),
+              date.getMonth(),
+              date.getDate(),
+              date.getHours(),
+              date.getMinutes()
+            ),
+            end: new Date(
+              date.getFullYear(),
+              date.getMonth(),
+              date.getDate(),
+              end.getHours(),
+              end.getMinutes()
+            ),
+            slug: item.liveVideoUrl,
+            fullDate: item.eventDateStartTime,
+            img: item.eventImage.url,
+          };
+        }
+      );
+      setnextEvents(eventstransformed);
+      console.log(eventstransformed, "efvdtdr");
+    }
+  }, [data]);
 
   const eventPropGetter = (
     event: any,
@@ -142,7 +105,7 @@ export default function Events() {
               <Calendar
                 components={{ timeSlotWrapper: ColoredDateCellWrapper }}
                 localizer={localizer}
-                events={handleSundayDate()}
+                events={nextEvents}
                 startAccessor="start"
                 endAccessor="end"
                 style={{ height: 500 }}
@@ -157,9 +120,11 @@ export default function Events() {
                 <p className="text-xl text-center "> Upcoming Event Details</p>
                 <div className="h-[3px] w-[10%] bg-gradient-to-r from-primary to-secondary"></div>
               </div>
-              {handleSundayDate().map((item, index) => (
-                <EventItem event={item} key={index} />
-              ))}
+              <div className="lg:h-[70vh] w-full flex  flex-col gap-2 overflow-scroll">
+                {nextEvents.map((item, index) => (
+                  <EventItem event={item} key={index} />
+                ))}
+              </div>
             </div>
           </div>
         </div>

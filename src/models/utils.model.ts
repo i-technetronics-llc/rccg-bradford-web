@@ -52,7 +52,8 @@ export type ILatestSermon = {
 export type INextEvent = {
   __typename: string;
   eventName: string;
-  eventDateTime: string;
+  eventDateStartTime: string;
+  eventDateEndTime: string;
   createdAt: string;
   eventImage: {
     __typename: string;

@@ -1,17 +1,23 @@
 import Image from "next/image";
-
+import { useRouter } from "next/router";
+import { getFormattedDate } from "../utils/GlobalPagination";
+// import { getFormattedDate } from "./utils/GlobalPagination";
 type EventItem = {
   allDay: boolean;
   id: number;
   title: string;
   start: Date | string;
   end: Date | string;
+  slug: string;
+  fullDate: string;
+  img: string;
 };
 type EventProp = {
   event: EventItem;
 };
 
 export default function EventItem({ event }: EventProp) {
+  const router = useRouter();
   function formatTime(dateString: string) {
     // Parse the date string into a Date object
     const date = new Date(dateString);
@@ -35,19 +41,32 @@ export default function EventItem({ event }: EventProp) {
     return `${formattedHours}:${formattedMinutes} ${ampm}`;
   }
   return (
-    <div className="w-full p-2 flex flex-col gap-2 rounded-t-lg h-fit shadow-md">
+    <div
+      className="p-2 w-full grow flex flex-col cursor-pointer gap-2 rounded-t-lg h-fit shadow-md"
+      onClick={() =>
+        router.push({
+          pathname: "/live_stream",
+          query: {
+            eventname: event.title,
+            time: event.fullDate as string,
+            url: event.slug,
+          },
+        })
+      }
+    >
       <div className="w-full overflow-hidden rounded-t-lg h-[100px] ">
-        <Image
-          src="https://www.rccgbradford.org.uk/wp-content/uploads/2019/11/rccgbradford-sunday-600x600.jpeg"
-          alt="img"
-          width={300}
-          height={300}
-        />
+        <img src={event.img} alt="img" height={300} className="w-full" />
       </div>
       <div className="flex flex-col gap-2">
         <p className="text-sm">
           Event Name:{" "}
           <span className="font-semibold text-primary">{event.title}</span>
+        </p>
+        <p className="text-sm">
+          Date:{" "}
+          <span className="font-semibold text-primary">
+            {getFormattedDate(event.fullDate)}
+          </span>
         </p>
         <p className="text-sm">
           Time:{" "}

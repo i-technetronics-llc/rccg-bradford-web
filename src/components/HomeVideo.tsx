@@ -33,7 +33,7 @@ export default function HomeVideo({
                   pathname: "/live_stream",
                   query: {
                     eventname: nearestEvent?.eventName,
-                    time: nearestEvent?.eventDateTime,
+                    time: nearestEvent?.eventDateStartTime,
                     url: nearestEvent?.liveVideoUrl,
                   },
                 })
