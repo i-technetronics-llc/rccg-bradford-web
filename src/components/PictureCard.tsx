@@ -61,7 +61,7 @@ const PictureCard: React.FC<PictureCardProps> = ({ pictures }) => {
               key={index}
               onClick={() => {
                 onOpen();
-                setCurrentPicture(item);
+                setCurrentPicture(item.url);
               }}
             />
           ))}
@@ -109,9 +109,9 @@ const PictureCard: React.FC<PictureCardProps> = ({ pictures }) => {
                 />
               </div>
               <Marquee speed={20} autoFill direction="right">
-                {images.map((item, index) => (
+                {pictures.map((item, index) => (
                   <img
-                    src={item}
+                    src={item.url}
                     alt="logo"
                     width={300}
                     height={300}
@@ -119,7 +119,7 @@ const PictureCard: React.FC<PictureCardProps> = ({ pictures }) => {
                     key={index}
                     onClick={() => {
                       // onOpen();
-                      setCurrentPicture(item);
+                      setCurrentPicture(item.url);
                     }}
                   />
                 ))}

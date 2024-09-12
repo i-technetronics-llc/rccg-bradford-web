@@ -14,10 +14,14 @@ const GET_DATA = gql`
         url
       }
     }
+    pictureGalleries {
+      pictureCategoryTitle
+    }
   }
 `;
 export default function PictureGallery() {
   const [filter, setFilter] = useState<string>("All");
+  const [filterList, setFilterList] = useState<any[]>([]);
   const [pics, setPics] = useState<any>();
   const { loading, error, data, refetch } = useQuery(GET_DATA, {
     variables: { category: filter },
@@ -28,6 +32,7 @@ export default function PictureGallery() {
     if (data) {
       console.log(data, "hehe");
       setPics(data?.pictureGallery?.pictureCategoryImage);
+      setFilterList(data?.pictureGalleries);
     }
   }, [data]);
   useEffect(() => {
@@ -106,8 +111,11 @@ export default function PictureGallery() {
                   value={filter}
                   onChange={(e) => setFilter(e.target.value)}
                 >
-                  <option value="opt">Opt</option>
-                  <option value="All">All</option>
+                  {filterList.map((item, index) => (
+                    <option value={item.pictureCategoryTitle} key={index}>
+                      {item.pictureCategoryTitle}
+                    </option>
+                  ))}
                 </Select>
               </div>
             </div>
