@@ -7,7 +7,7 @@ type Proppy = {
   title: string;
   // secondaryInfo: string;
   date: string;
-  slug: string;
+  slug?: string;
 };
 export default function LongCardsEvents({
   src,

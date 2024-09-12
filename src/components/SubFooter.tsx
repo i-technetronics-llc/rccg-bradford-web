@@ -2,12 +2,10 @@ import LongCards from "./LongCards";
 import SubFooterCards from "./SubFooterCards";
 import { INextEvent } from "@/models/utils.model";
 
-
 type SubFooterProps = {
   subFooter: INextEvent[];
 };
 export default function SubFooter({ subFooter }: SubFooterProps) {
- 
   return (
     <div className="mt-20 px-5 md:px-8 bg-[#cccccc70] pt-8 subFooterBox pb-3 h-fit">
       <div className="flex flex-col md:flex-row gap-5 items-center justify-between">
@@ -21,8 +19,8 @@ export default function SubFooter({ subFooter }: SubFooterProps) {
               key={index}
               src={item.eventImage.url}
               title={item.eventName}
-            //  secondaryInfo={item.secondaryInfo}
-              date={item.eventDateTime}
+              //  secondaryInfo={item.secondaryInfo}
+              date={item.eventDateStartTime}
             />
           ))}
         </div>

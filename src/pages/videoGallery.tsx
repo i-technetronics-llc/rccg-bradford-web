@@ -67,14 +67,14 @@ export default function VideoGallery() {
               <p className="text-xl md:text-3xl lg:text-4xl ">VIDEO GALLERY</p>
               <div className="h-[3px] w-[5%] bg-gradient-to-r from-primary to-secondary"></div>
             </div>
-            <button
+            {/* <button
               className="bg-gradient-to-r from-primary to-secondary gap-2 flex items-center text-white font-semibold hover:bg-gradient-to-l ease-in-out duration-700 hover:scale-110 transition px-5 py-2 w-fit rounded-lg"
               onClick={() => {
                 router.push("/live_stream");
               }}
             >
               Live Stream
-            </button>
+            </button> */}
           </div>
           <VideoCard videos={videos} />
         </div>

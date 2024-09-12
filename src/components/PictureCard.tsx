@@ -19,7 +19,7 @@ interface Picture {
 }
 
 interface PictureCardProps {
-  pictures: Picture[];
+  pictures: any[];
 }
 
 const PictureCard: React.FC<PictureCardProps> = ({ pictures }) => {
@@ -51,9 +51,9 @@ const PictureCard: React.FC<PictureCardProps> = ({ pictures }) => {
     <div className="grid grid-cols-1  gap-4 p-4">
       <div className="box bg-gradient-to-r from-primary to-secondary h-[400px] overflow-hidden">
         <Marquee speed={20} autoFill direction="left">
-          {images.map((item, index) => (
+          {pictures.map((item, index) => (
             <img
-              src={item}
+              src={item.url}
               alt="logo"
               width={500}
               height={500}
@@ -69,9 +69,9 @@ const PictureCard: React.FC<PictureCardProps> = ({ pictures }) => {
       </div>
       <div className="box bg-gradient-to-r from-primary to-secondary h-[400px] overflow-hidden">
         <Marquee speed={20} autoFill direction="right">
-          {images.map((item, index) => (
+          {pictures.map((item, index) => (
             <img
-              src={item}
+              src={item.url}
               alt="logo"
               width={500}
               height={500}
