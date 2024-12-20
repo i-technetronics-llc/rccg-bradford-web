@@ -39,6 +39,72 @@ export default function Events() {
   const [dates, setDates] = useState();
   const { loading, error, data } = useQuery(GET_DATA);
   const [nextEvents, setnextEvents] = useState<any[]>([]);
+  const handleSundayDate = () => {
+    const currentDate = new Date();
+    const dates = [];
+
+    for (let i = 0; i < 7; i++) {
+      const date = new Date(
+        currentDate.getFullYear(),
+        currentDate.getMonth(),
+        currentDate.getDate() + i
+      );
+      const day = date.toLocaleDateString("en-US", { weekday: "short" });
+
+      dates.push({ day, date });
+    }
+
+    const sundayEvents = dates
+      .filter((item) => item.day === "Sun")
+      .flatMap((item, index) => [
+        {
+          allDay: false,
+          id: Math.random() * 100,
+          title: `Sunday Service 1`,
+          start: new Date(
+            item.date.getFullYear(),
+            item.date.getMonth(),
+            item.date.getDate(),
+            9,
+            15
+          ),
+          end: new Date(
+            item.date.getFullYear(),
+            item.date.getMonth(),
+            item.date.getDate(),
+            11,
+            45
+          ),
+          slug: "",
+          fullDate: "",
+          img: "",
+        },
+        {
+          allDay: false,
+          id: Math.random() * 100,
+          title: `Sunday Service 2`,
+          start: new Date(
+            item.date.getFullYear(),
+            item.date.getMonth(),
+            item.date.getDate(),
+            11,
+            45
+          ),
+          end: new Date(
+            item.date.getFullYear(),
+            item.date.getMonth(),
+            item.date.getDate(),
+            13,
+            15
+          ),
+          slug: "",
+          fullDate: "",
+          img: "",
+        },
+      ]);
+
+    return sundayEvents;
+  };
 
   useEffect(() => {
     if (data) {
