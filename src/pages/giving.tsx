@@ -48,28 +48,26 @@ export default function Giving() {
               transactions. Please click on the Donate button below for your
               contributions via PAYPAL.
             </p>
-            {img.map((img, index) => (
-              <div
-                className="w-full h-[300px] overflow-hidden"
-                style={{
-                  borderRadius: isHovered
-                    ? "49% 51% 53% 47% / 47% 48% 52% 53% "
-                    : "64% 36% 78% 22% / 16% 76% 24% 84%",
-                  transition: "ease-in-out 1s",
-                }}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-              >
-                <Image
-                  src={img}
-                  alt="historyPix"
-                  width={300}
-                  key={index}
-                  height={300}
-                  className="w-full h-full"
-                />
-              </div>
-            ))}
+
+            <div
+              className="w-full h-[300px] overflow-hidden"
+              style={{
+                borderRadius: isHovered
+                  ? "49% 51% 53% 47% / 47% 48% 52% 53% "
+                  : "64% 36% 78% 22% / 16% 76% 24% 84%",
+                transition: "ease-in-out 1s",
+              }}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              <Image
+                src={"/img/giving.jpeg"}
+                alt="historyPix"
+                width={300}
+                height={300}
+                className="w-full h-full"
+              />
+            </div>
           </div>
           <div className="w-full flex flex-col gap-5">
             <div className="flex flex-col gap-3 mb-5">

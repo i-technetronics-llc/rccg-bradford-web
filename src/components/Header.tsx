@@ -48,6 +48,7 @@ export default function Header() {
           alt="logo"
           width={200}
           height={200}
+          onClick={() => router.push("/")}
         />
       </div>
       <div className="lg:hidden">

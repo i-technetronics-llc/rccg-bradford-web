@@ -21,7 +21,9 @@ export default function ServicesCard({
         isEven ? "md:flex-row" : "md:flex-row-reverse"
       }`}
     >
-      <div className="w-full flex flex-col gap-3">
+      <div
+        className={`${isEven ? "" : "items-end"} w-full flex flex-col gap-3`}
+      >
         <p className="text-xl md:text-2xl lg:text-3xl font-semibold">{title}</p>
         {desc.map((item: any, index: any) => (
           <p className="font-semibold text-sm" key={index}>

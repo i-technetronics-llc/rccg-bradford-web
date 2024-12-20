@@ -13,17 +13,18 @@ import { useQuery, gql } from "@apollo/client";
 import { IServices } from "@/models/utils.model";
 import { Skeleton } from "@chakra-ui/react";
 import ServicesCard from "@/components/ServicesCard";
-
+import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
+import "react-multi-carousel/lib/styles.css";
 const GET_DATA = gql`
   {
     services {
-    serviceTitle
-    serviceDetailsAndTime
-    serviceImage {
-      url
+      serviceTitle
+      serviceDetailsAndTime
+      serviceImage {
+        url
+      }
     }
   }
-}
 `;
 
 export default function Services() {
@@ -48,7 +49,6 @@ export default function Services() {
 
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 1,
     },
@@ -56,8 +56,12 @@ export default function Services() {
       breakpoint: { max: 3000, min: 1024 },
       items: 1,
     },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
+    maxtablet: {
+      breakpoint: { max: 1024, min: 864 },
+      items: 1,
+    },
+    mintablet: {
+      breakpoint: { max: 864, min: 464 },
       items: 1,
     },
     mobile: {
@@ -83,24 +87,42 @@ export default function Services() {
           </div>
           <div className="w-full">
             <Carousel
+              swipeable={false}
+              draggable={false}
               responsive={responsive}
-              //  draggable
-              swipeable
-              autoPlay
-              //   slidesToSlide={5}
-              showDots
-              arrows={false}
-              autoPlaySpeed={3000}
-              //   renderDotsOutside
-              rewindWithAnimation
+              ssr={true}
+              infinite={true}
+              autoPlay={true}
+              autoPlaySpeed={1000}
+              keyBoardControl={true}
+              transitionDuration={5000}
+              containerClass="carousel-container"
+              removeArrowOnDeviceType={["tablet", "mobile"]}
+              dotListClass="custom-dot-list-style"
+              itemClass="carousel-item-padding-40-px"
+              customRightArrow={
+                <div className="absolute top-1/2 cursor-pointer right-4 bg-[#FFFFFFCC] rounded-full flex items-center w-[50px] h-[50px]  justify-center">
+                  <BsArrowRightCircle
+                    className=" 
+           text-primary-400 text-2xl"
+                  />
+                </div>
+              }
+              customLeftArrow={
+                <div className="absolute top-1/2 cursor-pointer left-4 bg-[#FFFFFFCC] rounded-full flex items-center w-[50px] h-[50px] justify-center">
+                  <BsArrowLeftCircle className=" text-2xl text-primary-400" />
+                </div>
+              }
             >
               {img.map((img, index) => (
-                <div className="historyBox overflow-hidden w-full  md:h-[500px]">
+                <div
+                  className="historyBox overflow-hidden w-full  md:h-[500px]"
+                  key={index}
+                >
                   <Image
                     src={img}
                     alt="historyPix"
                     width={500}
-                    key={index}
                     height={500}
                     className="w-full h-full"
                   />
@@ -119,13 +141,13 @@ export default function Services() {
             ? skels.map((item, index) => (
                 <Skeleton key={index} w={"100%"} h={"400px"} />
               ))
-              : finalArr.map((service, index) => (
-                <ServicesCard 
-                key={index}
-                title={service.serviceTitle}
-                desc={service.serviceDetailsAndTime}
-                img={service.serviceImage.url}
-                index={index}
+            : finalArr.map((service, index) => (
+                <ServicesCard
+                  key={index}
+                  title={service.serviceTitle}
+                  desc={service.serviceDetailsAndTime}
+                  img={service.serviceImage.url}
+                  index={index}
                 />
               ))}
         </div>
