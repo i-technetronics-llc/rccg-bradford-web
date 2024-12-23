@@ -76,8 +76,8 @@ export default function Events() {
             45
           ),
           slug: "",
-          fullDate: "",
-          img: "",
+          fullDate: item.date,
+          img: "https://www.rccgbradford.org.uk/wp-content/uploads/2019/11/rccgbradford-sunday-600x600.jpeg",
         },
         {
           allDay: false,
@@ -98,8 +98,8 @@ export default function Events() {
             15
           ),
           slug: "",
-          fullDate: "",
-          img: "",
+          fullDate: item.date,
+          img: "https://www.rccgbradford.org.uk/wp-content/uploads/2019/11/rccgbradford-sunday-600x600.jpeg",
         },
       ]);
 
@@ -136,7 +136,7 @@ export default function Events() {
           };
         }
       );
-      setnextEvents(eventstransformed);
+      setnextEvents(eventstransformed.concat(handleSundayDate()));
       console.log(eventstransformed, "efvdtdr");
     }
   }, [data]);
