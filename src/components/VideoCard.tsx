@@ -62,26 +62,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ videos }) => {
         allowFullScreen
         className="p-5 shadow-md rounded-lg w-full h-[300px]"
       ></iframe>
-      {/* {videos.map((video: Video) => (
-        <div
-          key={video.id}
-          className="group relative overflow-hidden rounded-lg shadow-md p-4 transform transition-transform duration-300 ease-in-out hover:scale-105"
-        >
-          <img
-            src={video.thumbnailUrl}
-            alt={video.title}
-            className="w-full h-48 object-cover rounded-lg"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
-            <button
-              onClick={() => handleOpen(video)}
-              className="w-full h-full flex items-center justify-center text-white text-xl focus:outline-none"
-            >
-              <i className="fas fa-play"></i>
-            </button>
-          </div>
-        </div>
-      ))} */}
+
       {isOpen && currentVideo && (
         <Modal isOpen={isOpen} onClose={handleClose} size="full">
           <ModalOverlay />
