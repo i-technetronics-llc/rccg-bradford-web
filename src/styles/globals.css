@@ -106,7 +106,18 @@
   color: white;
   position: relative;
 }
+.rbc-calendar {
+  font-family: Arial, sans-serif;
+}
 
+.rbc-event {
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.rbc-toolbar {
+  background-color: #4283f0;
+}
 .custom-shape::before {
   content: "";
   position: absolute;

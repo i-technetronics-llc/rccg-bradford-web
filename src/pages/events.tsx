@@ -8,6 +8,17 @@ import EventItem from "@/components/Event/EventItem";
 const localizer = momentLocalizer(moment);
 import { useQuery, gql } from "@apollo/client";
 import { INextEvent } from "@/models/utils.model";
+import {
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalOverlay,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { getFormattedDate } from "@/components/utils/GlobalPagination";
+import { useRouter } from "next/router";
 
 type Event = {
   allDay?: boolean | undefined;
@@ -19,7 +30,7 @@ type Event = {
 const ColoredDateCellWrapper = ({ children }: any) =>
   React.cloneElement(React.Children.only(children), {
     style: {
-      backgroundColor: "lightblue",
+      backgroundColor: "#8665c5",
     },
   });
 const GET_DATA = gql`
@@ -39,6 +50,8 @@ export default function Events() {
   const [dates, setDates] = useState();
   const { loading, error, data } = useQuery(GET_DATA);
   const [nextEvents, setnextEvents] = useState<any[]>([]);
+  const [selectedEvent, setSelectedEvent] = useState<any>();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const handleSundayDate = () => {
     const currentDate = new Date();
     const dates = [];
@@ -179,6 +192,10 @@ export default function Events() {
                 step={60}
                 showMultiDayTimes
                 eventPropGetter={eventPropGetter}
+                onSelectEvent={(event, e) => {
+                  setSelectedEvent(event);
+                  onOpen();
+                }}
               />
             </div>
             <div className="lg:w-[30%] w-full flex flex-col gap-2">
@@ -195,7 +212,86 @@ export default function Events() {
           </div>
         </div>
       </div>
+      <EventPopup event={selectedEvent} isOpen={isOpen} onClose={onClose} />
       <Footer />
     </div>
   );
 }
+const EventPopup = ({ event, isOpen, onClose }: any) => {
+  const router = useRouter();
+  function formatTime(dateString: string) {
+    // Parse the date string into a Date object
+    const date = new Date(dateString);
+
+    // Extract hours and minutes
+    let hours = date.getHours();
+    const minutes = date.getMinutes();
+
+    // Determine AM or PM
+    const ampm = hours >= 12 ? "PM" : "AM";
+
+    // Convert hours from 24-hour to 12-hour format
+    hours = hours % 12;
+    hours = hours ? hours : 12; // The hour '0' should be '12'
+
+    // Format the hours and minutes to ensure two digits for minutes
+    const formattedHours = hours.toString();
+    const formattedMinutes = minutes.toString().padStart(2, "0");
+
+    // Return the formatted time with AM/PM
+    return `${formattedHours}:${formattedMinutes} ${ampm}`;
+  }
+  return (
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <ModalOverlay />
+      <ModalContent>
+        <ModalCloseButton />
+        <ModalBody>
+          <div
+            className="p-2 w-full grow flex flex-col cursor-pointer gap-2 rounded-t-lg h-fit shadow-md"
+            onClick={() =>
+              router.push({
+                pathname: "/live_stream",
+                query: {
+                  eventname: event?.title,
+                  time: event?.fullDate as string,
+                  url: event?.slug,
+                },
+              })
+            }
+          >
+            <div className="w-full overflow-hidden rounded-t-lg h-[100px] ">
+              <img src={event?.img} alt="img" height={300} className="w-full" />
+            </div>
+            <div className="flex flex-col gap-2">
+              <p className="text-sm">
+                Event Name:{" "}
+                <span className="font-semibold text-primary">
+                  {event?.title}
+                </span>
+              </p>
+              <p className="text-sm">
+                Date:{" "}
+                <span className="font-semibold text-primary">
+                  {getFormattedDate(event?.fullDate)}
+                </span>
+              </p>
+              <p className="text-sm">
+                Time:{" "}
+                <span className="font-semibold text-primary">
+                  {formatTime(event?.start as string)}-
+                  {formatTime(event?.end as string)}
+                </span>
+              </p>
+            </div>
+          </div>
+        </ModalBody>
+        <ModalFooter>
+          <button className="w-fit h-fit px-5 py-2 rounded-lg bg-[#fafafa] text-[#ccc]">
+            Close
+          </button>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
+  );
+};
