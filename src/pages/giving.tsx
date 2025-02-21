@@ -1,14 +1,19 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Image from "next/image";
 import { Input, InputGroup, InputLeftAddon } from "@chakra-ui/react";
 import { useState } from "react";
 
 export default function Giving() {
   const [value, setValue] = useState(5);
+  const [isHovered, setIsHovered] = useState(false);
+  const img = [
+    "https://www.rccgbradford.org.uk/wp-content/uploads/2019/05/rccg8.jpg",
+  ];
   return (
     <div className="">
       <Header />
-      <div className="w-full flex justify-center min-h-screen">
+      <div className="w-full flex justify-center min-h-screen mt-[80px] lg:mt-[120px]">
         <div className="w-[80%] py-5 md:py-8 lg:py-12 flex flex-col md:flex-row gap-5">
           <div className="flex flex-col w-full gap-3">
             <p className="text-sm">
@@ -43,15 +48,35 @@ export default function Giving() {
               transactions. Please click on the Donate button below for your
               contributions via PAYPAL.
             </p>
+
+            <div
+              className="w-full h-[300px] overflow-hidden"
+              style={{
+                borderRadius: isHovered
+                  ? "49% 51% 53% 47% / 47% 48% 52% 53% "
+                  : "64% 36% 78% 22% / 16% 76% 24% 84%",
+                transition: "ease-in-out 1s",
+              }}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              <Image
+                src={"/img/giving.jpeg"}
+                alt="historyPix"
+                width={300}
+                height={300}
+                className="w-full h-full"
+              />
+            </div>
           </div>
-          <div className="w-full flex flex-col gap-3">
+          <div className="w-full flex flex-col gap-5">
             <div className="flex flex-col gap-3 mb-5">
               <p className="text-xl md:text-3xl lg:text-4xl ">
                 RCCG BRADFORD GIVING
               </p>
               <div className="h-[3px] w-[10%] bg-gradient-to-r from-primary to-secondary"></div>
             </div>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-5">
               <InputGroup w={"fit-content"}>
                 <InputLeftAddon>£</InputLeftAddon>
                 <Input
@@ -61,7 +86,7 @@ export default function Giving() {
                   onChange={(e) => setValue(parseInt(e.target.value))}
                 />
               </InputGroup>
-              <div className="w-full flex items-center gap-2">
+              <div className="w-full flex flex-wrap items-center gap-2">
                 <div
                   className=" rounded-lg w-fit px-3 py-2 cursor-pointer bg-[#f5f5f5]"
                   onClick={() => setValue(5)}
@@ -93,7 +118,7 @@ export default function Giving() {
                   <p className="">Custom</p>
                 </div>
               </div>
-              <div className="flex flex-col gap-3 mb-5">
+              <div className="flex flex-col gap-5 mb-5">
                 <p className="text-sm font-semibold ">Personal Information</p>
                 <div className="h-[2px] w-full bg-gradient-to-r from-primary to-secondary"></div>
                 <input
@@ -116,7 +141,11 @@ export default function Giving() {
                   placeholder="Email"
                 />
               </div>
-              <InputGroup w={"fit-content"}>
+              <InputGroup
+                w={"100%"}
+                border={"1px solid #cccccc"}
+                borderRadius={8}
+              >
                 <InputLeftAddon>Donation Total:</InputLeftAddon>
                 <Input
                   type="number"

@@ -6,7 +6,7 @@ export default function History() {
   return (
     <div className="">
       <Header />
-      <div className="w-full flex justify-center">
+      <div className="w-full flex justify-center mt-[80px]">
         <div className="w-[80%] flex justify-center py-12">
           <HistoryView />
         </div>
