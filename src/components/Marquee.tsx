@@ -17,7 +17,7 @@ export default function MarqueeImg({ pictureGalleries }: PictureGalleryProps) {
               alt="logo"
               width={500}
               height={500}
-              className="h-[500px] w-[500px]"
+              className="h-[500px] mr-5 w-[500px]"
               key={index}
             />
           </>
