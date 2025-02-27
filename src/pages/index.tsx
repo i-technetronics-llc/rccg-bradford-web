@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import { useEffect, useState } from "react";
 import HomeVideo from "@/components/HomeVideo";
+import Slider from "@/components/slider";
 import Categories from "@/components/Categories";
 import Bible from "@/components/Bible";
 import Sermons from "@/components/Sermons";
@@ -20,6 +21,7 @@ import {
   IPictureGallery,
   IHygraphPicturesArray,
 } from "@/models/utils.model";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -119,6 +121,7 @@ export default function Home() {
       <Header />
       {/* <div className={`${isTop ? "wave" : "hidden"} z-10`}></div> */}
       <HomeVideo heroSections={heroSections} nearestEvent={nearestEvent} />
+      <Slider />
       <Categories categories={categories} />
       {/* <Bible /> */}
       <Sermons latestSermons={latestSermons} />

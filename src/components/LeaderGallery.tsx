@@ -1,115 +1,87 @@
-import LeaderPhotoCard from "./LeaderPhotoCard";
-import { leaders } from "./LeaderData";
-import { useQuery, gql } from "@apollo/client";
-import { useEffect, useState } from "react";
-import { Skeleton } from "@chakra-ui/react";
-import { ILeader } from "@/models/utils.model";
+import React, { useState, useEffect } from "react";
 
-const GET_DATA = gql`
-  {
-    leaderGalleries {
-      leaderDescription
-      leaderName
-      leaderRole
-      leaderImage {
-        url
-      }
-      id
-    }
-  }
-`;
-const imgs = ["/img/pasW.png", "/img/pass2.png", "/img/pass3.png"];
-export default function LeaderGallery() {
-  const { loading, error, data } = useQuery(GET_DATA);
-  const [skels, setSkels] = useState<number[]>([1, 2, 3]);
-  const [leads, setLeads] = useState<ILeader[]>([]);
-  const [finalArr, setFinalArr] = useState<any[]>([]);
-  const [isHovered, setIsHovered] = useState(false);
-  const [paragraphs, setParagraphs] = useState<any[]>([]);
+export default function OurLeadersSection() {
+  const images = ["/img/pass3.png", "/img/pasW.png", "/img/pass2.png" ]; 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   useEffect(() => {
-    console.log(data);
-    if (data) {
-      const leaders: ILeader[] = data.leaderGalleries;
-      const fin = leaders.map((item) => {
-        return {
-          ...item,
-          br: "53% 47% 48% 52% / 43% 35% 65% 57% ",
-          br2: "53% 47% 48% 52% / 62% 35% 65% 38%",
-        };
-      });
-      setFinalArr(fin);
-      setLeads(data.leaderGalleries);
-      const descriptions = Array.from(
-        data.leaderGalleries[0].leaderDescription,
-        (item, i) => {
-          return {
-            text: item,
-            img: imgs[i % imgs.length],
-          };
-        }
-      );
-      setParagraphs(descriptions);
-    }
-  }, [data]);
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 4000); // Change image every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="w-full flex justify-center mt-[80px] py-5 md:py-12">
-      <div className="w-[80%] flex flex-col gap-5 md:gap-8 lg:gap-6">
-        <div className="w-fit flex gap-1 flex-col px-3 py-1">
-          <p className="text-xl md:text-3xl lg:text-4xl">MEET OUR LEADERS</p>
-          <div className="h-[3px] w-[10%] bg-gradient-to-r from-primary to-secondary"></div>
+    <section className="w-full py-12 bg-gray-50">
+      {/* Section Title & Leader Names */}
+      <div className="w-fit flex flex-col gap-2 px-6 py-24 mx-auto">
+        <p className="text-xl md:text-xl lg:text-2xl font-sm text-center">
+          MEET OUR LEADERS
+        </p>
+        <div className="text-center">
+          <p className="text-lg md:text-3xl font-bold">
+            PASTOR DARA SHOFOLUWE &amp; PASTOR (MRS) ABIOLA SHOFOLUWE
+          </p>
+          <p className="text-sm md:text-base text-gray-600">
+            Parish Pastor &amp; Co-Parish Pastor
+          </p>
         </div>
-        <div className="flex items-center w-full gap-5">
-          <div className="w-full  ">
-            <div className="md:ml-8 flex flex-col items-center  w-full">
-              <h1 className="text-2xl text-center md:text-left md:text-3xl font-bold">
-                {leads[0]?.leaderName}
-              </h1>
-              <p className="text-lg  text-center md:text-left md:text-xl">
-                {leads[0]?.leaderRole}
-              </p>
+        <div className="h-[3px] w-[10%] bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+      </div>
 
-              {paragraphs.map((item, index) => {
-                const isEven = index % 2 === 0;
-                return (
-                  <div
-                    className={`flex w-full flex-col md:w-[80%] justify-between md:items-center gap-3 ${
-                      isEven ? "md:flex-row " : "md:flex-row-reverse"
-                    }`}
-                  >
-                    <p
-                      className="mt-4 w-full text-center md:text-left"
-                      key={index}
-                    >
-                      {item.text}
-                    </p>
-                    <div
-                      className={`photoCard bg-gradient-to-b from-white to-cyan-100 transition ease-in-out duration-700 h-500px] cursor-pointer  w-full photo-card  overflow-hidden`}
-                      style={{
-                        borderRadius: isHovered
-                          ? "49% 51% 53% 47% / 47% 48% 52% 53% "
-                          : "47% 53% 50% 50% / 81% 80% 20% 19%",
-                        transition: "ease-in-out 1s",
-                      }}
-                      onMouseEnter={() => setIsHovered(true)}
-                      onMouseLeave={() => setIsHovered(false)}
-                    >
-                      <img
-                        src={item.img}
-                        alt="leaderImg"
-                        width={500}
-                        height={500}
-                        loading="lazy"
-                        className="w-full h-full "
-                      />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+      {/* Centered Image with Auto-Switching */}
+      <div className="w-full flex justify-center">
+        <div className="max-w-md relative">
+          <img
+            src={images[currentIndex]}
+            alt="Pastor Dara and his wife Abiola"
+            className="w-full h-auto object-contain transition-opacity duration-1000 ease-in-out"
+            loading="lazy"
+          />
         </div>
       </div>
-    </div>
+
+      {/* Paragraph Section */}
+      <div className="mt-8 px-4 md:px-12 lg:px-12 text-lg text-gray-800 leading-relaxed">
+        <p className="mb-4">
+          Pastor Dara is deeply committed to empowering people to achieve their
+          dreams and fulfill their God-given destinies through the teaching of
+          the living Word. His vision is to build a church without boundaries of
+          race, culture, or color and to guide members toward their eternal home
+          in heaven. Known for his relevant, simple, and humorous delivery of
+          God’s Word, Pastor Dara brings the Gospel to life in a way that
+          resonates with people from all walks of life. Compassionate and
+          approachable, he has a passion for souls and is especially devoted to
+          helping the less privileged. Pastor Dara is married to Abiola, his
+          university campus fellowship friend, and together they are blessed
+          with three wonderful children: Damilola, Damola, and Doyinsola.
+        </p>
+        <p className="mb-4">
+          Pastor Mrs. Abiola Shofoluwe, fondly known as “Pastor Mrs.,” serves as
+          the co-parish pastor of RCCG Chapel of His Glory, Bradford, working
+          alongside her husband to ensure the fulfillment of his God-given
+          assignment. She actively leads the Good Women Fellowship, children’s
+          ministry, and Sanctuary Keepers, making significant contributions to
+          the spiritual and operational aspects of the church.
+        </p>
+        <p className="mb-4">
+          With a God-given passion to empower and encourage women and young
+          people, Pastor Mrs. inspires others to excel and reach their fullest
+          potential in every area of life. Known for her strong passion for prayer
+          and intercession, she is a spiritual encourager who maintains lovely
+          and friendly relationships within the church and beyond. Her hobbies,
+          which reflect her heart for ministry, include prayer, telephone
+          counseling, and evangelism.
+        </p>
+        <p>
+          Together, Pastor Dara and Pastor Mrs. Abiola Shofoluwe exemplify a life
+          of service, unity, and dedication to God’s work, leaving a lasting impact
+          on the church and the community they serve. Their shared vision and
+          partnership in ministry continue to inspire many to walk in their divine
+          purpose and deepen their faith.
+        </p>
+      </div>
+    </section>
   );
 }

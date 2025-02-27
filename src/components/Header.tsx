@@ -25,6 +25,7 @@ import { FaChevronRight } from "react-icons/fa";
 import { IoExitOutline } from "react-icons/io5";
 import { RxHamburgerMenu } from "react-icons/rx";
 
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMoreOpen, setIsMoreOpen] = useState(false);
@@ -44,7 +45,7 @@ export default function Header() {
     <div className="bg-gradient-to-r from-primary to-secondary z-40 py-5 fixed top-0 flex w-full p-2 md:py-5 md:px-8 justify-between items-center">
       <div className="w-[20%] lg:h-[70px]">
         <Image
-          src="https://www.rccgbradford.org.uk/wp-content/themes/church/assets/images/tmp/layout_new_delhi/logo_default.svg"
+          src={"/img/RccgLogo.png"}
           alt="logo"
           width={200}
           height={200}
