@@ -3,9 +3,12 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function ImageBannerSlider() {
   const images = [
-    "https://eu-west-2.graphassets.com/cm00utdux6vaz08mkdx210ojr/cm0pijnb31ytb07l9kyptgjcl",
-    "https://eu-west-2.graphassets.com/cm00utdux6vaz08mkdx210ojr/cm0pijn7c1za207mn2pyaizoz",
-    "https://eu-west-2.graphassets.com/cm00utdux6vaz08mkdx210ojr/cm0ajdwxs8fv507ldzuu04e9g",
+    "/img/BannerNew.jpg",
+    // "/img/BannerNew.jpg",
+    // "/img/BannerNew.jpg"
+    // "https://eu-west-2.graphassets.com/cm00utdux6vaz08mkdx210ojr/cm0pijnb31ytb07l9kyptgjcl",
+    // "https://eu-west-2.graphassets.com/cm00utdux6vaz08mkdx210ojr/cm0pijn7c1za207mn2pyaizoz",
+    // "https://eu-west-2.graphassets.com/cm00utdux6vaz08mkdx210ojr/cm0ajdwxs8fv507ldzuu04e9g",
   ]; // Replace with your actual image paths
 
   const [currentIndex, setCurrentIndex] = useState(0);
