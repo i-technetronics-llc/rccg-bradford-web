@@ -4,8 +4,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 export default function ImageBannerSlider() {
   const images = [
     "/img/BannerNew.jpg",
-    // "/img/BannerNew.jpg",
-    // "/img/BannerNew.jpg"
+    "/img/BannerNew.jpg",
+    "/img/BannerNew.jpg"
     // "https://eu-west-2.graphassets.com/cm00utdux6vaz08mkdx210ojr/cm0pijnb31ytb07l9kyptgjcl",
     // "https://eu-west-2.graphassets.com/cm00utdux6vaz08mkdx210ojr/cm0pijn7c1za207mn2pyaizoz",
     // "https://eu-west-2.graphassets.com/cm00utdux6vaz08mkdx210ojr/cm0ajdwxs8fv507ldzuu04e9g",
@@ -16,7 +16,7 @@ export default function ImageBannerSlider() {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 5000); // Auto-slide every 5 seconds
+    }, 50000); // Auto-slide every 5 seconds
 
     return () => clearInterval(interval);
   }, [currentIndex]);
@@ -34,15 +34,15 @@ export default function ImageBannerSlider() {
   };
 
   return (
-    <section className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
+    <section className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] overflow-hidden">
       {/* Images */}
-      <div className="max-w-[1200px] m-auto h-lvh relative">
+      <div className="w-full h-full relative">
         {images.map((image, index) => (
           <img
             key={index}
             src={image}
             alt={`Slide ${index + 1}`}
-            className={`absolute w-full h-full object-fit transition-opacity duration-1000 ease-in-out ${
+            className={`absolute w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
               index === currentIndex ? "opacity-100" : "opacity-0"
             }`}
           />
@@ -52,14 +52,14 @@ export default function ImageBannerSlider() {
       {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition"
       >
         <ChevronLeft size={24} />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition"
       >
         <ChevronRight size={24} />
       </button>
