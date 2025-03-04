@@ -146,7 +146,7 @@ export default function Home() {
       <MarqueeImg pictureGalleries={pictureGalleries} />
       <Giving />
 
-      <SubFooter subFooter={subFooter} />
+      {/* <SubFooter subFooter={subFooter} /> */}
       <Footer />
     </div>
   );
