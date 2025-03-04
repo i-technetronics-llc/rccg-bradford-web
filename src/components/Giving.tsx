@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function Giving() {
   const router = useRouter();
@@ -17,15 +18,18 @@ export default function Giving() {
           an account. Give online via our secure form or use your phone by
           sending a text. 5 minutes is all it takes to get started.
         </p>
+        <Link href="/giving">
+         
         <button className="bg-primary md:text-xl rounded-full px-5 py-2 text-white font-semibold">
           START GIVING
         </button>
+        </Link>
       </div>
       <div
         className="overflow-hidden"
         style={{ borderRadius: "44% 56% 40% 60% / 67% 35% 65% 33% " }}
       >
-        <Image src={"/img/give.jpeg"} alt="give" width={500} height={500} />
+        <Image src={"/img/giving.jpeg"} alt="give" width={500} height={500} />
       </div>
     </div>
   );

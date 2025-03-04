@@ -4,8 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 export default function ImageBannerSlider() {
   const images = [
     "/img/BannerNew.jpg",
-    "/img/BannerNew.jpg",
-    "/img/BannerNew.jpg"
+    "/img/YearBanner.jpg",
     // "https://eu-west-2.graphassets.com/cm00utdux6vaz08mkdx210ojr/cm0pijnb31ytb07l9kyptgjcl",
     // "https://eu-west-2.graphassets.com/cm00utdux6vaz08mkdx210ojr/cm0pijn7c1za207mn2pyaizoz",
     // "https://eu-west-2.graphassets.com/cm00utdux6vaz08mkdx210ojr/cm0ajdwxs8fv507ldzuu04e9g",
@@ -16,7 +15,7 @@ export default function ImageBannerSlider() {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 50000); // Auto-slide every 5 seconds
+    }, 5000); // Auto-slide every 5 seconds
 
     return () => clearInterval(interval);
   }, [currentIndex]);
@@ -34,7 +33,7 @@ export default function ImageBannerSlider() {
   };
 
   return (
-    <section className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] overflow-hidden">
+    <section className="relative w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] overflow-hidden">
       {/* Images */}
       <div className="w-full h-full relative">
         {images.map((image, index) => (
@@ -42,7 +41,7 @@ export default function ImageBannerSlider() {
             key={index}
             src={image}
             alt={`Slide ${index + 1}`}
-            className={`absolute w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+            className={`absolute w-full h-full object-contain transition-opacity duration-1000 ease-in-out ${
               index === currentIndex ? "opacity-100" : "opacity-0"
             }`}
           />

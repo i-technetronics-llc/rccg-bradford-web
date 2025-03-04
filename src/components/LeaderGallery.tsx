@@ -43,7 +43,7 @@ export default function OurLeadersSection() {
       </div>
 
       {/* Paragraph Section */}
-      <div className="mt-8 px-4 md:px-12 lg:px-12 text-lg text-gray-800 leading-relaxed">
+      <div className="mt-8 px-4 max-w-[1110px] m-auto md:px-12 lg:px-12 text-lg text-gray-800 leading-relaxed">
         <p className="mb-4">
           Pastor Dara is deeply committed to empowering people to achieve their
           dreams and fulfill their God-given destinies through the teaching of

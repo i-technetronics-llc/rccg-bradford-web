@@ -16,7 +16,23 @@ export default function Categories({ categories }: CategoryProps) {
           bg: `linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.3)), url(${item.backgroundImage.url})  `,
           br: "66% 34% 50% 50% / 30% 73% 27% 70%",
         };
-      } else {
+      }
+     else if (item.categoryTitle.includes("See Events")) {
+        return {
+          ...item,
+          url: "/events",
+          bg: `linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.3)), url(${item.backgroundImage.url})  `,
+          br: "66% 34% 50% 50% / 30% 73% 27% 70%",
+        };
+      } else if (item.categoryTitle.includes("House Fellowship")) {
+        return {
+          ...item,
+          url: "/",
+          bg: `linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.3)), url(${item.backgroundImage.url})  `,
+          br: "66% 34% 50% 50% / 30% 73% 27% 70%",
+        };
+      }
+       else {
         return {
           ...item,
           url: "/contact",
