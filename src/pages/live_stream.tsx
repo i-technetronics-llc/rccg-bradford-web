@@ -26,13 +26,19 @@ export default function LiveStreamPage() {
           setLiveVideoId(null);
         }
 
-        // Fetch past live events (completed)
+        // Fetch past live events (completed), ordered by date (most recent first)
         const pastRes = await fetch(
-          `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=completed&type=video&key=${apiKey}&maxResults=6`
+          `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=completed&type=video&key=${apiKey}&maxResults=10&order=date`
         );
         const pastData = await pastRes.json();
         if (pastData.items) {
-          setPastEvents(pastData.items);
+          // Sort events in descending order based on published date
+          const sortedEvents = pastData.items.sort(
+            (a: any, b: any) =>
+              new Date(b.snippet.publishedAt).getTime() -
+              new Date(a.snippet.publishedAt).getTime()
+          );
+          setPastEvents(sortedEvents);
         } else {
           setPastEvents([]);
         }
@@ -67,7 +73,9 @@ export default function LiveStreamPage() {
 
         {/* Live Stream Section */}
         <section className="mb-12">
-          <h2 className="text-3xl font-bold text-center md:pt-24 pt-10 mb-6">Live Now</h2>
+          <h2 className="text-3xl font-bold text-center md:pt-24 pt-10 mb-6">
+            Live Now
+          </h2>
           {liveVideoId ? (
             <div className="flex justify-center">
               <div className="w-full max-w-4xl">
@@ -90,24 +98,26 @@ export default function LiveStreamPage() {
 
         {/* Past Live Events Section */}
         <section>
-          <h2 className="text-3xl font-bold text-center mb-6">Past Live Events</h2>
+          <h2 className="text-3xl font-bold text-center mb-6">
+            Past Live Events
+          </h2>
           {pastEvents.length > 0 ? (
-            <div className="space-y-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
               {pastEvents.map((event) => (
                 <div
                   key={event.id.videoId}
-                  className="border rounded overflow-hidden shadow hover:shadow-lg transition duration-300 flex flex-col sm:flex-row items-center"
+                  className="border rounded overflow-hidden shadow hover:shadow-lg transition duration-300"
                 >
                   <a
                     href={`https://www.youtube.com/watch?v=${event.id.videoId}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex w-full"
+                    className="block"
                   >
                     <img
                       src={event.snippet.thumbnails.medium.url}
                       alt={event.snippet.title}
-                      className="w-full sm:w-40 h-auto object-cover"
+                      className="w-full h-auto object-cover"
                     />
                     <div className="p-4">
                       <h3 className="text-lg font-semibold mb-2">
