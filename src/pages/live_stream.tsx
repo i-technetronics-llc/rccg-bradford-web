@@ -52,7 +52,7 @@ export default function LiveStreamPage() {
 
     // Fetch immediately on mount and then every 60 seconds
     fetchYouTubeData();
-    const interval = setInterval(fetchYouTubeData, 60000);
+    const interval = setInterval(fetchYouTubeData, 1000); 
     return () => clearInterval(interval);
   }, [channelId, apiKey]);
 
@@ -283,4 +283,3 @@ export default function LiveStreamPage() {
 //     </div>
 //   );
 // }
-

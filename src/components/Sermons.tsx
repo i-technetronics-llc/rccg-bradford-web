@@ -12,7 +12,7 @@ export default function Sermons({ latestSermons }: LatestSermonProps) {
     <div className="flex items-center justify-center">
       <div className="my-8 md:my-20 flex flex-col w-[80%] items-center justify-center gap-8 px-8">
         <p className="text-xl md:text-2xl font-semibold lg:text-3xl">
-        Open Heavens Daily Devotional
+        Next Events
         </p>
         <div className="grid grid-cols-1 gap-5 w-full md:grid-cols-2">
           {latestSermons.map((item, index) => (
@@ -27,9 +27,9 @@ export default function Sermons({ latestSermons }: LatestSermonProps) {
         </div>
         <button
           className="bg-primary rounded-full px-5 py-2 text-white font-semibold"
-          onClick={() => router.push("/videoGallery")}
+          onClick={() => router.push("/events")}
         >
-          READ MORE
+          MORE EVENTS
         </button>
       </div>
     </div>

@@ -19,7 +19,7 @@ export default function Ounits() {
       desc: "This department is in charge of all accounting related issues of the church.",
     },
     {
-      title: "THE PAYER WARRIORS",
+      title: "THE PRAYER WARRIORS",
       desc: "The Prayer warriors pray for the church and with anyone who asks for prayer through a prayer request. They meet every Saturday and organise intercessory prayer meetings.",
     },
     {

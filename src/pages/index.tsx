@@ -6,8 +6,9 @@ import HomeVideo from "@/components/HomeVideo";
 import Slider from "@/components/slider";
 import Categories from "@/components/Categories";
 import Bible from "@/components/Bible";
-import Sermons from "@/components/Sermons";
-import NextEvents from "@/components/NextEvents";
+import Sermons from "@/components/LatestSermons";
+import NextEvents from "@/components/Sermons";
+// import NextEvents from "@/components/NextEvents";
 import MarqueeImg from "@/components/Marquee";
 import Giving from "@/components/Giving";
 import SubFooter from "@/components/SubFooter";
@@ -126,23 +127,11 @@ export default function Home() {
       <Slider />
       <Categories categories={categories} />
       {/* <Bible /> */}
-      <section className="py-12 bg-gray-100">
-      <div className="max-w-7xl mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold mb-4">Latest Sermon</h2>
-        <p className="text-lg mb-6">
-          Discover the powerful message from our latest sermon. Watch now to be inspired and uplifted by the Word.
-        </p>
-        <button
-          className="bg-primary rounded-full px-5 py-2 text-white font-semibold"
-          onClick={() => router.push("https://rccgonline.org/")}
-        >
-          ALL SERMONS
-        </button>
-       
-      </div>
-    </section>
-      {/* <Sermons latestSermons={latestSermons} /> */}
-      <NextEvents nextEvents={nextEvents} />
+   
+      <Sermons  />
+      <NextEvents latestSermons={latestSermons} />
+
+      {/* <NextEvents nextEvents={nextEvents} /> */}
       <MarqueeImg pictureGalleries={pictureGalleries} />
       <Giving />
 

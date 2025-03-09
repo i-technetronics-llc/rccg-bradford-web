@@ -33,7 +33,7 @@ export default function ImageBannerSlider() {
   };
 
   return (
-    <section className="relative w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] overflow-hidden">
+    <section className="relative w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[770px] xl:p-10 overflow-hidden">
       {/* Images */}
       <div className="w-full h-full relative">
         {images.map((image, index) => (
@@ -41,7 +41,7 @@ export default function ImageBannerSlider() {
             key={index}
             src={image}
             alt={`Slide ${index + 1}`}
-            className={`absolute w-full h-full object-contain transition-opacity duration-1000 ease-in-out ${
+            className={`absolute w-full h-full object-contain xl:object-cover xl: transition-opacity duration-1000 ease-in-out ${
               index === currentIndex ? "opacity-100" : "opacity-0"
             }`}
           />
