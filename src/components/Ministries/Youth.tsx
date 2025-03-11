@@ -47,7 +47,7 @@ export default function Youth() {
         >
           <Image
             src={
-              "/img/concert.avif"
+              "/img/children.jpeg"
             }
             alt="historyPix"
             width={500}

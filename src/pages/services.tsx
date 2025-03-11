@@ -70,8 +70,8 @@ export default function Services() {
     },
   };
   const img = [
-    "https://www.rccgbradford.org.uk/wp-content/uploads/2019/05/rccg3-1.jpg",
-    "https://www.rccgbradford.org.uk/wp-content/uploads/2019/05/rccg8.jpg",
+    "/img/concert.webp",
+    "/img/concert.avif",
   ];
 
   return (
