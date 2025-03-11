@@ -63,7 +63,7 @@ export default function Hero() {
         >
           <Image
             src={
-              "https://www.rccgbradford.org.uk/wp-content/uploads/2016/01/men.gif"
+              "/img/visit.jpeg"
             }
             alt="historyPix"
             width={500}

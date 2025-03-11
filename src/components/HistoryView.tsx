@@ -24,7 +24,7 @@ export default function HistoryView() {
             <div className="historyBox overflow-hidden w-full  md:h-[500px]">
               <Image
                 src={
-                  "https://www.rccgbradford.org.uk/wp-content/uploads/2019/05/rccg8.jpg"
+                  "/img/sermon.jpeg"
                 }
                 alt="historyPix"
                 width={500}

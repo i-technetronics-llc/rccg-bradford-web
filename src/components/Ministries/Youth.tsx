@@ -47,7 +47,7 @@ export default function Youth() {
         >
           <Image
             src={
-              "https://www.rccgbradford.org.uk/wp-content/uploads/2016/01/youngadults.gif"
+              "/img/concert.avif"
             }
             alt="historyPix"
             width={500}

@@ -19,7 +19,7 @@ export default function Kids() {
         >
           <Image
             src={
-              "https://www.rccgbradford.org.uk/wp-content/uploads/2016/01/glorious.gif"
+              "/img/give.jpeg"
             }
             alt="historyPix"
             width={500}

@@ -22,7 +22,7 @@ export default function Zion() {
         >
           <Image
             src={
-              "https://www.rccgbradford.org.uk/wp-content/uploads/2016/01/daughters.gif"
+              "/img/serve.jpeg"
             }
             alt="historyPix"
             width={500}
