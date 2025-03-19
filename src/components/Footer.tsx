@@ -4,7 +4,7 @@ import { FaSquareFacebook } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <div className="bg-gradient-to-r from-primary to-secondary p-5 md:p-8 flex items-center flex-col gap-5 md:gap-8 lg:gap-12">
+    <div className="bg-gradient-to-r from-primary to-secondary p-5 md:p-2 flex items-center flex-col gap-5 md:gap-8 lg:gap-12">
       <div className="flex justify-center gap-3">
         <Link
           href="https://www.facebook.com/glorycentre.bradford/"

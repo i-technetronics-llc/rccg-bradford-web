@@ -47,7 +47,7 @@ export default function Youth() {
         >
           <Image
             src={
-              "/img/children.jpeg"
+              "/img/youngadults.gif"
             }
             alt="historyPix"
             width={500}

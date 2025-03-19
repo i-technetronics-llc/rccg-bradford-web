@@ -42,7 +42,7 @@ export default function Header() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-primary to-secondary z-40 py-5 fixed top-0 flex w-full p-2 md:py-5 md:px-8 justify-between items-center">
+    <div className="bg-gradient-to-r from-primary to-secondary z-40 py-5 fixed top-0 flex w-full p-2 md:py-1 md:px-8 justify-between items-center">
       <div className="w-[20%] lg:h-[70px]">
         <Image
           src={"/img/RccgLogo.png"}

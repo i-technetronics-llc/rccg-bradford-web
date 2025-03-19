@@ -19,7 +19,7 @@ export default function Kids() {
         >
           <Image
             src={
-              "/img/give.jpeg"
+              "/img/glorious.gif"
             }
             alt="historyPix"
             width={500}

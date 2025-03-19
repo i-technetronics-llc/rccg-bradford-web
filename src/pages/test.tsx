@@ -1,112 +1,92 @@
-import { useEffect, useState } from 'react';
-import ReactPlayer from 'react-player';
-import axios from 'axios';
+import React, { useState } from "react";
+import ReactMarkdown from "react-markdown";
 
-const API_KEY = 'AIzaSyADSkPSIT4bm_T06qQrGwDfDuwXoiqiomc'; // Replace with your actual YouTube API key
-const CHANNEL_ID = 'UCgloEjyfRwZmbFU4iHVvQJg'; // Replace with your actual YouTube channel ID
+const blogsData = [
+  {
+    id: "1",
+    title: "Overcoming Disguised Enemies",
+    excerpt: "An enemy is a person who feels hatred for...",
+    content: `## Overcoming Disguised Enemies
 
-const fetchLiveStream = async () => {
-  try {
-    const response = await axios.get(`https://www.googleapis.com/youtube/v3/search`, {
-      params: {
-        part: 'snippet',
-        channelId: CHANNEL_ID,
-        eventType: 'live',
-        type: 'video',
-        key: API_KEY,
-      },
-    });
+An **enemy** is a person who feels hatred for, fosters harmful designs against, or engages in antagonistic activities against another. Disguised enemies pretend to be friendly but work against you in secret.
 
-    const liveStream = response.data.items[0] || null;
-    return liveStream ? {
-      id: liveStream.id.videoId,
-      title: liveStream.snippet.title,
-      description: liveStream.snippet.description,
-      thumbnail: liveStream.snippet.thumbnails.high.url,
-    } : null;
-  } catch (error) {
-    console.error('Error fetching live stream:', error);
-    return null;
+### Identifying Disguised Enemies
+
+- **False Friends**: People who only stay around for benefits.
+- **Betrayers**: Those who break trust at the right opportunity.
+- **Jealous Individuals**: People who resent your progress.
+
+### How to Overcome
+
+1. **Pray for Discernment** - Ask for wisdom to see through deception.
+2. **Stay Vigilant** - Be cautious with sensitive information.
+3. **Maintain Your Integrity** - Do not repay evil with evil.
+4. **Trust in God's Protection** - Let God handle your battles.
+
+> _'No weapon formed against you shall prosper...'_ - Isaiah 54:17`,
+    date: "Aug 11, 2021",
+    image: "/images/blog1.jpg",
   }
-};
+];
 
-const fetchPastEvents = async () => {
-  try {
-    const response = await axios.get(`https://www.googleapis.com/youtube/v3/search`, {
-      params: {
-        part: 'snippet',
-        channelId: CHANNEL_ID,
-        eventType: 'completed',
-        type: 'video',
-        key: API_KEY,
-        maxResults: 10,
-      },
-    });
-
-    return response.data.items.map((item: any) => ({
-      id: item.id.videoId,
-      title: item.snippet.title,
-      description: item.snippet.description,
-      publishedAt: item.snippet.publishedAt,
-      thumbnail: item.snippet.thumbnails.high.url,
-    }));
-  } catch (error) {
-    console.error('Error fetching past events:', error);
-    return [];
-  }
-};
-
-const LiveStreamPage = () => {
-  const [liveVideo, setLiveVideo] = useState<any>(null);
-  const [pastEvents, setPastEvents] = useState<any[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const liveStream = await fetchLiveStream();
-      setLiveVideo(liveStream);
-
-      const pastEvents = await fetchPastEvents();
-      setPastEvents(pastEvents);
-    };
-
-    fetchData();
-  }, []);
+const BlogPage = () => {
+  const [selectedBlog, setSelectedBlog] = useState<typeof blogsData[0] | null>(null);
 
   return (
-    <div>
-      <h1>Live Stream</h1>
-      {liveVideo ? (
+    <div className="max-w-5xl mx-auto p-8">
+      <h1 className="text-4xl font-bold text-center mb-8">Pastor's Blog</h1>
+
+      {selectedBlog ? (
         <div>
-          <h2>{liveVideo.title}</h2>
-          <ReactPlayer
-            url={`https://www.youtube.com/watch?v=${liveVideo.id}`}
-            playing
-            controls
+          <button
+            onClick={() => setSelectedBlog(null)}
+            className="text-blue-600 hover:underline mb-4 inline-block"
+          >
+            ← Back to Blogs
+          </button>
+
+          <img
+            src={selectedBlog.image}
+            alt={selectedBlog.title}
+            className="w-full h-64 object-cover rounded-lg"
           />
-          <p>{liveVideo.description}</p>
+          <h1 className="text-3xl font-bold mt-6">{selectedBlog.title}</h1>
+          <p className="text-gray-500 text-sm">{selectedBlog.date}</p>
+
+          {/* ✅ Markdown Content Renders Correctly */}
+          <div className="mt-4 text-lg text-gray-700 leading-relaxed">
+            <ReactMarkdown>{selectedBlog.content}</ReactMarkdown>
+          </div>
         </div>
       ) : (
-        <p>No live stream currently available.</p>
-      )}
-
-      <h1>Past Events</h1>
-      <ul>
-        {pastEvents.map((event) => (
-          <li key={event.id}>
-            <a
-              href={`https://www.youtube.com/watch?v=${event.id}`}
-              target="_blank"
-              rel="noopener noreferrer"
+        <div className="space-y-6">
+          {blogsData.map((blog) => (
+            <div
+              key={blog.id}
+              className="border rounded-lg shadow hover:shadow-lg transition flex cursor-pointer"
+              onClick={() => setSelectedBlog(blog)}
             >
-              {event.title}
-            </a>
-            <p>{event.description}</p>
-            <img src={event.thumbnail} alt={event.title} />
-          </li>
-        ))}
-      </ul>
+              <div className="w-1/2">
+                <img
+                  src={blog.image}
+                  alt={blog.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="w-1/2 p-4">
+                <p className="text-sm text-gray-500">{blog.date}</p>
+                <h2 className="text-xl font-bold text-purple-700 hover:underline">
+                  {blog.title}
+                </h2>
+                <p className="text-gray-600 text-sm mt-2">{blog.excerpt}...</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
 
-export default LiveStreamPage;
+export default BlogPage;

@@ -51,7 +51,7 @@ export default function Hero() {
           ))}
         </div>
         <div
-          className="w-full h-[500px] overflow-hidden"
+          className="w-full max-w-[900px] h-[500px] overflow-hidden"
           style={{
             borderRadius: isHovered
               ? "49% 51% 53% 47% / 47% 48% 52% 53% "
@@ -63,12 +63,12 @@ export default function Hero() {
         >
           <Image
             src={
-              "/img/visit.jpeg"
+              "/img/men.gif"
             }
             alt="historyPix"
             width={500}
             height={500}
-            className="w-full h-full"
+            className="w-full  h-full"
           />
         </div>
       </div>
