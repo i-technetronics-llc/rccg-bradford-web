@@ -1,124 +1,159 @@
-import Footer from "@/components/Footer";
+import { useState } from "react";
 import Header from "@/components/Header";
-import { IoMdCall } from "react-icons/io";
-import { IoLocationOutline } from "react-icons/io5";
-import { MdMail } from "react-icons/md";
+import Footer from "@/components/Footer";
 
-export default function ContactUs() {
+export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    subject: "Counselling", // Default subject
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [responseMessage, setResponseMessage] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setResponseMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        setResponseMessage("✅ Your message has been sent successfully!");
+        setFormData({ fullName: "", email: "", subject: "Counselling", message: "" });
+      } else {
+        setResponseMessage("❌ Failed to send message. Please try again later.");
+      }
+    } catch (error) {
+      setResponseMessage("❌ An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+  // set timer for error message or success message
+  setTimeout(() => {
+    setResponseMessage("");
+  }, 8000); 
+
   return (
-    <div className="">
+    <>
       <Header />
-      <div className="w-full flex justify-center mt-[120px]">
-        <div className="w-[80%] py-5 md:py-8 lg:py-12 flex flex-col">
-          <div className="flex flex-col gap-3 my-5  ">
-            <p className="text-xl md:text-3xl lg:text-4xl ">CONTACT US</p>
-            {/* <div className="h-[3px] w-[10%] bg-gradient-to-r from-primary to-secondary"></div> */}
-          </div>
-          <div className="flex flex-col md:h-screen h-fit md:flex-row gap-5">
-            <div className="md:w-[40%] w-full flex flex-col tracking-wider items-center gap-3">
-              <p className="Please let us know if you have a question, want to leave a comment, or would like further information about RCCG Bradford."></p>
-              <div className="h-[3px] w-full bg-gradient-to-r from-primary to-secondary"></div>
-              <p className="text-xl md:text-3xl  lg:text-3xl ">
+      <div className="bg-gradient-to-b from-gray-100 my-14 to-white min-h-screen py-12">
+        <div className="max-w-6xl mx-auto px-6">
+          {/* Header */}
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-6">
+            CONTACT US
+          </h2>
+          
+          <p className="text-sm md:text-lg text-gray-600 text-center max-w-2xl mx-auto">
+            Have a question, testimony, or need assistance? Reach out to us, and we’ll get back to you as soon as possible.
+          </p>
+
+          <div className="flex flex-col md:flex-row gap-12 mt-10">
+            {/* Contact Info */}
+            <div className="md:w-1/2 bg-white shadow-lg p-6 md:p-8 rounded-lg border">
+              <h3 className="text-xl md:text-2xl font-bold text-gray-700 mb-4">
                 GLORY CENTRE, RCCG CHAPEL OF HIS GLORY.
+              </h3>
+              <p className="text-sm md:text-base text-gray-600 mb-4">
+                📍 <strong>Address:</strong> 50 Nelson Street, Bradford, United Kingdom, BD50DD
               </p>
-              <div className="w-full flex gap-3">
-                <div className="w-fit">
-                  <IoLocationOutline />
-                </div>
-                <div className="w-[90%]">
-                  <p className="w-full text-sm text-black font-semibold">
-                    50 Nelson Street, Bradford, United Kingdom, BD50DD
-                  </p>
-                </div>
-              </div>
-              <div className="w-full flex gap-3">
-                <div className="w-fit">
-                  <IoMdCall />
-                </div>
-                <div className="w-[90%]">
-                  <p className="w-full text-sm text-black font-semibold">
-                    +44 7984 678266, 01274032678 01274032677, 01274949406
-                  </p>
-                </div>
-              </div>
-              <div className="w-full flex gap-3">
-                <div className="w-fit">
-                  <MdMail />
-                </div>
-                <div className="w-[90%]">
-                  <p className="w-full text-sm text-black font-semibold">
-                    info@rccgbradford.org.uk
-                  </p>
-                </div>
-              </div>
+              <p className="text-sm md:text-base text-gray-600 mb-2">
+                📞 <strong>Phone:</strong> +44 7984 678266, 01274032678
+              </p>
+              <p className="text-sm md:text-base text-gray-600 mb-4">
+                📧 <strong>Email:</strong> info@rccgbradford.org.uk
+              </p>
             </div>
-            <div className="md:w-[60%] w-full gap-3 flex flex-col ">
-              <div className="flex flex-col w-full gap-2">
+
+            {/* Contact Form */}
+            <div className="md:w-1/2 bg-white shadow-lg p-6 md:p-10 rounded-lg border">
+              <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
+                {/* Full Name */}
                 <input
                   type="text"
-                  id="name"
-                  className="p-2 border rounded-lg border-[#cccccc]"
-                  placeholder="FullName"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  required
+                  placeholder="Full Name"
+                  className="w-full p-2 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary text-sm md:text-base"
                 />
-                <input
-                  type="text"
-                  id="title"
-                  className="p-2 border rounded-lg border-[#cccccc]"
-                  placeholder="Title"
-                />
-                <input
-                  type="text"
-                  id="position"
-                  className="p-2 border rounded-lg border-[#cccccc]"
-                  placeholder="Company/Position"
-                />
+
+                {/* Email */}
                 <input
                   type="email"
-                  className="p-2 border rounded-lg border-[#cccccc]"
-                  id="email"
-                  placeholder="Email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  placeholder="Email Address"
+                  className="w-full p-2 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary text-sm md:text-base"
                 />
-              </div>
-              <div className="flex w-full flex-col gap-2">
-                {/* 
-                <select
-                  className="p-2 border rounded-lg border-[#cccccc]"
-                  name="reason"
-                  id="reason"
-                >
-                  <option value="">Reason For Contact</option>
-                  <option value="Prayer">Prayer</option>
-                  <option value="Counselling">Counselling</option>
-                  <option value="Joining Us">Joining Us</option>
-                  <option value="Other">Other</option>
-                </select>
-                */}
-                <input
-                  className="p-2 border rounded-lg border-[#cccccc]"
-                  type="text"
-                  id="Subject"
-                  placeholder="Subject"
-                />
-                <textarea
-                  className="p-2 border rounded-lg border-[#cccccc]"
-                  rows={5}
-                  id="name"
-                  placeholder="Your Message"
-                />
-                <div className="w-full flex justify-end">
-                  <button
-                    className="bg-gradient-to-r justify-self-end from-primary to-secondary  text-white font-semibold hover:bg-gradient-to-l ease-in-out duration-700 hover:scale-110 transition px-5 py-2 w-fit rounded-lg"
-                    onClick={() => {}}
-                  >
-                    Submit
-                  </button>
+
+                {/* Subject (Radio Buttons) */}
+                <div>
+                  <label className="block text-sm md:text-base text-gray-700 font-medium mb-2">Subject</label>
+                  <div className="flex flex-wrap gap-4">
+                    {["Counselling", "Need a Bus to Church", "Testimony"].map((option) => (
+                      <label key={option} className="flex items-center space-x-2 text-gray-700 text-sm md:text-base">
+                        <input
+                          type="radio"
+                          name="subject"
+                          value={option}
+                          checked={formData.subject === option}
+                          onChange={handleChange}
+                          className="text-primary"
+                        />
+                        <span>{option}</span>
+                      </label>
+                    ))}
+                  </div>
                 </div>
-              </div>
+
+                {/* Message */}
+                <textarea
+                  name="message"
+                  rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  placeholder="Leave a message..."
+                  className="w-full p-2 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary resize-none text-sm md:text-base"
+                ></textarea>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-primary to-secondary text-white p-3 rounded-lg font-bold hover:opacity-90 transition text-sm md:text-base"
+                  disabled={loading}
+                >
+                  {loading ? "Sending..." : "Submit"}
+                </button>
+
+                {/* Response Message */}
+                {responseMessage && (
+                  <p className={`text-center mt-2 ${responseMessage.includes("✅") ? "text-green-500" : "text-red-500"} text-sm md:text-base`}>
+                    {responseMessage}
+                  </p>
+                )}
+              </form>
             </div>
           </div>
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 }

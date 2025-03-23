@@ -64,7 +64,7 @@ export default function VideoGallery() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <div className="px-8 mt-[0px] py-4 ">
+      <div className="px-8 mt-[80px] py-4 ">
               <p className="text-xl md:text-3xl lg:text-4xl ">VIDEO GALLERY</p>
               <div className="h-[3px] w-[5%] bg-gradient-to-r from-primary to-secondary"></div>
             </div>

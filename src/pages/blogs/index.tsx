@@ -6,32 +6,32 @@ import Footer from '@/components/Footer';
 const blogs = [
   {
     title: "Divine Preference: You Will Be Preferred",
-    image: "/img/children.jpeg",
+    image: "/img/men.gif",
     excerpt: "Discover how divine preference can uplift and set you apart in all aspects of life.",
     url: "/blogs/divine-preference",
   },
   {
     title: "What is Your Temperature?",
-    image: "/img/concert.webp",
+    image: "/img/men.gif",
     excerpt: "This spewing out is not a message of hope. It is a message of judgment.",
     url: "/blogs/what-is-your-temperature",
   },
   {
     title: "YOU AND YOUR THOUGHT",
-    image: "/img/give.jpeg",
+    image: "/img/men.gif",
     excerpt: "The kind of life you live is traceable to the kind of thought you have",
     url: "/blogs/you-and-your-thought",
   },
   
   {
     title: "THE POTENCY OF GODLY SACRIFICE",
-    image: "/img/hf.jpeg",
+    image: "/img/men.gif",
     excerpt: "Thou therefore endure hardness, as a good soldier of Jesus Christ.",
     url: "/blogs/the-potency-of-godly-sacrifice",
   },
   {
     title: "A NEW SONG",
-    image: "/img/palm.jpeg",
+    image: "/img/men.gif",
     excerpt: "Nine different times, “A new song” appears in Scripture. Six are in the Psalms, two in Revelations, and one in Isaiah. ",
     url: "/blogs/a-new-song",
   },

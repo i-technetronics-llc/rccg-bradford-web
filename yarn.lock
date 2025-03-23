@@ -1362,6 +1362,13 @@
   dependencies:
     undici-types "~5.26.4"
 
+"@types/nodemailer@^6.4.17":
+  version "6.4.17"
+  resolved "https://registry.npmjs.org/@types/nodemailer/-/nodemailer-6.4.17.tgz"
+  integrity sha512-I9CCaIp6DTldEg7vyUTZi8+9Vo0hi1/T8gv3C89yk1rSAAzoKQ8H8ki/jBYJSFoH/BisgLP8tkZMlQ91CIquww==
+  dependencies:
+    "@types/node" "*"
+
 "@types/parse-json@^4.0.0":
   version "4.0.2"
   resolved "https://registry.npmjs.org/@types/parse-json/-/parse-json-4.0.2.tgz"
@@ -2686,6 +2693,11 @@ next@^14.2.24:
     "@next/swc-win32-arm64-msvc" "14.2.24"
     "@next/swc-win32-ia32-msvc" "14.2.24"
     "@next/swc-win32-x64-msvc" "14.2.24"
+
+nodemailer@^6.10.0:
+  version "6.10.0"
+  resolved "https://registry.npmjs.org/nodemailer/-/nodemailer-6.10.0.tgz"
+  integrity sha512-SQ3wZCExjeSatLE/HBaXS5vqUOQk6GtBdIIKxiFdmm01mOQZX/POJkO3SUX1wDiYcwUOJwT23scFSC9fY2H8IA==
 
 normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"

@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function ImageBannerSlider() {
   const images = [
-    // "/img/BannerNew.jpg",
+    "/img/BannerNew.jpg",
     "/img/YearBanner.jpg",
     // "https://eu-west-2.graphassets.com/cm00utdux6vaz08mkdx210ojr/cm0pijnb31ytb07l9kyptgjcl",
     // "https://eu-west-2.graphassets.com/cm00utdux6vaz08mkdx210ojr/cm0pijn7c1za207mn2pyaizoz",
@@ -33,7 +33,7 @@ export default function ImageBannerSlider() {
   };
 
   return (
-    <section className="relative w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[550px] xl:h-[850px] 2xl:h-[1000px] xl:p-10 overflow-hidden">
+    <section className="relative w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[550px] xl:h-[850px] 2xl:h-[1000px] mb-10 xl:p-10 overflow-hidden">
       {/* Images */}
       <div className="w-full h-full relative">
         {images.map((image, index) => (

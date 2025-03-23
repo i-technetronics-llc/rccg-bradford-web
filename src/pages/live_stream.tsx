@@ -53,7 +53,7 @@ export default function LiveStreamPage() {
     fetchPastEvents();
 
     // Set intervals
-    const liveInterval = setInterval(fetchLiveStream, 6000000000); // Every 10 minutes
+    const liveInterval = setInterval(fetchLiveStream, 600000); // Every 10 minutes
     const pastInterval = setInterval(fetchPastEvents, 86400000); // Every 24 hours
 
     return () => {
@@ -70,11 +70,10 @@ export default function LiveStreamPage() {
         {error && <p className="text-center text-red-500">{error}</p>}
 
         {/* Live Stream Section */}
-        <section className="mb-12 h-[300px]">
-        <div className="px-8 py-4 mt-[40px]">
-              <p className="text-xl md:text-3xl lg:text-4xl ">LIVE NOW</p>
-              <div className="h-[3px] w-[5%] bg-gradient-to-r from-primary to-secondary"></div>
-            </div>
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold text-center md:pt-24 pt-10 mb-6">
+            Live Now
+          </h2>
           {liveVideoId ? (
             <div className="flex justify-center">
               <iframe
@@ -87,17 +86,15 @@ export default function LiveStreamPage() {
               ></iframe>
             </div>
           ) : (
-            !loading && <p className="flex justify-center text-gray-500 items-center h-40 text-center">No live stream is currently active.</p>
-
+            !loading && <p className="text-center">No live stream is currently active.</p>
           )}
         </section>
 
         {/* Past Live Events Section */}
         <section>
-        <div className="px-8 py-4 mb-8 mt-[40px]">
-              <p className="text-xl md:text-3xl lg:text-4xl  ">PAST LIVE EVENTS</p>
-              <div className="h-[3px] w-[5%] bg-gradient-to-r from-primary to-secondary"></div>
-            </div>
+          <h2 className="text-3xl font-bold text-center mb-6">
+            Past Live Events
+          </h2>
           {pastEvents.length > 0 ? (
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
               {pastEvents.map((event) => (
