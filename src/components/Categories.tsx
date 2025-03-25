@@ -60,7 +60,7 @@ export default function Categories({ categories }: CategoryProps) {
     </p>
 
     {/* CTA Button */}
-    <Link href='/https://g.co/kgs/Jba99Nz' target="_blank">
+    <Link href='https://g.co/kgs/Jba99Nz' target="_blank">
               <button className="bg-primary rounded-full px-5 py-2 text-white font-semibold hover:bg-primary-dark transition">
                APPLY NOW
               </button>
