@@ -6,20 +6,40 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
-    subject: "Counselling", // Default subject
+    subject: "Testimony", // Default subject
+    phoneNumber: "",
     message: "",
   });
+
   const [loading, setLoading] = useState(false);
   const [responseMessage, setResponseMessage] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+
+    if (name === "phoneNumber") {
+      const phoneRegex = /^[+]?[0-9]{10,15}$/; // Allows + and 10-15 digits
+      if (value && !phoneRegex.test(value)) {
+        setResponseMessage("❌ Invalid phone number. Use a valid format.");
+      } else {
+        setResponseMessage(""); // Clear error if valid
+      }
+    }
+
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setResponseMessage("");
+
+    // Additional validation before sending
+    if (formData.subject !== "Testimony" && formData.phoneNumber.trim() === "") {
+      setResponseMessage("❌ Phone number is required for this subject.");
+      setLoading(false);
+      return;
+    }
 
     try {
       const res = await fetch("/api/contact", {
@@ -31,7 +51,7 @@ export default function ContactPage() {
       const data = await res.json();
       if (res.ok) {
         setResponseMessage("✅ Your message has been sent successfully!");
-        setFormData({ fullName: "", email: "", subject: "Counselling", message: "" });
+        setFormData({ fullName: "", email: "", subject: "Testimony", phoneNumber: "", message: "" });
       } else {
         setResponseMessage("❌ Failed to send message. Please try again later.");
       }
@@ -41,10 +61,6 @@ export default function ContactPage() {
       setLoading(false);
     }
   };
-  // set timer for error message or success message
-  setTimeout(() => {
-    setResponseMessage("");
-  }, 8000); 
 
   return (
     <>
@@ -55,7 +71,6 @@ export default function ContactPage() {
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-6">
             CONTACT US
           </h2>
-          
           <p className="text-sm md:text-lg text-gray-600 text-center max-w-2xl mx-auto">
             Have a question, testimony, or need assistance? Reach out to us, and we’ll get back to you as soon as possible.
           </p>
@@ -102,25 +117,36 @@ export default function ContactPage() {
                   className="w-full p-2 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary text-sm md:text-base"
                 />
 
-                {/* Subject (Radio Buttons) */}
+                {/* Subject (Dropdown) */}
                 <div>
                   <label className="block text-sm md:text-base text-gray-700 font-medium mb-2">Subject</label>
-                  <div className="flex flex-wrap gap-4">
-                    {["Counselling", "Need a Bus to Church", "Testimony"].map((option) => (
-                      <label key={option} className="flex items-center space-x-2 text-gray-700 text-sm md:text-base">
-                        <input
-                          type="radio"
-                          name="subject"
-                          value={option}
-                          checked={formData.subject === option}
-                          onChange={handleChange}
-                          className="text-primary"
-                        />
-                        <span>{option}</span>
-                      </label>
-                    ))}
-                  </div>
+                  <select
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className="w-full p-2 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary text-sm md:text-base"
+                  >
+                    <option value="Testimony">Testimony</option>
+                    <option value="Counselling">Counselling</option>
+                    <option value="Need a Bus to Church">Need a Bus to Church</option>
+                    <option value="Baby Dedication">Baby Dedication</option>
+                    <option value="Baby Naming">Baby Naming</option>
+                  </select>
                 </div>
+
+                {/* Phone Number (Hidden for Testimony) */}
+                {formData.subject !== "Testimony" && (
+                  <input
+                    type="tel"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handleChange}
+                    placeholder="Phone Number"
+                    required={formData.subject !== "Testimony"} // Required only if subject is not Testimony
+                    pattern="^[+]?[0-9]{10,15}$"
+                    className="w-full p-2 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary text-sm md:text-base"
+                  />
+                )}
 
                 {/* Message */}
                 <textarea

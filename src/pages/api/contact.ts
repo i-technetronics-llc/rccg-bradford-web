@@ -6,13 +6,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ message: "Method Not Allowed" });
   }
 
-  const { fullName, email, subject, message } = req.body;
+  const { fullName, email, phoneNumber, subject, message } = req.body;
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.EMAIL_USER, // Your email
-      pass: process.env.EMAIL_PASS, // Your app password
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
     },
   });
 
@@ -20,9 +20,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     await transporter.sendMail({
       from: `"${fullName}" <${process.env.EMAIL_USER}>`,
       replyTo: email,
-      to: process.env.EMAIL_TO, // Your email to receive messages
+      to: process.env.EMAIL_TO,
       subject: `New Contact Form Submission: ${subject}`,
-      text: `Name: ${fullName}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`,
+      text: `Name: ${fullName}\nEmail: ${email}\n${phoneNumber ? `Phone: ${phoneNumber}\n` : ""}Subject: ${subject}\nMessage: ${message}`,
     });
 
     return res.status(200).json({ success: true, message: "Email sent successfully!" });

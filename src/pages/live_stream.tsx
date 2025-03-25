@@ -53,7 +53,7 @@ export default function LiveStreamPage() {
     fetchPastEvents();
 
     // Set intervals
-    const liveInterval = setInterval(fetchLiveStream, 600000); // Every 10 minutes
+    const liveInterval = setInterval(fetchLiveStream, 60000000); // Every 10 minutes
     const pastInterval = setInterval(fetchPastEvents, 86400000); // Every 24 hours
 
     return () => {
