@@ -48,22 +48,21 @@ export default function Categories({ categories }: CategoryProps) {
   return (
     <>
     <section className="bg-gray-100 mb-10 py-12 px-6">
-  <div className="max-w-xl mx-auto text-center">
+  <div className="max-w-2xl mx-auto text-center">
     {/* Section Heading */}
     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-      Share Your Testimony
+     Join Our Ministry!
     </h2>
 
     {/* Description */}
     <p className="text-gray-600 text-base sm:text-lg md:text-xl mb-6">
-      Has God done something amazing in your life? We'd love to hear your story! 
-      Share your testimony to encourage and bless others.
+     We’re hiring a Minister of Religion to lead worship, provide pastoral care, and foster spiritual growth in our vibrant Pentecostal church in Bradford. Apply by <em>25/04/2025!</em>  Kindly click the button to apply.
     </p>
 
     {/* CTA Button */}
-    <Link href='/contact' target="_blank">
+    <Link href='/https://g.co/kgs/Jba99Nz' target="_blank">
               <button className="bg-primary rounded-full px-5 py-2 text-white font-semibold hover:bg-primary-dark transition">
-               GIVE A TESTIMONY
+               APPLY NOW
               </button>
             </Link>
   </div>
