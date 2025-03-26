@@ -31,11 +31,11 @@ export default function HomeVideo({
               onClick={() =>
                 router.push({
                   pathname: "/live_stream",
-                  query: {
-                    eventname: nearestEvent?.eventName,
-                    time: nearestEvent?.eventDateStartTime,
-                    url: nearestEvent?.liveVideoUrl,
-                  },
+                  // query: {
+                  //   eventname: nearestEvent?.eventName,
+                  //   time: nearestEvent?.eventDateStartTime,
+                  //   url: nearestEvent?.liveVideoUrl,
+                  // },
                 })
               }
             >

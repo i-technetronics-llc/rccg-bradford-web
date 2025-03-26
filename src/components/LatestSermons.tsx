@@ -9,10 +9,10 @@ export default function LatestSermons() {
         <div className="flex flex-col lg:flex-row items-center gap-8">
           {/* Text Content */}
           <div className="flex-1 text-center lg:text-left">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-3xl font-bold text-gray-800 mb-4">
               Open Heavens Daily Devotional
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6">
+            <p className="text-base sm:text-lg md:text-lg text-gray-600 mb-6">
               Discover the powerful message from our latest sermon. Watch now to be inspired and uplifted by the Word.
             </p>
 

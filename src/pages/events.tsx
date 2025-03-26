@@ -252,11 +252,11 @@ const EventPopup = ({ event, isOpen, onClose }: any) => {
             onClick={() =>
               router.push({
                 pathname: "/live_stream",
-                query: {
-                  eventname: event?.title,
-                  time: event?.fullDate as string,
-                  url: event?.slug,
-                },
+                // query: {
+                //   eventname: event?.title,
+                //   time: event?.fullDate as string,
+                //   url: event?.slug,
+                // },
               })
             }
           >

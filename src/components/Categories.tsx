@@ -58,10 +58,7 @@ export default function Categories({ categories }: CategoryProps) {
         Has God done something amazing in your life? We'd love to hear your story!
         Share your testimony to encourage and bless others.
       </p>
-      {/* <Link href="/contact"> <button className="mt-4 bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">
-        GIVE A TESTIMONY
-      </button>
-      </Link> */}
+     
       <Link href='/contact' target="_blank">
               <button className="bg-primary rounded-full mt-4 px-5 py-2 text-white font-semibold hover:bg-primary-dark transition">
                GIVE A TESTIMONY
@@ -69,7 +66,6 @@ export default function Categories({ categories }: CategoryProps) {
             </Link>
     </div>
 
-    {/* Divider (Hidden on Small Screens) */}
     <div className="hidden md:block w-px bg-gray-300 h-full mx-auto"></div>
 
     {/* Join Our Ministry */}
@@ -80,10 +76,7 @@ export default function Categories({ categories }: CategoryProps) {
         and foster spiritual growth in our vibrant Pentecostal church in Bradford.
         Apply by <strong><em>25/04/2025!</em></strong> Kindly click the button to apply.
       </p>
-      {/* <Link  href="https://g.co/kgs/Jba99Nz"> <button className="mt-4 bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">
-        APPLY NOW
-      </button>
-      </Link> */}
+    
       <Link href='https://g.co/kgs/Jba99Nz' target="_blank">
               <button className="bg-primary mt-4 rounded-full px-5 py-2 text-white font-semibold hover:bg-primary-dark transition">
               APPLY NOW

@@ -23,11 +23,7 @@ export default function LongCardsEvents({
       onClick={() =>
         router.push({
           pathname: "/live_stream",
-          query: {
-            eventname: title,
-            time: date,
-            url: slug,
-          },
+        
         })
       }
     >
