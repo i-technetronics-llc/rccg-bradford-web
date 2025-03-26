@@ -43,10 +43,11 @@ export default function MeetOurLeaders() {
     <>
     <Header/>
    
-    <div className="max-w-8xl  my-16 mx-auto px-6 py-12">
-      <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">
-        Meet Our Leaders
-      </h2>
+    <div className="max-w-8xl  my-12 mx-auto px-6 py-12">
+    <div className="my-8  py-4 ">
+              <p className="text-xl md:text-3xl lg:text-4xl ">MEET OUR LEADERS</p>
+              <div className="h-[3px] w-[5%] bg-gradient-to-r from-primary to-secondary"></div>
+            </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {leaders.map((leader) => (
           <div key={leader.id} className="bg-white shadow-md rounded-lg p-3 text-center">

@@ -171,7 +171,8 @@ export default function Header() {
                           onClick={() => router.push("/videoGallery")}
                         >
                           Video Gallery
-                        </p>
+                          </p>
+                     
                         <p
                           className="hover:text-tetiary text-[#fff] cursor-pointer"
                           onClick={() => router.push("/pictureGallery")}
