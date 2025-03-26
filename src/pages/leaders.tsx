@@ -18,7 +18,7 @@ const leaders = [
     title: "Co-parish Pastor",
     image: "/img/pst-sho.png",
     bio: "She is the co-parish pastor of RCCG...",
-    link:"pastor-abiola/shofoluwe/"
+    link:"pastor-abiola-shofoluwe/"
   },
   {
     id: "deacon-femi-fasae",
