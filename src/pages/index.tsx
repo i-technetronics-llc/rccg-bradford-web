@@ -129,13 +129,13 @@ export default function Home() {
       {/* <Bible /> */}
    
       <Sermons  />
-      <NextEvents latestSermons={latestSermons} />
+      {/* <NextEvents latestSermons={latestSermons} /> */}
 
-      {/* <NextEvents nextEvents={nextEvents} /> */}
+      
       <MarqueeImg pictureGalleries={pictureGalleries} />
       <Giving />
 
-      {/* <SubFooter subFooter={subFooter} /> */}
+      
       <Footer />
     </div>
   );
