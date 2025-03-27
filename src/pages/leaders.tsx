@@ -8,7 +8,7 @@ const leaders = [
     id: "pastor-dara-shofolu",
     name: "Pastor Dara Shofoluwe",
     title: "Parish Pastor",
-    image: "/img/pst-dara.png",
+    image: "/img/dara.jpg",
     bio: "He is the parish pastor of RCCG Chapel of His Glory, Bradford...",
     link:"pastor-dara-shofoluwe/"
   },
@@ -18,7 +18,7 @@ const leaders = [
     title: "Co-parish Pastor",
     image: "/img/pst-sho.png",
     bio: "She is the co-parish pastor of RCCG...",
-    link:"pastor-abiola-shofoluwe/"
+    link:"pastor-abiola/shofoluwe/"
   },
   {
     id: "deacon-femi-fasae",
