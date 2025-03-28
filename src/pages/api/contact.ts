@@ -6,7 +6,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ message: "Method Not Allowed" });
   }
 
-  const { fullName, email, phoneNumber, subject, message } = req.body;
+  const { fullName, email, phoneNumber, subject, message, testimonyService } = req.body;
+
+  console.log("Received Form Data:", req.body);
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -16,17 +18,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     },
   });
 
-  try {
-    await transporter.sendMail({
-      from: `"${fullName}" <${process.env.EMAIL_USER}>`,
-      replyTo: email,
-      to: process.env.EMAIL_TO,
-      subject: `New Contact Form Submission: ${subject}`,
-      text: `Name: ${fullName}\nEmail: ${email}\n${phoneNumber ? `Phone: ${phoneNumber}\n` : ""}Subject: ${subject}\nMessage: ${message}`,
-    });
+  let emailBody = `Name: ${fullName}\nEmail: ${email}\nSubject: ${subject}\n`;
 
-    return res.status(200).json({ success: true, message: "Email sent successfully!" });
-  } catch (error) {
-    return res.status(500).json({ success: false, message: "Failed to send email.", error });
+  if (subject === "Testimony") {
+    emailBody += `Testimony Service: ${testimonyService}\n`;
   }
+
+  emailBody += `Message:\n${message}`;
+
+  await transporter.sendMail({
+    from: `"${fullName}" <${process.env.EMAIL_USER}>`,
+    replyTo: email,
+    to: process.env.EMAIL_TO,
+    subject: `New Contact Form Submission: ${subject}`,
+    text: emailBody,
+  });
+
+  res.status(200).json({ success: true, message: "Email sent successfully!" });
 }
