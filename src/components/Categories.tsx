@@ -14,7 +14,7 @@ export default function Categories({ categories }: CategoryProps) {
         return {
           ...item,
           url: "/giving",
-          bg: `linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.3)), url(${item.backgroundImage.url})  `,
+          bg:`url(${item.backgroundImage.url})  `,
           br: "66% 34% 50% 50% / 30% 73% 27% 70%",
         };
       }
@@ -22,14 +22,14 @@ export default function Categories({ categories }: CategoryProps) {
         return {
           ...item,
           url: "/events",
-          bg: `linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.3)), url(${item.backgroundImage.url})  `,
+          bg: `url(${item.backgroundImage.url})  `,
           br: "66% 34% 50% 50% / 30% 73% 27% 70%",
         };
       } else if (item.categoryTitle.includes("House Fellowship")) {
         return {
           ...item,
           url: "/",
-          bg: `linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.3)), url(${item.backgroundImage.url})  `,
+          bg: ` url(${item.backgroundImage.url})  `,
           br: "66% 34% 50% 50% / 30% 73% 27% 70%",
         };
       }
@@ -37,7 +37,7 @@ export default function Categories({ categories }: CategoryProps) {
         return {
           ...item,
           url: "/contact",
-          bg: `linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.3)), url(${item.backgroundImage.url}) `,
+          bg: ` url(${item.backgroundImage.url}) `,
           br: "66% 34% 50% 50% / 30% 73% 27% 70%",
         };
       }
@@ -102,12 +102,14 @@ export default function Categories({ categories }: CategoryProps) {
               backgroundImage: item.bg,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
+              width: "100%",
+              height: "300px",
             }}
             key={index}
             onClick={() => router.push(item.url)}
           >
-            <p className="text-xl md:text-xl">{item.categoryTitle}</p>
-            <p className="">{item.categoryDescription}</p>
+            <p className="text-xl  text-transparent select-none  md:text-xl">{item.categoryTitle}</p>
+            <p className=" text-transparent select-none ">Join us online to access sermons, events, and resources tailored for you. Engage, donate, and grow with us in our digital space.</p>
           </div>
         ))}
       </div>
