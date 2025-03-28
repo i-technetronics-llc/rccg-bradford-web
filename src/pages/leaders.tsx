@@ -16,7 +16,7 @@ const leaders = [
     id: "pastor-abiola-shofolu",
     name: "Pastor (Mrs) Abiola Shofoluwe",
     title: "Co-parish Pastor",
-    image: "/img/pst-sho.png",
+    image: "/img/sho1.jpg",
     bio: "She is the co-parish pastor of RCCG...",
     link:"pastor-abiola/shofoluwe/"
   },
@@ -48,13 +48,13 @@ export default function MeetOurLeaders() {
               <p className="text-xl md:text-3xl lg:text-4xl ">MEET OUR LEADERS</p>
               <div className="h-[3px] w-[5%] bg-gradient-to-r from-primary to-secondary"></div>
             </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 m-auto sm:grid-cols-2 lg:grid-cols-2 gap-4">
         {leaders.map((leader) => (
-          <div key={leader.id} className="bg-white shadow-md rounded-lg p-3 text-center">
+          <div key={leader.id} className="bg-white m-auto shadow-md  w-[400px] md:w-[380px] lg:w-[400px] rounded-lg p-3 text-center">
             <img
               src={leader.image}
               alt={leader.name}
-              className="w-full h-60 object-cover rounded-md mb-4"
+              className="w-full h-80 object-fit rounded-md mb-4"
             />
             <h3 className="text-xl font-semibold">{leader.name}</h3>
             <p className="text-gray-600 text-sm">{leader.title}</p>
