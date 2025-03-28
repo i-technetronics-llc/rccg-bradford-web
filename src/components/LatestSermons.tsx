@@ -4,7 +4,7 @@ import Image from "next/image"; // Next.js optimized image component
 
 export default function LatestSermons() {
   return (
-    <section className="py-12 bg-gray-100 px-4">
+    <section className="py-12 my-32 bg-gray-100 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-8">
           {/* Text Content */}

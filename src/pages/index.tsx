@@ -14,6 +14,7 @@ import Giving from "@/components/Giving";
 import SubFooter from "@/components/SubFooter";
 import Footer from "@/components/Footer";
 import CategoriesNew from "@/components/CategoriesNew";
+import Testimony from "@/components/Testimony";
 import { useQuery, gql } from "@apollo/client";
 import Link from "next/link";
 import router from "next/router";
@@ -126,8 +127,9 @@ export default function Home() {
       {/* <div className={`${isTop ? "wave" : "hidden"} z-10`}></div> */}
       <HomeVideo heroSections={heroSections} nearestEvent={nearestEvent} />
       <Slider />
+      <Testimony />
       <CategoriesNew/>
-      <Categories categories={categories} />
+      {/* <Categories categories={categories} /> */}
       {/* <Bible /> */}
    
       <Sermons  />
