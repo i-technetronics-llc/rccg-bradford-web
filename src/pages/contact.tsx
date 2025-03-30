@@ -18,15 +18,6 @@ export default function ContactPage() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
 
-    if (name === "phoneNumber") {
-      const phoneRegex = /^[+]?[0-9]{10,15}$/;
-      if (value && !phoneRegex.test(value)) {
-        setResponseMessage("❌ Invalid phone number. Use a valid format.");
-      } else {
-        setResponseMessage(""); 
-      }
-    }
-
     setFormData({ ...formData, [name]: value });
   };
 
@@ -34,8 +25,6 @@ export default function ContactPage() {
     e.preventDefault();
     setLoading(true);
     setResponseMessage("");
-
-    console.log("Submitting form data:", formData); // Debugging
 
     try {
       const res = await fetch("/api/contact", {
@@ -45,7 +34,6 @@ export default function ContactPage() {
       });
 
       const data = await res.json();
-      console.log("API Response:", data); 
 
       if (res.ok) {
         setResponseMessage("✅ Your message has been sent successfully!");
@@ -61,7 +49,6 @@ export default function ContactPage() {
         setResponseMessage("❌ Failed to send message. Please try again later.");
       }
     } catch (error) {
-      console.error("Error submitting form:", error);
       setResponseMessage("❌ An error occurred. Please try again.");
     } finally {
       setLoading(false);
@@ -110,9 +97,15 @@ export default function ContactPage() {
                   <option value="Baby Naming">Baby Naming</option>
                 </select>
 
+                {/* ✅ Phone Number Field (Hidden for Testimony) */}
+                {formData.subject !== "Testimony" && (
+                  <input type="text" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} required placeholder="Phone Number" className="w-full p-3 border rounded-lg" />
+                )}
+
+                {/* ✅ Testimony Service Selection (Only for "Testimony" Subject) */}
                 {formData.subject === "Testimony" && (
                   <div>
-                    <label className="block text-gray-700 font-medium">Choose Testimony Service</label>
+                    <label className="block text-gray-700 mb-2 font-medium">Which Service will you be attending?</label>
                     <div className="flex space-x-4">
                       <label>
                         <input type="radio" name="testimonyService" value="First Service" onChange={handleChange} required />
@@ -132,7 +125,11 @@ export default function ContactPage() {
                   {loading ? "Sending..." : "Submit"}
                 </button>
 
-                {responseMessage && <p className="text-center mt-2 text-red-500">{responseMessage}</p>}
+                {responseMessage && (
+                  <p className={`text-center ${responseMessage.startsWith("✅") ? "text-green-600" : "text-red-600"}`}>
+                    {responseMessage}
+                  </p>
+                )}
               </form>
             </div>
           </div>

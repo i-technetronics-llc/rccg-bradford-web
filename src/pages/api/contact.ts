@@ -18,21 +18,29 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     },
   });
 
+  // ✅ Construct email body dynamically based on subject
   let emailBody = `Name: ${fullName}\nEmail: ${email}\nSubject: ${subject}\n`;
 
-  if (subject === "Testimony") {
-    emailBody += `Testimony Service: ${testimonyService}\n`;
+  if (subject !== "Testimony") {
+    emailBody += `Phone Number: ${phoneNumber}\n`; // Include phone number if NOT Testimony
+  } else {
+    emailBody += `Testimony Service: ${testimonyService}\n`; // Include service selection for Testimony
   }
 
   emailBody += `Message:\n${message}`;
 
-  await transporter.sendMail({
-    from: `"${fullName}" <${process.env.EMAIL_USER}>`,
-    replyTo: email,
-    to: process.env.EMAIL_TO,
-    subject: `New Contact Form Submission: ${subject}`,
-    text: emailBody,
-  });
+  try {
+    await transporter.sendMail({
+      from: `"${fullName}" <${process.env.EMAIL_USER}>`,
+      replyTo: email,
+      to: process.env.EMAIL_TO,
+      subject: `New Contact Form Submission: ${subject}`,
+      text: emailBody,
+    });
 
-  res.status(200).json({ success: true, message: "Email sent successfully!" });
+    res.status(200).json({ success: true, message: "Email sent successfully!" });
+  } catch (error) {
+    console.error("Error sending email:", error);
+    res.status(500).json({ success: false, message: "Failed to send email. Please try again." });
+  }
 }

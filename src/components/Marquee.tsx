@@ -26,7 +26,7 @@ export default function MarqueeImg({ pictureGalleries }: PictureGalleryProps) {
               </button>
             </Link>
   </div> */}
-    <div className="box bg-gradient-to-r from-primary to-secondary h-[400px] overflow-hidden">
+    <div className="box bg-gradient-to-r mt-10 lg:mt-20 from-primary to-secondary h-[400px] overflow-hidden">
       <Marquee speed={20} autoFill>
         {pictureGalleries.map((item, index) => (
           <>

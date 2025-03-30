@@ -131,13 +131,14 @@ export default function Home() {
       <CategoriesNew/>
       {/* <Categories categories={categories} /> */}
       {/* <Bible /> */}
+      <MarqueeImg pictureGalleries={pictureGalleries} />
+
    
       <Sermons  />
       {/* <NextEvents latestSermons={latestSermons} /> */}
 
       
-      <MarqueeImg pictureGalleries={pictureGalleries} />
-      <Giving />
+      {/* <Giving /> */}
 
       
       <Footer />
