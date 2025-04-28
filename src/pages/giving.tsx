@@ -205,7 +205,7 @@ export default function Giving() {
               onMouseLeave={() => setIsHovered(false)}
             >
               <Image
-                src={"/img/giving.jpeg"}
+                src={"/img/giving[1].png"}
                 alt="historyPix"
                 width={300}
                 height={300}
