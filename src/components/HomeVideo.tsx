@@ -30,7 +30,7 @@ export default function HomeVideo({
               className="bg-primary text-white w-fit h-fit px-5 py-2 rounded-full"
               onClick={() =>
                 router.push({
-                  pathname: "/live_stream",
+                  pathname: "https://rccgcohglive.online.church/",
                   // query: {
                   //   eventname: nearestEvent?.eventName,
                   //   time: nearestEvent?.eventDateStartTime,
