@@ -32,7 +32,7 @@ export default function Choir() {
         >
           <Image
             src={
-              "/img/choir.gif"
+              "/img/Choir.jpg"
             }
             alt="historyPix"
             width={500}

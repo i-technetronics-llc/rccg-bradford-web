@@ -22,7 +22,7 @@ export default function Zion() {
         >
           <Image
             src={
-              "/img/daughters.gif"
+              "/img/daughters.jpg"
             }
             alt="historyPix"
             width={500}

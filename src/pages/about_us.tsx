@@ -12,9 +12,10 @@ export default function AboutUs() {
   // const [isHovered, setIsHovered] = useState(false);
 
    const img = [
-    "/img/hf.jpeg",
-    "/img/serve.jpeg",
-    "/img/concert.webp",
+    "/img/about.jpg",
+    "/img/about3.jpg",
+    "/img/about2.jpg",
+    
     
   ];
   const responsive = {

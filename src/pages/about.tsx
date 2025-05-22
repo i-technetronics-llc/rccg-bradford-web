@@ -12,7 +12,7 @@ export default function About() {
   const img = [
     "/img/hf.jpeg",
     "/img/serve.jpeg",
-    "/img/concert.webp",
+    "/img/about.jpg",
     
   ];
   const responsive = {

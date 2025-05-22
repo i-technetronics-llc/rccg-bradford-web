@@ -24,7 +24,7 @@ export default function HistoryView() {
             <div className="historyBox overflow-hidden w-full  md:h-[500px]">
               <Image
                 src={
-                  "/img/sermon.jpeg"
+                  "/img/history.jpg"
                 }
                 alt="historyPix"
                 width={500}
