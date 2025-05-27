@@ -86,7 +86,11 @@ export default function ContactPage() {
             <div className="md:w-1/2 bg-white shadow-lg p-6 md:p-10 rounded-lg border">
               <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
                 <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} required placeholder="Full Name" className="w-full p-3 border rounded-lg" />
-                <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="Email Address" className="w-full p-3 border rounded-lg" />
+                
+                {/* ✅ Email Field (Hidden for Testimony) */}
+                {formData.subject !== "Testimony" && (
+                  <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="Email Address" className="w-full p-3 border rounded-lg" />
+                )}
                 
                 <label className="block text-gray-700 font-medium">Subject</label>
                 <select name="subject" value={formData.subject} onChange={handleChange} className="w-full p-3 border rounded-lg">
@@ -105,7 +109,7 @@ export default function ContactPage() {
                 {/* ✅ Testimony Service Selection (Only for "Testimony" Subject) */}
                 {formData.subject === "Testimony" && (
                   <div>
-                    <label className="block text-gray-700 mb-2 font-medium">Which Service will you be attending?</label>
+                    <label className="block text-gray-700 mb-2 font-medium">Which Service will you be attending?</label>
                     <div className="flex space-x-4">
                       <label>
                         <input type="radio" name="testimonyService" value="First Service" onChange={handleChange} required />

@@ -63,7 +63,7 @@ export default function Hero() {
         >
           <Image
             src={
-              "/img/men.gif"
+              "/img/The Pillars.jpg" 
             }
             alt="historyPix"
             width={500}

@@ -19,7 +19,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   });
 
   // ✅ Construct email body dynamically based on subject
-  let emailBody = `Name: ${fullName}\nEmail: ${email}\nSubject: ${subject}\n`;
+  let emailBody = `Name: ${fullName}\nSubject: ${subject}\n`;
+
+  // Only include email if it's provided (not for Testimony)
+  if (email) {
+    emailBody += `Email: ${email}\n`;
+  }
 
   if (subject !== "Testimony") {
     emailBody += `Phone Number: ${phoneNumber}\n`; // Include phone number if NOT Testimony
