@@ -11,7 +11,7 @@ export default function WhatIsYourTemperature() {
       {/* Rectangular Image at the Top */}
       <div className="w-full flex justify-center mb-8">
         <Image
-          src="/img/temperature.jpg" // Replace with the actual image path
+          src="/img/temp.jpg" // Replace with the actual image path
           alt="What is Your Temperature?"
           width={800} // Wider for a rectangular shape
           height={450} // Adjusted height for a balanced aspect ratio

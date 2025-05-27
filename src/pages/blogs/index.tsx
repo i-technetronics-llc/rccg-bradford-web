@@ -12,13 +12,13 @@ const blogs = [
   },
   {
     title: "What is Your Temperature?",
-    image: "/img/men.gif",
+    image: "/img/temp.jpg",
     excerpt: "This spewing out is not a message of hope. It is a message of judgment.",
     url: "/blogs/what-is-your-temperature",
   },
   {
     title: "YOU AND YOUR THOUGHT",
-    image: "/img/men.gif",
+    image: "/img/yourthoughts.jpg",
     excerpt: "The kind of life you live is traceable to the kind of thought you have",
     url: "/blogs/you-and-your-thought",
   },
@@ -31,7 +31,7 @@ const blogs = [
   },
   {
     title: "A NEW SONG",
-    image: "/img/men.gif",
+    image: "/img/newsong.jpg",
     excerpt: "Nine different times, “A new song” appears in Scripture. Six are in the Psalms, two in Revelations, and one in Isaiah. ",
     url: "/blogs/a-new-song",
   },

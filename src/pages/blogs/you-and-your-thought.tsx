@@ -11,7 +11,7 @@ export default function YouAndYourThought() {
       {/* Rectangular Image at the Top */}
       <div className="w-full flex justify-center mb-8">
         <Image
-          src="/img/your-thoughts.jpg" // Replace with the actual image path
+          src="/img/yourthoughts.jpg" // Replace with the actual image path
           alt="You and Your Thought"
           width={800} // Wider for a rectangular shape
           height={450} // Adjusted height for a balanced aspect ratio
