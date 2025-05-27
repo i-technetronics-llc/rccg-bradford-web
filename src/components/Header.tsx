@@ -332,7 +332,7 @@ export default function Header() {
             <MenuItem {...menuItemStyles}>Blog</MenuItem> */}
             <MenuItem
               {...menuItemStyles}
-              onClick={() => window.location.href = "https://emailmg.ipage.com/"}
+              onClick={() => window.location.href = "https://emailmg.ipage.com/roundcube"}
             >
               Webmail
             </MenuItem>
