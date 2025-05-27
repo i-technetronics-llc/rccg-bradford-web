@@ -330,6 +330,12 @@ export default function Header() {
             </MenuItem>
             {/* <MenuItem {...menuItemStyles}>Departments</MenuItem>
             <MenuItem {...menuItemStyles}>Blog</MenuItem> */}
+            <MenuItem
+              {...menuItemStyles}
+              onClick={() => window.location.href = "https://emailmg.ipage.com/"}
+            >
+              Webmail
+            </MenuItem>
           </MenuList>
         </Menu>
       </div>
