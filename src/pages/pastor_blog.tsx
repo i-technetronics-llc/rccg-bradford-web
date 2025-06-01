@@ -44,7 +44,7 @@ export default function BlogList() {
         <Header />
       
     <section className="max-w-4xl mt-12 mx-auto py-12 px-6">
-      <h1 className="text-4xl font-extrabold mb-10 text-center">Latest Blogs</h1>
+      <h1 className="text-4xl font-extrabold mb-10 text-center">Pastor's Blog</h1>
 
       <div className="space-y-8">
         {blogs.map((blog, index) => (

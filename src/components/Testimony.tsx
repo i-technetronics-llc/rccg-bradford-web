@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export default function Testimony() {
   return (
-    <div>
+    <div className="bg-gray-50"> {/* Added grey background */}
       <section className="max-w-7xl mx-auto my-24 py-16 px-6">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1px_1fr] gap-12 items-center">
           

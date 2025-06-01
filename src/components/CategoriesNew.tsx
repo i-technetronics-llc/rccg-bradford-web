@@ -15,7 +15,7 @@ const links = [
   "/giving",
   "/house_fellowship",
   "/contact",
-  "/pastor_blog",
+  "/ministries",
   "/pastor_blog",
 ];
 

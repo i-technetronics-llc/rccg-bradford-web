@@ -4,20 +4,21 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 
 export default function HouseFellowship() {
-  const zoomLink = "https://us02web.zoom.us/j/84948658772pwd=c0xsaEFVQzJoSCtyQ09nSWhNSTN4Zz09https://us02web.zoom.us/j/8494865877?pwd=c0xsaEFVQzJoSCtyQ09nSWhNSTN4Zz09";
+  const zoomLink = "https://us02web.zoom.us/j/84948658772pwd=c0xsaEFVQzJoSCtyQ09nSWhNSTN4Zz09";
 
   return (
     <>
       <Header />
       <main className="mt-[120px] mb-20">
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4"> {/* Increased max-width */}
           {/* Image Section */}
-          <div className="relative aspect-square w-[500px] mx-auto mb-8"> {/* Increased from 300px to 500px */}
+          <div className="relative w-full h-[800px] mx-auto mb-8"> {/* Increased height to 800px */}
             <Image
               src="/img/fellowship.jpg"
               alt="House Fellowship"
               fill
-              className="object-contain rounded-lg" 
+              className="object-contain rounded-lg"
+              priority
             />
           </div>
 
