@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 
 export default function HouseFellowship() {
-  const zoomLink = "https://us02web.zoom.us/j/84948658772pwd=c0xsaEFVQzJoSCtyQ09nSWhNSTN4Zz09";
+  const zoomLink = "https://us02web.zoom.us/j/84948658772pwd=c0xsaEFVQzJoSCtyQ09nSWhNSTN4Zz09https://us02web.zoom.us/j/8494865877?pwd=c0xsaEFVQzJoSCtyQ09nSWhNSTN4Zz09";
 
   return (
     <>
