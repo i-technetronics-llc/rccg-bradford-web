@@ -16,7 +16,7 @@ const links = [
   "/contact",
   "/contact",
   "/contact",
-  "/contact",
+  "/pastor_blog",
 ];
 
 export default function Test() {
