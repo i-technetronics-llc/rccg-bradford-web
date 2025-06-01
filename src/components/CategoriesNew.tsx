@@ -15,7 +15,7 @@ const links = [
   "/giving",
   "/contact",
   "/contact",
-  "/contact",
+  "/ministries",
   "/pastor_blog",
 ];
 
