@@ -13,9 +13,9 @@ const images = [
 const links = [
   "/events",
   "/giving",
+  "/house_fellowship",
   "/contact",
-  "/contact",
-  "/ministries",
+  "/pastor_blog",
   "/pastor_blog",
 ];
 
