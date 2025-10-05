@@ -17,22 +17,19 @@ const DeaconBolaOgunoye = () => {
              parish pastor
             </h2>
             <p className="text-gray-700 mt-6 leading-relaxed">
-              He is the parish pastor of RCCG Chapel of His Glory, Bradford and
-              Area Pastor in charge of RCCG Area 3 North-West of England, UK. He
-              is currently the Assistant Zonal pastor (Zone1 Province 1 Region 2
-              )RCCG UK. He oversees the church and its leadership team, and
-              carries out general pastoral responsibilities including teaching,
-              counselling and encouraging people. His vision is to empower
-              people to achieve their dreams and fulfil their God-given destiny
-              through the teaching of the living Word, to build a church without
-              any boundaries of race, colour or culture and ensure that members
-              reach their eternal home in heaven. Pastor Dara ministers the word
-              of God with relevance, simplicity and humour. He is a man that has
-              a heart for the people. He is compassionate and readily available
-              to help with a passion for souls and the less privileged. He is
-              married to Abiola, his university campus fellowship friend and
-              they are blessed with three wonderful children; Damilola, Damola
-              and Doyinsola.
+      Meet Our Pastor
+
+	 {" "}<b>“Equipping lives through God’s Word and purpose.”</b> {""}
+
+Pastor Isaac Orimidara Shofoluwe (fondly called pastor Dara) serves as the Lead Pastor of RCCG Chapel of His Glory, Bradford, and also as Assistant Pastor in charge of province (Admin) in Europe Continent 9, Region 1, Province 1.
+
+He is passionate about helping people discover and live out God’s purpose for their lives through practical, down-to-earth Bible teaching. 
+
+His vision is to build a church where everyone feels welcome—beyond race, culture, or background—while leading people into a lasting relationship with God.
+
+Pastor Dara is known for his clear, relatable, and often humorous messages. He has a genuine love for people, a compassionate heart for the lost and the needy, and is always ready to extend a helping hand.
+
+He shares life and ministry with his beloved wife, Abiola—his sweetheart since their university fellowship days—and together they are blessed with three wonderful children.
             </p>
           </div>
 
