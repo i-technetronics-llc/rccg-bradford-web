@@ -205,6 +205,13 @@ export default function Header() {
           >
             About Us
           </MenuButton>
+          <MenuButton
+            className="hover:text-tetiary text-[#fff] cursor-pointer"
+   
+            onClick={() => router.push("/blogs")}
+          >
+          Blogs
+          </MenuButton>
           <MenuList
             bg="linear-gradient(to left, var(--primary), var(--secondary))"
             zIndex={40}
@@ -224,6 +231,7 @@ export default function Header() {
             >
               Meet Our Leaders
             </MenuItem>
+         
             <MenuItem
               {...menuItemStyles}
               onClick={() => router.push("/history")}
