@@ -143,6 +143,12 @@ export default function Header() {
                 >
                   Our Services
                 </p>
+                <p
+                  className="hover:text-tetiary text-[#fff] cursor-pointer"
+                  onClick={() => router.push("/house_fellowship")}
+                >
+                  House Fellowship
+                </p>
                 <Accordion allowToggle>
                   <AccordionItem border={"none"} p={0}>
                     <h2>
@@ -264,6 +270,12 @@ export default function Header() {
           onClick={() => router.push("/services")}
         >
           Our Services
+        </p>
+        <p
+          className="hover:text-tetiary text-[#fff] cursor-pointer"
+          onClick={() => router.push("/house_fellowship")}
+        >
+          House Fellowship
         </p>
 
         <Menu isOpen={isMoreOpen}>
